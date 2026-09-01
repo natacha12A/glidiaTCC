@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./suapagina.css">
+</head>
+<body>
+
+    <div class="tech-particles">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+ <header id="header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../imgs/image 7.png" data-light="../imgs/image 7.png" data-dark="../imgs/image 8.png" alt="Logo Glídia">
+                <div class="logo-text">
+                    <h2>Visão</h2>
+                    <span>tecnológica de guia</span>
+                </div>
+            </div>
+
+            <ul class="menu">
+                <li><a href="./index.html">Início</a></li>
+                <li><a href="./instruções.html">Instruções</a></li>
+                <li><a href="./produto.html">Produto</a></li>
+                <li><a href="./referencias.html">Referências</a></li>
+                <li><a href="./suapagina.html"
+                id="btnFuncionalidades"
+                style="display: none;">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAACO0lEQVR4nO2Wy24TUQyGT9glGTvt2NOQgkAIELBhEzF2woIH4LKALrg9ADRsUCXgJRDb0FXVBRJCokVc3oEXAFaIF+AOC1IFkDMnqVSFzEwSBIt80uxsn398bB87N2NGDsIw3gskK0j6HFjeAel3IP2GLK+R9AVS3DIbN22K1FxE1nVk7SDrr9GfbAHpqvlM5fBKFC8Bywd/wA8geYAsFyvV+ECtVi9Vq8fLQM0jyI1LQPLQbMwWWL4A6dmJDkeSZWTt+j97nCW9GDUPmq0X3MVQb4x1OJCcQ9afFgRYb+b1D0hvefHd3JkoUnMRWD4mqcx/+A4RFuNzieu1zI5AutpPu5sQZNnwIu5ncigvSNUq2Sp+bq6x/4+BUcMs2cFIDyXdI1vFUPekK6a41VNM+miE2S5gednLEsm9tJgWy9suu2lRieIln6lUEUh6JbHTZ1MTYFQiuTAYTomIghtCMid6NfXGpYGpk27ER3p3WEyiJvSH0/8vYMIrGEpAjaNe5Kt/UoRAcjVzEeLfbcPrqQLK1cbCNAcRsBzONYgMYGn7ttlwk1FA1ie+ANuZvUpcrw0eI5KVcU9Hkjv+HfhUik7szuUM3Diz/ZzmFlGokNwe+HN82o0Dkl7bXkh0c37+5L6Md745WEgobrlJCEI5DyzvfcBOb+0ivWybj61kUXQqCEI5Zq3mq73TT/vYf74Tuz9kWevve6lLKUs7951nwdrIWg9JngLpW1vJgeSrTTgbMtbnmVttxgyX8BsFaAMS7u0H6gAAAABJRU5ErkJggg=="
+                                data-light="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAACO0lEQVR4nO2Wy24TUQyGT9glGTvt2NOQgkAIELBhEzF2woIH4LKALrg9ADRsUCXgJRDb0FXVBRJCokVc3oEXAFaIF+AOC1IFkDMnqVSFzEwSBIt80uxsn398bB87N2NGDsIw3gskK0j6HFjeAel3IP2GLK+R9AVS3DIbN22K1FxE1nVk7SDrr9GfbAHpqvlM5fBKFC8Bywd/wA8geYAsFyvV+ECtVi9Vq8fLQM0jyI1LQPLQbMwWWL4A6dmJDkeSZWTt+j97nCW9GDUPmq0X3MVQb4x1OJCcQ9afFgRYb+b1D0hvefHd3JkoUnMRWD4mqcx/+A4RFuNzieu1zI5AutpPu5sQZNnwIu5ncigvSNUq2Sp+bq6x/4+BUcMs2cFIDyXdI1vFUPekK6a41VNM+miE2S5gednLEsm9tJgWy9suu2lRieIln6lUEUh6JbHTZ1MTYFQiuTAYTomIghtCMid6NfXGpYGpk27ER3p3WEyiJvSH0/8vYMIrGEpAjaNe5Kt/UoRAcjVzEeLfbcPrqQLK1cbCNAcRsBzONYgMYGn7ttlwk1FA1ie+ANuZvUpcrw0eI5KVcU9Hkjv+HfhUik7szuUM3Diz/ZzmFlGokNwe+HN82o0Dkl7bXkh0c37+5L6Md745WEgobrlJCEI5DyzvfcBOb+0ivWybj61kUXQqCEI5Zq3mq73TT/vYf74Tuz9kWevve6lLKUs7951nwdrIWg9JngLpW1vJgeSrTTgbMtbnmVttxgyX8BsFaAMS7u0H6gAAAABJRU5ErkJggg=="
+                                data-dark="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAACOElEQVR4nO1WuW4UQRBtCDkSAszCuqtmbcvAr3AEQMD1AeAlQZaAzKl3q8YmIFgcWQRI1koYxPEP/AAQIX4AMFeAq02jmunxWsjrOXYQBPukzup43VX1uowZY4wS8IvTTUcw7whfCsMHYfwhjN+F8K1jfOXYttWm/sSdyePC8EgINh2j3+sIgwjDivrUklwouiSMn0Lwn0L42BFc9mQjv9A44GnioO/grGO4IgxrahNsvwpF50ZK7gjmhHEr3O5Jkef13ckptU1J4Jaj6Fal5MJ4Xgh/pUHgdmnyjHfUNzllX8JrzQk/JzevkHwnieQlCL74Jdso7CgMK9mzV02+TYJwPfTEw0IO/n40kXQywaYnhKF2cfNIkdfx8dS0xtKYPm6eyGfMtp3eHvpDgy6Y/Y7gdWi05fyY0A/lnDN1QZLxBClCwrG9Fkr6ojYCContxUyclIT3Zp/ZBalOJH3wzuTB5SjdnipIGO9OYPZwJk7/P4FRSjDMzjOcDATf/JsmjKPrhZvQ/c0xZLiZS8BT62itQtRpzZQSIoUQ9FLhwHUzAnQsHcGz8B/0ijsu2caOz2i+KgHHcC90/4bvwrFSzsLR2ew7LUsivTneHXzH9oypAkdwY7CQwFO/2LK5yTutGbXdXkjYts0oEIILQvgx1FGbac114apuPslK9uD0Ib8Mp9JRg/5AF2Cj8s3/hNZPGFazfS93KSXola55EegY6eg5gufC+D5dyeGbKpyKjM554VEbYwyT4jdGXk/F3w/qTAAAAABJRU5ErkJggg=="
+                                alt="conference-call--v2">
+                </a></li>
+                <li><a href="./nos.html"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC00lEQVR4nO2Yy2/MURTHPwRRZoiKajceG8FSIvVIBguJxx/A1IJusBaJaq2tEBZSRizVirVHUu9QLRs0Emk9IkjFpo+k9ejIlTPJyfWb39w7v5nJkPtNTjI593te93fuayAgICDgf0MK6AKeAeMiA0CnjNU11gDvgXwReQesrmVCM4B9wAM1m/eBNhnTWAAMxyRfkCEgnSCOFy7FJJKzuJ1qbBRoB5aKtIuuMN6RII4z2hxmM6v4z5X+YIS/w2p8IEEcZzxSDq4ATSI9Sm8+eQETSr8kwl+TGh9PEMcZOqFmpW8ukki5BUx4xqlaAbqFDnm00ES1CnioHPSoBak/rdkpCjhuLeIDstukIxbxsQRxnJF1WFx7rG10qIxtNOsZxws5z+3NHFJvY2yGixxkuWpso8ghYmboHjAmbXAX2BtzwMyXduoXmzH53SFjlYoTUNfYAfQBUzELsUG4u4GnMdwomRKbXeJjMfAthvsE2O6T/HSJBPar5PMJZBrYGXGXKsbNuBTQ5xB4mXD7ExaQl3gGrQ5cs7BLYlIZLCrB1W3TiDsald1kCe5axf3o4lxXXEluubYtivepko59ueXatoQCYhAKIBTwN/S9PVUHBaxSvDcujl8qg0wdFJBVvF4Xx2eUwbUKJVGu7UzgseKdcHFsTr6fyuiIY7vZf1bFIa3sRotwzDvglHViL3cNcM6aoevAVnmQmFvoPOG9VpwNHgVsUnaDopsNzAUWyoWy18rhpIf/P85uOdxGLyrdeQ//F5Rdt+iOxsS7AczyKaBQxFngR4TDq8LZpnTfgfUOflstnxnRR03YL5mYOSSAWROngRfyXjUPjztqRm6rgJ9LFGGS/6L4N9U/Gh8sP5eBddQAK4Gv1pfolj5PiWyWttEzPwKssHw1qJdeTbHRKqKUjHguemr1JeIWvm4be+brClukXQbV/0KvpK2c3rQBAQEB/DP4DWsHLtCXI2yGAAAAAElFTkSuQmCC" 
+                                data-light="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC00lEQVR4nO2Yy2/MURTHPwRRZoiKajceG8FSIvVIBguJxx/A1IJusBaJaq2tEBZSRizVirVHUu9QLRs0Emk9IkjFpo+k9ejIlTPJyfWb39w7v5nJkPtNTjI593te93fuayAgICDgf0MK6AKeAeMiA0CnjNU11gDvgXwReQesrmVCM4B9wAM1m/eBNhnTWAAMxyRfkCEgnSCOFy7FJJKzuJ1qbBRoB5aKtIuuMN6RII4z2hxmM6v4z5X+YIS/w2p8IEEcZzxSDq4ATSI9Sm8+eQETSr8kwl+TGh9PEMcZOqFmpW8ukki5BUx4xqlaAbqFDnm00ES1CnioHPSoBak/rdkpCjhuLeIDstukIxbxsQRxnJF1WFx7rG10qIxtNOsZxws5z+3NHFJvY2yGixxkuWpso8ghYmboHjAmbXAX2BtzwMyXduoXmzH53SFjlYoTUNfYAfQBUzELsUG4u4GnMdwomRKbXeJjMfAthvsE2O6T/HSJBPar5PMJZBrYGXGXKsbNuBTQ5xB4mXD7ExaQl3gGrQ5cs7BLYlIZLCrB1W3TiDsald1kCe5axf3o4lxXXEluubYtivepko59ueXatoQCYhAKIBTwN/S9PVUHBaxSvDcujl8qg0wdFJBVvF4Xx2eUwbUKJVGu7UzgseKdcHFsTr6fyuiIY7vZf1bFIa3sRotwzDvglHViL3cNcM6aoevAVnmQmFvoPOG9VpwNHgVsUnaDopsNzAUWyoWy18rhpIf/P85uOdxGLyrdeQ//F5Rdt+iOxsS7AczyKaBQxFngR4TDq8LZpnTfgfUOflstnxnRR03YL5mYOSSAWROngRfyXjUPjztqRm6rgJ9LFGGS/6L4N9U/Gh8sP5eBddQAK4Gv1pfolj5PiWyWttEzPwKssHw1qJdeTbHRKqKUjHguemr1JeIWvm4be+brClukXQbV/0KvpK2c3rQBAQEB/DP4DWsHLtCXI2yGAAAAAElFTkSuQmCC"
+                                data-dark="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADOklEQVR4nO1Zy29NQRy+FSRFiQoaC48VamUhiqRYSDz+AMoCG6xFonRtSVhIPWKpVqw94tWSqJYNGpG0XvEI6aaPpO35pp/M3Om9v3PuOffMOdrbkvMlk9zM/Ob3+76Z37zOzeUyZMiQ4b8CyQUEWgi8IjBkSzeBs7otN5NBcj2Bz1SKoQX4RHJdJQlVEThEoEOMZjuBg7otYLuQQF8k+aKIXpI1aeMkApW6XobMNZ+tTpEiyQECR0kuN0X/1nXF9ua0cZxh1MePZpOwfy3qj4X4OyHau9PGcQaB58LJTZLLTFGqTTjuEPbDhXpyaYm/fN+JfkNp4zgjQKiuUE/WRRBJK2A4SZypFCBT6HiCFBqeKgHPxNS2FRakf2rbhf2ZwCI+oncbU0oX8em0cZyhF47D4tof2EZ7k26jTBgnEfQWlmR704cUgY9liPSFHWRMGMddQP6AaSLwlMCgTY0nBA5EHTAk55t0Arpsn0H7u1m3TVacDDMa9LzdBDoJjJZZiNXWdh+Bl5G24f1HTR/P22t8kEsI9JexfUHP25WE/HgMgcMF8q6kw/2M0/P2lNylomzJxngBeuTjApMrrW3XXwlQhlinnYUGB9vHLgJGBNHFMbbFtCFrnaY4T7ZWkBqJsd0gbL/GOxeKJ9M2bV+SK4SAb5PmOKlt2r7MBJRBJkBlAkrhu7fHfMepkIC1QsCHeMfAWyGgcdoFwPfof+ji+ILocHs6BZCcZe5BxRloiXdM1hOA6HTSMd18H6tiYtQI/wMRNlVU6rw8sUmucgug1KXAPeQOPW+HeayQ1STnWQHvhYCGBAK2CmI9tm6u9b1IX/Co1KMAh3Ou/rWzOVTqfuxtVKmrov6ys3+lroh+rXYwTkXGU+ouydnOAoSIiwS8EIe3jI3n7RSixkhucvC72eeT+Y0idMAApQdGz04i8oGA9SYXgTf2vdqvr7UTI0KlHoiAP8qJsOR/CpL3xBeNL8LPdyp1g+TG1MQTCFxD4LdvJpRqNXmu/yvIl20mbeTIA79Irg74qp546VUUJLf4RMSVPHnnRV8RmJkot/BF2gRHfkaB5HabLj3iu9A7m1bxb9oMGTJkyP1L+ANrBHn77nU5JgAAAABJRU5ErkJggg=="
+                                alt="conference-call--v2"></a></li>
+                
+            </ul>
+
+            <div class="buttons">
+                <button id="theme-toggle" class="theme-btn">🌙</button>
+                <button id="ler-site">🔊</button>
+                <button class="btn-nav"><a href="./game.html">Conheça o jogo</a></button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar reveal">
+
+        <div class="profile-card">
+
+            <div class="profile-photo">
+                <i class="fa-regular fa-user"></i>
+            </div>
+
+            <h2>Olá, <span>Usuário!</span></h2>
+            <p>Bem-vindo de volta</p>
+
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <a href="#" class="active">
+                <i class="fa-solid fa-house"></i>
+                <span>Visão geral</span>
+            </a>
+
+            <a href="./login.html" id="btnSair">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span>Sair</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+
+            <div class="quote">
+
+                <span>"Tecnologia que guia,<br>experiência que transforma."</span>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- CONTEÚDO -->
+    <section class="dashboard-content">
+
+        <div class="dashboard-header reveal">
+
+            <div>
+
+                <h1>
+                    <i class="fa-regular fa-user"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADNUlEQVR4nO1ZS08UQRBuNgFRp3vIVg1oYoIRTAwH1KxO9e6Fq1HjI8GTGi7Gf6AYQCMXjTf/g2IEb5yNXDiTeFFE7j4SNYLihaCp2VfPAguzM7OzmPmSTia7UzVfd1d/VVMjRIoUKSJErt128tck0AuFtChB/+LhXSNN8X98j2hFWFl9VQJ9VKj/1ht8jwX5K6KFkFFIT3YivmkiqB+zbdLkxSbyoD8r1GNdjnuyp2fwIA/bKZxSSOOl/2onkWzY+MNDv3ScIWu7+wEKUgJNmzYWuJdFMhjoMGOeyQsh2nZh2CaBZowdW0rkYLOimGFTb+W32gkF9KVsbzvusGg2ilJZCYWxoPYKaaJ6Fuh5PCzrEQD9oUygq5sGg9oXD7YuLQAtimZDAq2WCQQJnzLYRlVzw6rYaxPIZl1lyOlP0Wzs/RBCmjIIjAe1V0j3DRF4JpKWUZbGQOED9DVRGeXk409kNL37RKZfJZ7IGFxV1lSaM/V2glfeRx71hgS6JJIEF2T+Yo4zLE3YmD/N6sSDr72YN8KmlMAeiRZAZtMkdh4bJfIZ0SrgqpLjeUfyoJcSD5v6r5TuMNc2Cuk9J7tSwnvHUllUmxZ9pUyR4r/GEb1fAk1KoGWFtB60A7H7Qev8DAn0kJ8ZGXkFNB8fab2N3NK86B3qDM2fV77p5LEyHkQxgeVqraPvxKvjuXYL9F1/oRcSZsxzK0XEjoEO80yEdsd1S3UCTaldMmbNFNqbRPpRefHooaMiZtjdZ44Z1eq30A4l6jdlhxyfImYooHvGBF6Hdmgj3TZXRDmFPhETlKP7JdL3yoKhvhXea/+5faYScQeBt1lEDOUU+nzluKdAEYkGt8rNPpB3LkBfj+hQZyTQDfOsSaSVRlo1dSHRvaCA1sxEI0G/5YcH6Uj4W+3uTfZR4/O3RDov4kBpJ5a3SPtrCmmW34V5ohbkTxxwzh7ySoHeoU6+5t8k5i8Wm7o0q4D+1Pph35Gv/NadBZrkbY6qZJBIK1zANbKTDcM6nEMbaFQCLTRMHGiBpZl9iSQhkY7LrB5RoJ9K1HOsVN73MA4Tb+hPxU+tes67J6tH2EakSJFChMU/LRAcqels70oAAAAASUVORK5CYII=" 
+                                data-light="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADNUlEQVR4nO1ZS08UQRBuNgFRp3vIVg1oYoIRTAwH1KxO9e6Fq1HjI8GTGi7Gf6AYQCMXjTf/g2IEb5yNXDiTeFFE7j4SNYLihaCp2VfPAguzM7OzmPmSTia7UzVfd1d/VVMjRIoUKSJErt128tck0AuFtChB/+LhXSNN8X98j2hFWFl9VQJ9VKj/1ht8jwX5K6KFkFFIT3YivmkiqB+zbdLkxSbyoD8r1GNdjnuyp2fwIA/bKZxSSOOl/2onkWzY+MNDv3ScIWu7+wEKUgJNmzYWuJdFMhjoMGOeyQsh2nZh2CaBZowdW0rkYLOimGFTb+W32gkF9KVsbzvusGg2ilJZCYWxoPYKaaJ6Fuh5PCzrEQD9oUygq5sGg9oXD7YuLQAtimZDAq2WCQQJnzLYRlVzw6rYaxPIZl1lyOlP0Wzs/RBCmjIIjAe1V0j3DRF4JpKWUZbGQOED9DVRGeXk409kNL37RKZfJZ7IGFxV1lSaM/V2glfeRx71hgS6JJIEF2T+Yo4zLE3YmD/N6sSDr72YN8KmlMAeiRZAZtMkdh4bJfIZ0SrgqpLjeUfyoJcSD5v6r5TuMNc2Cuk9J7tSwnvHUllUmxZ9pUyR4r/GEb1fAk1KoGWFtB60A7H7Qev8DAn0kJ8ZGXkFNB8fab2N3NK86B3qDM2fV77p5LEyHkQxgeVqraPvxKvjuXYL9F1/oRcSZsxzK0XEjoEO80yEdsd1S3UCTaldMmbNFNqbRPpRefHooaMiZtjdZ44Z1eq30A4l6jdlhxyfImYooHvGBF6Hdmgj3TZXRDmFPhETlKP7JdL3yoKhvhXea/+5faYScQeBt1lEDOUU+nzluKdAEYkGt8rNPpB3LkBfj+hQZyTQDfOsSaSVRlo1dSHRvaCA1sxEI0G/5YcH6Uj4W+3uTfZR4/O3RDov4kBpJ5a3SPtrCmmW34V5ohbkTxxwzh7ySoHeoU6+5t8k5i8Wm7o0q4D+1Pph35Gv/NadBZrkbY6qZJBIK1zANbKTDcM6nEMbaFQCLTRMHGiBpZl9iSQhkY7LrB5RoJ9K1HOsVN73MA4Tb+hPxU+tes67J6tH2EakSJFChMU/LRAcqels70oAAAAASUVORK5CYII="
+                                data-dark="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADDklEQVR4nO1ZS08UQRAeSECN4IkDR+Mj8eTjb6jxkeBJDRfjPxANqJGLxJv/QTGCN85ELpxJvOgK3AXxEXerdqYbwme6253tXndnGaZnZ0Omkk42M1PdX3XX4+vaICillFK8CYAhiPodSHoHyRUIIj3Ub8nz+h0wFPSjIOLbkLQByUgetIGIbwX9IgAGIfhVd+AtQ/Cc0i0af/AfeMFbkDQNQZcAnNRD0GVImjHvXCOC4t3GcY/3AEY6fo+dUUhacHQivtlb1DEYDLs+r8EPHEBvAJIWLb31QgLbZBvLbRJ2vu1JCN62TmEiX7TtQJhU2djF6UPoP7Vc6W0+KJMBfG2eQO1ian0d2NwwoJIPymQAtRhACveJ9YGR5gZQLR+UuRrw45QVQ3/yQXmkXUjyvBXEM+n16ZllwJt8UKZKozujqdxH8Pdi06hinm4hW0hRyD4UXsiUKFbZQiUWk07CBK4FXtA+Ir4RFCmaVboEbVsXKUFXdKpUQ/1WPm+7jfn2ZaHgLTo9l45K074Cj36g0w1RrFL7c/cLzXrhbpMY2BFPKG4DyV90sTMF77NKlfpdv14pSynlKAuAExA8C0mbELSXugNx8PS6Z9bgF2pNj+BpNTfQsqMxqwCOZzdA73yPwcu4ZjzPboA60uaEj/LM4zAEccouetkntX0eGPaCtGu7huOYyD6h4i1NAwZ7wq1kkzNln1Dw73jCMDztBWXSemF4xmKrP7NPKPij5ZNTXlAmrSfpiWXAsocJ+aG9IwjDs16QtlsrDM9B8C/LhR5knxQ45mYirqhj9oLYErUxLh3XV00/SUO3yu0+kIoLUbvrI6ihL0S1e06sCa4eplWTvNAuXYOgekux+aQXT9GRcBu8dF/P4VZgxi5d9QreOQnXnRqL1iFpSd+FlaFR9QJA44oKmEHj+tkuXTdNXVqCoLBN5d30vvMdejqz+pi98R6uGgKX/iQzGFIdg6THkLyWAfyapg6ojvUMeFtjoug8BE1C0GsIXjF/sfKWdhM9+Nu/ZyvmG5pUOkEppZQSZJW/O1MjxhqUPF0AAAAASUVORK5CYII="
+                                alt="conference-call--v2"></i>
+                    Minha conta
+                </h1>
+
+                <p>
+                    Gerencie suas preferências e ferramentas
+                </p>
+
+            </div>
+
+            <div class="status">
+
+                <span class="status-dot"></span>
+
+                Conta ativa
+
+            </div>
+
+        </div>
+
+
+
+    
+
+
+
+        <!-- DICAS -->
+
+        <section class="tips reveal">
+
+            <div class="tips-title">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <h2>Dicas de uso</h2>
+
+            </div>
+
+            <div class="tips-grid">
+
+                <div class="tip-card">
+
+                    <i class="fa-regular fa-bell"></i>
+
+                    <h3>Use lembretes</h3>
+
+                    <p>
+
+                        Organize suas tarefas e nunca esqueça do que é importante.
+
+                    </p>
+
+                </div>
+
+                <div class="tip-card">
+
+                    <i class="fa-solid fa-microphone"></i>
+
+                    <h3>Comandos de voz</h3>
+
+                    <p>
+
+                        Navegue pelo sistema utilizando apenas sua voz.
+
+                    </p>
+
+                </div>
+
+                <div class="tip-card">
+
+                    <i class="fa-solid fa-sliders"></i>
+
+                    <h3>Personalize</h3>
+
+                    <p>
+
+                        Ajuste o sistema para oferecer uma experiência ainda melhor.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+</main>
+
+<script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Glídia</title>
+
+    <link rel="stylesheet" href="cadastro.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/a2d9d6b2f3.js"></script>
+
+</head>
+
+<body>
+
+    <div class="tech-particles">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+        <header id="header">
+    <nav class="navbar">
+
+        <div class="logo">
+            <img src="./imgs/image 7.png"
+                 data-light="./imgs/image 7.png"
+                 data-dark="./imgs/image 8.png">
+
+            <div class="logo-text">
+                <h2>Glídia</h2>
+                <span>Tecnologia de guia</span>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button id="theme-toggle" class="theme-btn">🌙</button>
+            <button id="ler-site">🔊</button>
+
+            <div class="back-btn" id="back-btn">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAqklEQVR4nO2WPQoCQQxGgz8XEHQn4LX0kF5CMKPVFqKtvZZab+CTbZaVna1kEsF5kGaaBzPJlyEqFP4SgCaoaW4rPVYrjeHcCN+wo6mN9BCWKnzRyGgLp/XCXKoWYiSk2cUYkWYVo20k4WtK+m01wg+Vamsq7clfg8nQyHVOqY49l5sYNlf9TIZQ1uaKfFcJm98aJ9cAcY1M1yXhuhY/PgJ7mnUHhUKBhrwBH5tUZrWbRjIAAAAASUVORK5CYII=" alt="left">
+            </div>
+        </div>
+
+    </nav>
+</header>
+    <br>
+
+
+    <section class="register-page">
+
+        <div class="register-container">
+
+
+            <div class="register-left">
+
+                <h1>
+                    Crie sua conta e <br>
+                    comece a usar <br>
+                    a <span>Glídia</span>
+                </h1>
+
+                <div class="login-image">
+
+                    <div class="circle one"></div>
+                    <div class="circle two"></div>
+                    <div class="circle three"></div>
+
+                    <img src="./imgs/ceguinho-removebg-preview 1.png"
+                         data-light="./imgs/ceguinho-removebg-preview 1.png"
+                         data-dark="./imgs/bengalinha-removebg-preview 1.png"
+                         alt="Pessoa utilizando bengala">
+
+                </div>
+
+            </div>
+        
+            <div class="register-card">
+
+                <h2>Cadastro</h2>
+
+                <form id="registerForm">
+
+
+                    <div class="input-group">
+
+                        <label>Nome completo</label>
+
+                        <input
+                            id="nome"
+                            type="text"
+                            placeholder="Digite seu nome">
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>E-mail</label>
+
+                        <input
+                            id="email"
+                            type="email"
+                            placeholder="Digite seu e-mail">
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>Senha</label>
+
+                        <div class="password-box">
+
+                            <input
+                                id="password"
+                                type="password"
+                                placeholder="Digite sua senha">
+
+                            <span id="togglePassword">
+
+                                <i class="fa-regular fa-eye"></i>
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>Confirmar senha</label>
+
+                        <div class="password-box">
+
+                            <input
+                                id="confirmPassword"
+                                type="password"
+                                placeholder="Confirme sua senha">
+
+                            <span id="toggleConfirmPassword">
+
+                                <i class="fa-regular fa-eye"></i>
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <!-- CONTATO DE EMERGÊNCIA -->
+
+                    <div class="divider">
+
+                    <span></span>
+
+                    <p>Contato de Emergência</p>
+
+                    <span></span>
+
+                    </div>
+
+
+                    <!-- TELEFONE DO CONTATO -->
+
+                    <div class="input-group">
+
+
+                    <label for="telefoneEmergencia">
+
+                    Telefone
+
+                    </label>
+
+
+
+                    <input
+
+                    id="telefoneEmergencia"
+
+                    type="tel"
+
+                    placeholder="(11) 99999-9999"
+
+                    maxlength="15"
+
+                    required>
+
+
+                    </div>
+
+
+                    <button type="submit" class="register-btn">
+
+                        Cadastrar
+
+                    </button>
+
+
+                    <div class="divider">
+
+                        <span></span>
+
+                        <p>ou</p>
+
+                        <span></span>
+
+                    </div>
+
+                    <!-- Google -->
+
+                    <button
+                        type="button"
+                        class="google-btn">
+
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg">
+
+                        Cadastrar com Google
+
+                    </button>
+
+
+                    <p class="login-link">
+
+                        Já tenho uma conta ?
+
+                        <a href="login.html">
+
+                            Entrar
+
+                        </a>
+
+                    </p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+
+<script src="./script.js"></script>
+
+</html>

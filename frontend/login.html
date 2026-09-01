@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curiosidades - Glídia</title>
+
+    <link rel="stylesheet" href="./login.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a2d9d6b2f3.js"></script>
+</head>
+
+<body>
+
+    <div class="tech-particles">
+        <span></span>
+        <span></span>
+        <span></span>
+        
+    </div>
+
+    <header id="header">
+    <nav class="navbar">
+
+        <div class="logo">
+            <img src="./imgs/image 7.png"
+                 data-light="./imgs/image 7.png"
+                 data-dark="./imgs/image 8.png">
+
+            <div class="logo-text">
+                <h2>Glídia</h2>
+                <span>Tecnologia de guia</span>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button id="theme-toggle" class="theme-btn">🌙</button>
+            <button id="ler-site">🔊</button>
+
+            <div class="back-btn" id="back-btn">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAqklEQVR4nO2WPQoCQQxGgz8XEHQn4LX0kF5CMKPVFqKtvZZab+CTbZaVna1kEsF5kGaaBzPJlyEqFP4SgCaoaW4rPVYrjeHcCN+wo6mN9BCWKnzRyGgLp/XCXKoWYiSk2cUYkWYVo20k4WtK+m01wg+Vamsq7clfg8nQyHVOqY49l5sYNlf9TIZQ1uaKfFcJm98aJ9cAcY1M1yXhuhY/PgJ7mnUHhUKBhrwBH5tUZrWbRjIAAAAASUVORK5CYII=" alt="left">
+            </div>
+        </div>
+
+    </nav>
+</header>
+
+    <section class="login-page">
+
+        <div class="login-container">
+
+
+            <div class="login-left reveal">
+
+                <h1>
+                    Bem-vindo <span>de volta.</span>
+                </h1>
+
+                <p>
+                    Acesse sua conta para continuar acompanhando nossos projetos e fazendo a diferença.
+                </p>
+
+
+                <div class="login-image">
+
+                    <div class="circle one"></div>
+                    <div class="circle two"></div>
+                    <div class="circle three"></div>
+
+                    <img src="./imgs/ceguinho-removebg-preview 1.png"
+                         data-light="./imgs/ceguinho-removebg-preview 1.png"
+                         data-dark="./imgs/bengalinha-removebg-preview 1.png"
+                         alt="Pessoa utilizando bengala">
+
+                </div>
+
+            </div>
+
+
+            <div class="login-card reveal">
+
+
+                <h2>
+                    Fazer <span>Login</span>
+                </h2>
+
+                <p class="subtitle">
+                    Preencha seus dados para acessar.
+                </p>
+
+
+                <form id="loginForm">
+
+
+                    <div class="input-group">
+                        
+                        <label>E-mail</label>
+
+                        <div class="input-box">
+
+                            <i class="fa-regular fa-envelope"></i>
+
+                            <input
+                                id="email"
+                                type="email"
+                                placeholder="seu@email.com">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>Senha</label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            <input
+                                id="password"
+                                type="password"
+                                placeholder="••••••">
+
+                            <button
+                                id="togglePassword"
+                                type="submit">
+
+                                <i class="fa-regular fa-eye"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="forgot">
+
+                        <a href="#">
+                            Esqueceu sua senha?
+                        </a>
+
+                    </div>
+
+
+                    <button class="login-btn">
+
+                        Entrar
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+
+                    <div class="divider">
+
+                        <span></span>
+
+                        <p>ou continue com</p>
+
+                        <span></span>
+
+                    </div>
+
+
+                    <div class="social-login">
+
+                        <button type="button">
+
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEkUlEQVR4nO2Zb0wbZRzHn3taesUtRpOJYbo/DoQM5c/GMgryzxkYxbGBiQsbNBCEFGaIY8zCCuaUMSiQAQMGQWAgcSY2GeuNuzpc8NqNvRoCItE3841Dthj3ToNzbX+mVRBI197Zo2VJv8n3XZ+nn89dn6dPrwj5448/HgcoJIWqgGIoxywU4HuQTfwJSsIKBxBAKgJIQzbIJhZBhX+BE/g6VAUU2ccgXwc0UgWU4tvwNmGBJASCqiQsoMa3QRsQ433wOlk4qPEsvCkQ2llTEUAxnoEaFOIdeA3RCumEzWPwtT2IrHCK0K0f+HkUCMX4B9HBk9b0PTwNFJKJC9+NngcVfrDu8En/toJoFw9+EMnhOPGr1+DLCE40eIeAGn/vPXgsMvyHRIfgrbEMT0IlroUmaQpQaAtQKAjOSN6C05hy7Db21zgbW4pN4sI3kyGQQVh5g5+W9PJZfEChZ+ADydAqkVKR4R1vVIHv8IIvwPNwDr0oeP4aFAJ5+P76wJvl22CcfAQaCUCyC/gSPAV6JEEbLWAmdWAmwdHeAIB0wvmV35DweiQBs2x+WcDeURmACv8Hn0lYoAK9hDZiwCSPXwW/VI4E0En/ObuclPSjjRowybROBZY6FPAAyhGJNmrATF5xKWCSdQiZL1gzC2I0XDthO9rUd9e9gImccynAkRm+EAjWzMIbddcW+Qg8dCMQ6iuB3TW3rHwEHrkWQJt9JbCjehKeaoHtVd+C5x+hm7IwXwns1t60Pd2L+JNRHovYTI642UY7fSVwRDc8z0NAduZJ8A+5Z6Geif/jvF4RiEROy3D+puiPvrG4Eii/0DjqXoALVDiDnx0PBhWthENXs6HDGHtJbIGTnfX97u6Arq/iuHsBQBjMsntL4DYzCfRYOGQbDjvg7c2jlZaL11/bJhZ8W496Z2SNyeoK/vVas4XiKH5P88BENtrhfzdthrNMwjL4ylaPJi9wXIrHjwcpjpIeafxswd3VL2lrm+A9KXCBL98df+GvEjrdKfxSP2YTZjyRoDhKmt/SM+d2/6+egsbuylhBkzcwihlX8CvvRP/X4VuFwvfeiNhe1lX3E5/d51hz75zQ+RE9FvZKPq208pHIp5WWzq/2DlCDKXJ38w6PRW1qZ/b15RmU1pyRHDja2uH2FEp9ekrQl+dyutmY1iweAitFGljFdJdxL6VnIw5cGdsVdJkL2zJgjEq8aNxTV8ckTNpfs3JM1kgOFPZQsLXqO6cC77c3dSNPomPjpvkKeNKiwXLYWX1nFfy7TQM/Ik+j10fINHTqfW9IFH5RCJG1Jgd8ev2Xv53o6hJ0cHxiOG7HczVM4oI3JI7pc0HVemGeGq4MEgV+hYT8LBM/K2RN/J+eYxXTRmPo+v3m7jNGNecaMq2iX3lDprWXjWlG3sgwvSe0gY2beseQ5TF4ztXDjqt++caru5C3MzQWGdvM7L9VZDj4WCh4AZ3xuJGJm/icifb+n3xrowck6WeiC1uN+0a1TOLPajptUWVQWu13yH4IzDVk2tSGtMWqa8nzLex+ts8YU2Afg/zxxx/kaf4GzSVnCicBYF0AAAAASUVORK5CYII=" alt="google-logo">
+
+                            Google
+
+                        </button>
+
+                        <button type="button">
+
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFTElEQVR4nO3YfUwTdxgH8AfdS0SX8KpDQdrSUgorLRZFHNJJUCzvCAUUZWo73ZKZzWX7Y5uGGBNNliwzm4pEnRAIYLkiRsRV67KXsITMLPIOLYuD0jf6Dttiou2z3KHOxWVy3SXWpN/kl6bJPb3vp3f3S1OAYIIJJphgAiVGSWGoNVm6DJ6HYF3dIldO8SZndsFnzixZryNzy6w9Ixdt6Tk4I86+axG+3msRZHw6kySJgUCLO69ivzu3xODOKUaXtBCdG/PRsSEP/wZI0SrMQktyJpoT1/1hTEj/RMflvgyBEk/etkl3bikuCMBfhyZuOhrZ4nYIhMzllad48sqRLmCaJfqInI9uqEpIVslfemYAz1b5h/4ApjgSIQU4U9624lzl+KuNVbKFnI9D7Oex1YqDzAFkci1tQILEgAAhoJIvjm6osK84V4UxF7bjyqaaW3HNuz5Y1bozI1ZVuypWpYiI71QIOIQin6VWHmMRyj62WolstZKZ28+8eedSj0x+148rcJacDz9Tmrm8oQIfA2Bsyy6Ma3sT41V7kE0oyLJPrHhCuZsRgKewsmhWJkc/AOXkfOTpsiO0AYTSF9e1dyUjgLmCqlN0AabEtffuxIvCyPmo09v6/LgCvzBSfh5QOeHHFfienF3WUBgVVV/mpQtgqZXHGCnvKa7hzxVUIW1A0rqPyfmwk2U1UfXbkDaA2JvNCGCuePt7TwKKDC5pQb9zo2zaviHP92+AaW56GjkfcbKkmS6ApVZ6JA37XmQKcG02v9I4K5N/6d5SttUlLaHu64eZWi9fYsvILbal56isYqmXBJgFmWZq+6yrWxT+VYmVPkBBMFJ+HrAjF6XSFxZyrFm0KcUqzLpuEWReIN9HnihcG3GyFOnfQgolMJo6XJRyxSpKuTLzvqDL0ph0yXKTrzb/wFcbr/I6TMcTOgxvAGLIw8NN3Kxo8jXsRNFhfwAc1b7VjPQW3nBzUntsR4U9M5Ovddsw5coMJl+2oqDLgkmdZuSrTZjYYUKeyogJbYZhduvk5sfnw04UnacLYBHKQWAqqRp7b+o1Owp7bPg0ALd9mkQgp2Xq80cfgBAScaq4NrK+zPxUAKH0sdRKLZt4K5eR8sJud3iqxn6fLoDdMnmE6n4bliMCdVvFNBSGRtdX1C4/V9kRc6H6t5imGndsy67f41prx1ar9lxiqfceWE3s4QCTSdM4qkUaB9IFxDcb1lOAQWjEYejDUdiw0HPiHfjHDve/ItI4mmgDWg0OUOFi8pvHQTDjMCAOgw+H4TschX04DgK8BaFUWSOE4hiwUQ+lXj0c9erhZ+8EXGamPWKIWOO00AVw2qaaqfEBkOAQVR5xZH75RgF9Yw/WOKBP92DpAX0T8wt/hXcY6b/mW7dEfN2JfgB2UIBBOOQXYByYeQ7EN5yHaQPaDPeTmqYjKcAQ9NIFePUwxkh5CqB1/UT/Chh6qfIDEI5DcM8PwBeMlBf+6A4Xa5336QJ47dOHKMAgVFPlaQJQB1sYAaRp3dVpWhfSBSS0G9dQgAFoogvw6uFPnIIlzABuuhtJgEjjNKd+41AJe+wHhd22EmH3THZyt3WroMvydtIlcwu/0zT3EMC9aDSROxe1fQ6AyQ/AVUbKUwCt6/iam64c8gfcfx3H77K9kqg2Hk1Ume7yLhq/frR9Dj4oTwOAengXnlUEhIGX2G5aSwH64ZCfAC4EQrAfztMFeHWgg0AJ9Qz0w24cAstCAF4d9KEOqL9eAip4G5biEOzGYejAEdDjCDi9I2DzjsGQdxTacRwO4ATwnnXPYIIJJphg4LnNX4zpKRyV26JDAAAAAElFTkSuQmCC" alt="windows-logo">
+
+                            Microsoft
+
+                        </button>
+
+                    </div>
+
+
+                    <p class="register">
+
+                        Ainda não tem uma conta?
+
+                        <a href="cadastro.html">
+                            Cadastre-se.
+                        </a>
+
+                    </p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
