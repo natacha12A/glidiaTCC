@@ -1844,6 +1844,292 @@ body.dark-mode .contact-info{
 
 }
 
+/*=========================
+        VOZ
+=========================*/
+
+
+.voice{
+
+
+    position:relative;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    margin-bottom:70px;
+
+
+}
+
+
+
+
+/*=========================
+        CÍRCULO
+=========================*/
+
+
+.circle{
+
+
+    width:320px;
+
+
+    height:320px;
+
+
+    background:var(--surface);
+
+
+    border-radius:50%;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    box-shadow:var(--shadow);
+
+
+    position:relative;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+
+.circle::before{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:420px;
+
+
+    height:420px;
+
+
+    border-radius:50%;
+
+
+    border:1px solid rgba(140,140,140,.15);
+
+
+}
+
+
+
+
+
+.circle::after{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:520px;
+
+
+    height:520px;
+
+
+    border-radius:50%;
+
+
+    border:1px solid rgba(140,140,140,.08);
+
+
+}
+
+
+
+
+/*=========================
+        ÍCONE VOZ
+=========================*/
+
+
+.wave{
+
+
+    font-size:90px;
+
+
+    color:var(--wave);
+
+
+    animation:pulse 2s infinite ease-in-out;
+
+
+}
+
+
+
+@keyframes pulse{
+
+
+    0%{
+
+        transform:scale(.9);
+
+    }
+
+
+    50%{
+
+        transform:scale(1.08);
+
+    }
+
+
+    100%{
+
+        transform:scale(.9);
+
+    }
+
+
+}
+
+
+
+
+/*=========================
+        STATUS
+=========================*/
+
+
+#status{
+
+
+    color:var(--secondary);
+
+
+    font-size:18px;
+
+
+    margin-bottom:50px;
+
+
+    text-align:center;
+
+
+}
+
+/*=========================
+        CONVERSA
+=========================*/
+
+
+#conversa{
+
+
+    width:750px;
+
+
+    max-width:90%;
+
+
+    background:var(--surface);
+
+
+    color:var(--primary);
+
+
+    margin-top:45px;
+
+
+    padding:25px;
+
+
+    border-radius:20px;
+
+
+    box-shadow:var(--shadow);
+
+
+    border:1px solid var(--border);
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+
+/*=========================
+        BOTÃO ATIVAR
+=========================*/
+
+
+.ativar{
+
+
+    margin-top:30px;
+
+
+    background:var(--accent);
+
+
+    color:white;
+
+
+    border:none;
+
+
+    padding:18px 35px;
+
+
+    border-radius:50px;
+
+
+    cursor:pointer;
+
+
+    font-size:18px;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.ativar:hover{
+
+
+    transform:scale(1.05);
+
+
+}
 
 body.dark-mode .sidebar,
 body.dark-mode .dashboard-card,

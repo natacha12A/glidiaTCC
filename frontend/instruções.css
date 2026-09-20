@@ -730,13 +730,17 @@ body.dark-mode::-webkit-scrollbar-thumb {
         height: 72px;
         margin: 0;
         padding: 0 18px;
+
         display: flex;
         justify-content: space-around;
         align-items: center;
         gap: 0;
-        background: rgba(255, 255, 255, 0.98);
+
+        background: rgba(255, 255, 255, 0.96);
         border-top: 1px solid #ff962e;
+
         box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.12);
+
         z-index: 9999;
     }
 
@@ -744,6 +748,7 @@ body.dark-mode::-webkit-scrollbar-thumb {
         display: flex;
         align-items: center;
         justify-content: center;
+
         width: 20%;
         height: 100%;
     }
@@ -759,20 +764,27 @@ body.dark-mode::-webkit-scrollbar-thumb {
     .menu a {
         width: 48px;
         height: 48px;
+
         display: flex;
         align-items: center;
         justify-content: center;
+
         position: relative;
+
         color: #091447;
         font-size: 0;
         text-decoration: none;
     }
 
+    .menu a:hover,
+    .menu a.active {
+        color: #ff962e;
+    }
     .menu a::before {
-        font-family: "Font Awesome 6 Free";
-        font-weight: 900;
-        font-size: 25px;
-        line-height: 1;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 25px;
+    line-height: 1;
     }
 
     .menu li:nth-child(1) a::before {
@@ -780,11 +792,11 @@ body.dark-mode::-webkit-scrollbar-thumb {
     }
 
     .menu li:nth-child(2) a::before {
-        content: "\f1b2";
+        content: "\f02d";
     }
 
     .menu li:nth-child(3) a::before {
-        content: "\f128";
+        content: "\f29d";
     }
 
     .menu li:nth-child(4) a::before {
@@ -813,10 +825,6 @@ body.dark-mode::-webkit-scrollbar-thumb {
 
     .menu li:nth-child(4) {
         order: 5;
-    }
-
-    .menu li:nth-child(5) {
-        display: none;
     }
 
     .menu a.active,
@@ -1146,7 +1154,7 @@ body.dark-mode::-webkit-scrollbar-thumb {
     }
 
     body.dark-mode .logo h2 {
-        color: #fff;
+        color: #ff962e;
     }
 
     body.dark-mode .logo span {

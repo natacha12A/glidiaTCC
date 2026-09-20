@@ -1160,3 +1160,679 @@ body.dark-mode textarea{
 body.dark-mode .contact-info{
     border-left:1px solid #ff962e;
 }
+
+
+/* ================================
+   VERSÃO MOBILE - 320px
+================================ */
+
+@media (max-width: 375px){
+
+    html{
+        scroll-behavior:smooth;
+    }
+
+    body{
+        width:100%;
+        min-width:320px;
+        padding-bottom:75px;
+        background:#f5f5f5;
+        overflow-x:hidden;
+    }
+
+    /* ================================
+       HEADER
+    ================================= */
+
+    header{
+        position:relative;
+        top:0;
+        left:0;
+        width:100%;
+        height:auto;
+        background:transparent;
+        box-shadow:none;
+        z-index:100;
+    }
+
+    .navbar{
+        width:100%;
+        max-width:none;
+        height:62px;
+        padding:12px 17px;
+
+        display:flex;
+        justify-content:flex-start;
+        align-items:center;
+    }
+
+    .logo{
+        gap:8px;
+    }
+
+    .logo img{
+        width:26px;
+        height:auto;
+    }
+
+    .logo-text{
+        gap:2px;
+    }
+
+    .logo h2{
+        margin:0;
+        font-size:18px;
+        line-height:1;
+    }
+
+    .logo span{
+        font-size:7.5px;
+        letter-spacing:.1px;
+    }
+
+    /* Esconde os botões do header */
+    header .buttons{
+        display:none;
+    }
+
+
+    /* ================================
+       MENU INFERIOR
+    ================================= */
+
+    .menu{
+        position:fixed;
+
+        left:0;
+        bottom:0;
+
+        width:100%;
+        height:68px;
+
+        margin:0;
+        padding:0 10px;
+
+        display:flex;
+        justify-content:space-around;
+        align-items:center;
+
+        gap:0;
+
+        background:rgba(255,255,255,.97);
+
+        border-top:1px solid #ff962e;
+
+        box-shadow:0 -8px 25px rgba(0,0,0,.12);
+
+        z-index:9999;
+    }
+
+    .menu li{
+        width:20%;
+        height:100%;
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+
+    /* Esconde o item que não aparece no mobile */
+    .menu li:nth-child(5){
+        display:none;
+    }
+
+    .menu li:nth-child(6){
+        display:flex;
+    }
+
+    .menu li:nth-child(1){
+        order:1;
+    }
+
+    .menu li:nth-child(2){
+        order:2;
+    }
+
+    .menu li:nth-child(3){
+        order:3;
+    }
+
+    .menu li:nth-child(6){
+        order:4;
+    }
+
+    .menu li:nth-child(4){
+        order:5;
+    }
+
+    .menu a{
+        width:48px;
+        height:48px;
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+        position:relative;
+
+        color:#091447;
+
+        font-size:0;
+        text-decoration:none;
+    }
+
+    .menu a::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 25px;
+    line-height: 1;
+    }
+
+    .menu li:nth-child(1) a::before {
+        content: "\f015";
+    }
+
+    .menu li:nth-child(2) a::before {
+        content: "\f02d";
+    }
+
+    .menu li:nth-child(3) a::before {
+        content: "\f29d";
+    }
+
+    .menu li:nth-child(4) a::before {
+        content: "\f141";
+    }
+
+    .menu li:nth-child(6) a::before {
+        content: "\f2bd";
+    }
+
+    .menu li:nth-child(1) {
+        order: 1;
+    }
+
+    .menu li:nth-child(2) {
+        order: 2;
+    }
+
+    .menu li:nth-child(3) {
+        order: 3;
+    }
+
+    .menu li:nth-child(6) {
+        order: 4;
+    }
+
+    .menu li:nth-child(4) {
+        order: 5;
+    }
+
+    .menu a:hover,
+    .menu a.active{
+        color:#ff962e;
+    }
+
+    .menu a.active::after{
+        content:"";
+
+        position:absolute;
+
+        bottom:3px;
+        left:50%;
+
+        width:5px;
+        height:5px;
+
+        border-radius:50%;
+
+        background:#ff962e;
+
+        transform:translateX(-50%);
+    }
+
+    .menu img{
+        display:none;
+    }
+
+
+    /* ================================
+       QUEM SOMOS
+    ================================= */
+
+    .about-page{
+        width:100%;
+        max-width:none;
+
+        margin:0;
+
+        padding:0 16px 30px;
+    }
+
+
+    /* ================================
+       PARTE SUPERIOR
+    ================================= */
+
+    .about-top{
+        width:100%;
+
+        display:flex;
+        flex-direction:column;
+
+        align-items:flex-start;
+        justify-content:flex-start;
+
+        gap:18px;
+    }
+
+    .about-text{
+        width:100%;
+    }
+
+    .about-text h1{
+        margin:0;
+
+        font-family:"Playfair Display",serif;
+
+        font-size:28px;
+        line-height:1.1;
+
+        color:#091447;
+    }
+
+    .about-text span{
+        color:#ff962e;
+    }
+
+    .about-text p{
+        margin:15px 0 0;
+
+        max-width:250px;
+
+        font-size:9px;
+        line-height:1.45;
+
+        color:#3f4655;
+    }
+
+
+    /* ================================
+       EQUIPE
+    ================================= */
+
+    .team{
+        width:100%;
+
+        display:flex;
+        flex-direction:column;
+
+        align-items:center;
+        justify-content:flex-start;
+
+        gap:10px;
+    }
+
+    .person-card{
+        position:relative;
+
+        width:100%;
+        max-width:288px;
+
+        height:62px;
+        min-height:62px;
+
+        padding:7px 10px;
+
+        display:flex;
+        flex-direction:row;
+
+        align-items:center;
+        justify-content:flex-start;
+
+        background:#fff;
+
+        border:1px solid #ff962e;
+        border-radius:12px;
+
+        box-shadow:none;
+    }
+
+    .person-card:hover{
+        transform:none;
+
+        box-shadow:none;
+
+        border-color:#ff962e;
+    }
+
+    .person-card img{
+        width:46px;
+        height:46px;
+
+        flex-shrink:0;
+
+        border-radius:50%;
+
+        object-fit:cover;
+    }
+
+    .person-card h3{
+        position:absolute;
+
+        left:67px;
+        top:12px;
+
+        margin:0;
+
+        font-family:"Playfair Display",serif;
+
+        font-size:11px;
+
+        color:#091447;
+    }
+
+    .person-card span{
+        position:absolute;
+
+        left:67px;
+        top:30px;
+
+        margin:0;
+
+        font-size:7.5px;
+
+        color:#ff962e;
+    }
+
+
+    /* ================================
+       REDES SOCIAIS
+    ================================= */
+
+    .social{
+        position:absolute;
+
+        right:8px;
+        bottom:8px;
+
+        display:flex;
+
+        align-items:center;
+        justify-content:center;
+
+        gap:7px;
+
+        margin:0;
+    }
+
+    .social a{
+        width:21px;
+        height:21px;
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+        color:#ff962e;
+
+        text-decoration:none;
+    }
+
+    .social a img{
+        width:15px;
+        height:15px;
+    }
+
+    .social i{
+        font-size:13px;
+    }
+
+    .social a:hover{
+        transform:none;
+    }
+
+
+    /* ================================
+       CONTATO
+    ================================= */
+
+    .contact-box{
+        width:100%;
+
+        margin-top:10px;
+
+        padding:14px;
+
+        display:block;
+
+        background:#fff;
+
+        color:#091447;
+
+        border:1px solid #ff962e;
+        border-radius:12px;
+
+        box-shadow:none;
+    }
+
+    .contatoForm{
+        width:100%;
+    }
+
+    .contatoForm h2{
+        margin:0;
+
+        font-family:"Playfair Display",serif;
+
+        font-size:18px;
+
+        color:#091447;
+    }
+
+    .contact1{
+        margin-top:5px;
+
+        font-size:8px;
+
+        line-height:1.4;
+    }
+
+
+    /* ================================
+       INPUTS
+    ================================= */
+
+    .inputs{
+        width:100%;
+
+        display:grid;
+        grid-template-columns:1fr 1fr;
+
+        gap:9px;
+
+        margin-top:13px;
+    }
+
+    .inputs input,
+    textarea{
+        width:100%;
+
+        background:#fff;
+
+        color:#091447;
+
+        border:1px solid #c8c8c8;
+
+        border-radius:9px;
+
+        padding:8px 9px;
+
+        box-shadow:none;
+
+        font-family:"Poppins",sans-serif;
+
+        font-size:8px;
+    }
+
+    .inputs input{
+        width:100%;
+        height:30px;
+    }
+
+    .inputs input::placeholder,
+    textarea::placeholder{
+        color:#666;
+    }
+
+    textarea{
+        width:100%;
+
+        height:78px;
+
+        margin-top:9px;
+
+        resize:none;
+    }
+
+
+    /* ================================
+       BOTÃO ENVIAR
+    ================================= */
+
+    .contatoForm button{
+        width:100%;
+        height:28px;
+
+        margin-top:7px;
+
+        padding:5px 15px;
+
+        border:1px solid #ff962e;
+
+        background:#ff962e;
+
+        color:#fff;
+
+        border-radius:15px;
+
+        font-family:"Poppins",sans-serif;
+
+        font-size:8px;
+
+        transition:.3s;
+    }
+
+    .contatoForm button:hover{
+        background:#ff962e;
+
+        transform:none;
+
+        box-shadow:none;
+    }
+
+
+    /* ================================
+       PARTE DIREITA DO CONTATO
+       Não aparece no mobile
+    ================================= */
+
+    .contact-info{
+        display:none;
+    }
+
+
+    /* ================================
+       DARK MODE
+    ================================= */
+
+    body.dark-mode{
+        background:#020b1d;
+        color:#fff;
+    }
+
+    body.dark-mode header{
+        background:transparent;
+    }
+
+    body.dark-mode .logo h2 {
+        color: #ff962e;
+    }
+
+    body.dark-mode .logo span{
+        color:#d7dbe3;
+    }
+
+    body.dark-mode .about-text h1{
+        color:#fff;
+    }
+
+    body.dark-mode .about-text p{
+        color:#d8dce4;
+    }
+
+    body.dark-mode .person-card{
+        background:#050b1d;
+        color:#fff;
+
+        border:1px solid #ff962e;
+    }
+
+    body.dark-mode .person-card h3{
+        color:#fff;
+    }
+
+    body.dark-mode .person-card span{
+        color:#ff962e;
+    }
+
+    body.dark-mode .contact-box{
+        background:#071126;
+        color:#fff;
+
+        border:1px solid #ff962e;
+    }
+
+    body.dark-mode .contatoForm h2{
+        color:#fff;
+    }
+
+    body.dark-mode .contact1{
+        color:#d8dce4;
+    }
+
+    body.dark-mode .inputs input,
+    body.dark-mode textarea{
+        background:#11183d;
+        color:#fff;
+
+        border:1px solid #ff962e;
+    }
+
+    body.dark-mode .inputs input::placeholder,
+    body.dark-mode textarea::placeholder{
+        color:#c7cbd5;
+    }
+
+    body.dark-mode .menu{
+        background:rgba(2,11,29,.98);
+
+        border-top:1px solid #ff962e;
+
+        box-shadow:0 -8px 25px rgba(0,0,0,.25);
+    }
+
+    body.dark-mode .menu a{
+        color:#ff962e;
+    }
+
+    body.dark-mode .contatoForm button{
+        background:#ff962e;
+        color:#fff;
+    }
+
+    /* Remove a barra de rolagem no celular */
+    ::-webkit-scrollbar{
+        display:none;
+    }
+}

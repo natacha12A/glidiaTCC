@@ -804,51 +804,51 @@ body.dark-mode::-webkit-scrollbar-thumb {
     }
 
     .menu a::before {
-        font-family: "Font Awesome 6 Free";
-        font-weight: 900;
-        font-size: 25px;
-        line-height: 1;
-    }
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 25px;
+    line-height: 1;
+}
 
-    .menu li:nth-child(1) a::before {
-        content: "\f015";
-    }
+.menu li:nth-child(1) a::before {
+    content: "\f015";
+}
 
-    .menu li:nth-child(2) a::before {
-        content: "\f1b2";
-    }
+.menu li:nth-child(2) a::before {
+    content: "\f02d";
+}
 
-    .menu li:nth-child(3) a::before {
-        content: "\f128";
-    }
+.menu li:nth-child(3) a::before {
+    content: "\f29d";
+}
 
-    .menu li:nth-child(4) a::before {
-        content: "\f141";
-    }
+.menu li:nth-child(4) a::before {
+    content: "\f141";
+}
 
-    .menu li:nth-child(6) a::before {
-        content: "\f2bd";
-    }
+.menu li:nth-child(6) a::before {
+    content: "\f2bd";
+}
 
-    .menu li:nth-child(1) {
-        order: 1;
-    }
+.menu li:nth-child(1) {
+    order: 1;
+}
 
-    .menu li:nth-child(2) {
-        order: 2;
-    }
+.menu li:nth-child(2) {
+    order: 2;
+}
 
-    .menu li:nth-child(3) {
-        order: 3;
-    }
+.menu li:nth-child(3) {
+    order: 3;
+}
 
-    .menu li:nth-child(6) {
-        order: 4;
-    }
+.menu li:nth-child(6) {
+    order: 4;
+}
 
-    .menu li:nth-child(4) {
-        order: 5;
-    }
+.menu li:nth-child(4) {
+    order: 5;
+}
 
     .menu a.active::after {
         content: "";
@@ -1196,7 +1196,7 @@ body.dark-mode::-webkit-scrollbar-thumb {
 
 
     body.dark-mode .logo h2 {
-        color: #fff;
+        color: #ff962e;
     }
 
     body.dark-mode .logo span {
