@@ -655,6 +655,16 @@ if (spanNome && nome) {
     spanNome.textContent = nome;
 }
 
+
+const btnExtraNav = document.getElementById("btn-extra-nav")
+const extraNav = document.getElementById("extra-nav")
+
+btnExtraNav.addEventListener("click", (e) => {
+    e.preventDefault()
+
+    extraNav.classList.toggle("open")
+})
+
 //A PARTIR DAQUI É SOBRE A IA ACRE//
 
 let ouvindo = false;

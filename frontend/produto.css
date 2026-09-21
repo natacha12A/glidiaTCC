@@ -823,6 +823,11 @@ a:focus-visible {
     animation: none;
 }
 
+.extra-nav {
+    display: none;
+}
+
+
 @media (max-width: 375px) {
 
     body {
@@ -1142,6 +1147,47 @@ a:focus-visible {
         color: #666;
     }
 
+    .extra-nav {
+    position: fixed;
+    right: 15px;
+    bottom: 78px;
+    width: 210px;
+    padding: 12px;
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid #ff962e;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+    z-index: 10000;
+    }
+
+    .extra-nav.open {
+    display: flex;
+    }
+
+    .extra-nav a,
+    .extra-nav button {
+        width: 100%;
+        padding: 11px 12px;
+        border: none;
+        border-radius: 10px;
+        background: transparent;
+        color: #091447;
+        font-family: "Poppins", sans-serif;
+        font-size: 12px;
+        text-align: left;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .extra-nav a:hover,
+    .extra-nav button:hover {
+        background: #f5f5f5;
+        color: #ff962e;
+    }
+
     .menu {
     position: fixed;
     left: 0;
@@ -1217,11 +1263,15 @@ a:focus-visible {
     }
 
     .menu li:nth-child(4) a::before {
-        content: "\f141";
+        content: "\f15c";
     }
 
     .menu li:nth-child(6) a::before {
         content: "\f2bd";
+    }
+
+    .menu li:last-child a::before {
+    content: "\f141";
     }
 
     .menu li:nth-child(1) {
@@ -1242,6 +1292,10 @@ a:focus-visible {
 
     .menu li:nth-child(4) {
         order: 5;
+    }
+
+    .menu li:nth-child(7) {
+        order: 6;
     }
 
     .menu a.active::after {
@@ -1268,6 +1322,22 @@ a:focus-visible {
         display: none;
     }
 
+
+    body.dark-mode .extra-nav {
+    background: rgba(2, 11, 29, 0.98);
+    border-color: #ff962e;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    body.dark-mode .extra-nav a,
+    body.dark-mode .extra-nav button {
+        color: #ff962e;
+    }
+
+    body.dark-mode .extra-nav a:hover,
+    body.dark-mode .extra-nav button:hover {
+        background: #091447;
+    }
 
     body.dark-mode {
         background: #020b1d;
