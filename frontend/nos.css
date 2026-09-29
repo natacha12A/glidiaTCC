@@ -1882,3 +1882,22 @@ body.dark-mode .contact-info{
         display:none;
     }
 }
+
+/* =========================================================
+   NAVEGAÇÃO DESKTOP — IGUAL À NAVEGAÇÃO DO SEGUNDO CSS
+   Aplicada somente em telas desktop/tablet horizontal.
+   ========================================================= */
+@media (min-width: 801px) and (max-width: 1050px) {
+    .navbar {
+        padding-inline: 20px;
+    }
+
+    .menu {
+        display: flex;
+        gap: 17px;
+    }
+
+    .menu a {
+        font-size: 11px;
+    }
+}
