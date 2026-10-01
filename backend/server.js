@@ -2,8 +2,8 @@ const express = require("express")
 const mysql = require("mysql2")
 const cors = require("cors")
 const nodemailer = require("nodemailer")
-
 require("dotenv").config();
+
 
 const app = express()
 

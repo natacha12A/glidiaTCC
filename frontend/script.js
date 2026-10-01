@@ -1,6 +1,6 @@
 const header = document.getElementById("header");
 
-const API_URL = "https://SUA-URL-DO-BACKEND";
+const API_URL = "https://glidia-backend.vercel.app";
 
 if (header) {
     window.addEventListener("scroll", () => {
@@ -186,7 +186,7 @@ if (loginForm) {
 
         try {
 
-            const resposta = await fetch("http://localhost:3000/login", {
+            const resposta = await fetch(`${API_URL}/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -244,7 +244,7 @@ if (formContato) {
 
         try {
 
-            const resposta = await fetch("http://localhost:3000/contato", {
+            const resposta = await fetch(`${API_URL}/contato`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -344,7 +344,7 @@ if (registerForm) {
 
         try {
 
-            const resposta = await fetch("http://localhost:3000/cadastro", {
+            const resposta = await fetch(`${API_URL}/cadastro`, {
 
                 method: "POST",
 
