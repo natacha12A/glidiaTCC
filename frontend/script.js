@@ -186,7 +186,7 @@ if (loginForm) {
 
         try {
 
-            const resposta = await fetch(`${API_URL}/login`, {
+            const resposta = await fetch("http://localhost:3000/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -244,7 +244,7 @@ if (formContato) {
 
         try {
 
-            const resposta = await fetch(`${API_URL}/contato`, {
+            const resposta = await fetch("http://localhost:3000/contato", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -344,7 +344,7 @@ if (registerForm) {
 
         try {
 
-            const resposta = await fetch(`${API_URL}/cadastro`, {
+            const resposta = await fetch("http://localhost:3000/cadastro", {
 
                 method: "POST",
 
