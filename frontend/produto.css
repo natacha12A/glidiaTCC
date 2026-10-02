@@ -173,7 +173,7 @@ header {
 .logo h2 {
     font-size: 2.9rem;
     font-weight: 500;
-    color: #091447;
+    color: #fff;
 }
 
 .logo span {
@@ -741,9 +741,9 @@ body.dark-mode .header-scroll {
 }
 
 body.dark-mode .logo h2 {
-    color: orange;
+    color: white !important;
+    -webkit-text-fill-color: white !important;
 }
-
 body.dark-mode .logo span {
     color: #ddd;
 }

@@ -660,8 +660,9 @@ body.dark-mode .purpose-text h3{
     color: #A5886A;
 }
 
-body.dark-mode .logo h2{
-    color: orange;
+body.dark-mode .logo h2 {
+    color: white !important;
+    -webkit-text-fill-color: white !important;
 }
 
 body.dark-mode .hero-text p,
