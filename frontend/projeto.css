@@ -885,8 +885,10 @@ body.dark-mode .btn-nav {
    Compatível com telas pequenas e grandes
    ========================================================= */
 
+/* =========================================================
+   TABLETS / TELAS MÉDIAS — ATÉ 1050PX
+   ========================================================= */
 @media (max-width: 1050px) {
-
     .navbar {
         padding-left: 20px;
         padding-right: 20px;
@@ -906,8 +908,6 @@ body.dark-mode .btn-nav {
         padding-right: 25px;
     }
 
-    
-
     .hero-image img {
         display: none;
     }
@@ -921,13 +921,11 @@ body.dark-mode .btn-nav {
 /* =========================================================
    MOBILE — ATÉ 800PX
    ========================================================= */
-
 @media (max-width: 800px) {
 
     /* -----------------------------------------------------
        CONFIGURAÇÃO GERAL
        ----------------------------------------------------- */
-
     html {
         width: 100%;
         max-width: 100%;
@@ -973,7 +971,6 @@ body.dark-mode .btn-nav {
     /* -----------------------------------------------------
        FUNDO
        ----------------------------------------------------- */
-
     body::before {
         position: fixed;
         inset: 0;
@@ -1010,7 +1007,6 @@ body.dark-mode .btn-nav {
     /* =====================================================
        HEADER
        ===================================================== */
-
     header,
     body.dark-mode header,
     header.header-scroll {
@@ -1043,7 +1039,6 @@ body.dark-mode .btn-nav {
     /* =====================================================
        LOGO
        ===================================================== */
-
     .logo {
         width: auto;
         max-width: 100%;
@@ -1088,7 +1083,6 @@ body.dark-mode .btn-nav {
     /* -----------------------------------------------------
        LOGO DARK MODE
        ----------------------------------------------------- */
-
     body.dark-mode .logo h2 {
         color: #fff;
     }
@@ -1101,7 +1095,6 @@ body.dark-mode .btn-nav {
     /* =====================================================
        BOTÕES DESKTOP
        ===================================================== */
-
     header .buttons {
         display: none;
     }
@@ -1110,7 +1103,6 @@ body.dark-mode .btn-nav {
     /* =====================================================
        HERO
        ===================================================== */
-
     .curiosidades-hero {
         width: 100%;
         max-width: 100%;
@@ -1132,7 +1124,6 @@ body.dark-mode .btn-nav {
     /* -----------------------------------------------------
        TEXTO DO HERO
        ----------------------------------------------------- */
-
     .curiosidades-text {
         width: 100%;
         max-width: 100%;
@@ -1163,13 +1154,13 @@ body.dark-mode .btn-nav {
 
     .tag {
         text-align: left;
+        width: 50%;
     }
 
 
     /* =====================================================
        IMAGEM DO HERO
        ===================================================== */
-
     .hero-image img {
         display: none;
     }
@@ -1178,7 +1169,6 @@ body.dark-mode .btn-nav {
     /* =====================================================
        ONDAS
        ===================================================== */
-
     .waves {
         display: none;
     }
@@ -1187,30 +1177,30 @@ body.dark-mode .btn-nav {
         display: none;
     }
 
-    
-
 
     /* =====================================================
        SEÇÕES
        ===================================================== */
-
     .section {
         width: 100%;
         max-width: 100%;
+
+        /* DIMINUIDO: antes era 55px */
         padding:
-            55px
+            30px
             clamp(14px, 5vw, 25px)
             65px;
+
         overflow: hidden;
     }
 
     .section h2 {
         width: 100%;
         max-width: 100%;
-        margin: 0 0 28px;
         font-size: clamp(22px, 7vw, 32px);
         line-height: 1.15;
         overflow-wrap: break-word;
+        margin-top: 0;
     }
 
     .section p {
@@ -1233,7 +1223,6 @@ body.dark-mode .btn-nav {
     /* =====================================================
        CARDS
        ===================================================== */
-
     .cards {
         width: 100%;
         max-width: 100%;
@@ -1281,7 +1270,6 @@ body.dark-mode .btn-nav {
     /* =====================================================
        BENEFÍCIOS
        ===================================================== */
-
     .benefits {
         width: 100%;
         max-width: 100%;
@@ -1302,6 +1290,9 @@ body.dark-mode .btn-nav {
         max-width: 100%;
         font-size: clamp(22px, 7vw, 30px);
         line-height: 1.2;
+
+        /* diminuído de 1rem */
+        margin-top: 0;
     }
 
     .benefits ul {
@@ -1327,7 +1318,6 @@ body.dark-mode .btn-nav {
     /* =====================================================
        FATOS
        ===================================================== */
-
     .facts {
         width: 100%;
         max-width: 100%;
@@ -1356,7 +1346,6 @@ body.dark-mode .btn-nav {
     /* =====================================================
        NAVEGAÇÃO INFERIOR
        ===================================================== */
-
     .menu {
         position: fixed;
         left: 0;
@@ -1389,7 +1378,6 @@ body.dark-mode .btn-nav {
     /* -----------------------------------------------------
        ITENS DO MENU
        ----------------------------------------------------- */
-
     .menu li {
         position: static;
         width: auto;
@@ -1439,7 +1427,6 @@ body.dark-mode .btn-nav {
     /* -----------------------------------------------------
        LINKS DO MENU
        ----------------------------------------------------- */
-
     .menu a {
         width: clamp(38px, 12vw, 48px);
         height: clamp(38px, 12vw, 48px);
@@ -1476,7 +1463,6 @@ body.dark-mode .btn-nav {
     /* -----------------------------------------------------
        ÍCONES
        ----------------------------------------------------- */
-
     .menu li:nth-child(1) a::before {
         content: "\f015";
     }
@@ -1505,7 +1491,6 @@ body.dark-mode .btn-nav {
     /* -----------------------------------------------------
        ATIVO
        ----------------------------------------------------- */
-
     .menu a:hover,
     .menu a.active {
         color: #ff962e;
@@ -1533,7 +1518,6 @@ body.dark-mode .btn-nav {
     /* =====================================================
        MENU EXTRA
        ===================================================== */
-
     .extra-nav {
         position: fixed;
         right: max(10px, env(safe-area-inset-right));
@@ -1587,7 +1571,6 @@ body.dark-mode .btn-nav {
     /* =====================================================
        DARK MODE
        ===================================================== */
-
     body.dark-mode .menu {
         background: rgba(2, 11, 29, 0.98);
         border-top-color: #ff962e;
@@ -1626,7 +1609,6 @@ body.dark-mode .btn-nav {
 /* =========================================================
    CELULARES — ATÉ 600PX
    ========================================================= */
-
 @media (max-width: 600px) {
 
     .navbar {
@@ -1662,7 +1644,8 @@ body.dark-mode .btn-nav {
     }
 
     .section {
-        padding-top: 50px;
+        /* diminuído de 50px para 30px */
+        padding-top: 30px;
         padding-bottom: 55px;
     }
 
@@ -1683,7 +1666,6 @@ body.dark-mode .btn-nav {
 /* =========================================================
    CELULARES PEQUENOS — ATÉ 430PX
    ========================================================= */
-
 @media (max-width: 430px) {
 
     body {
@@ -1716,7 +1698,6 @@ body.dark-mode .btn-nav {
 
 
     /* Hero */
-
     .curiosidades-hero {
         padding:
             20px
@@ -1739,7 +1720,6 @@ body.dark-mode .btn-nav {
 
 
     /* Imagem */
-
     .hero-image img {
         width: min(330px, 84vw);
         border-radius: 16px;
@@ -1747,17 +1727,17 @@ body.dark-mode .btn-nav {
 
 
     /* Seções */
-
     .section {
+        /* diminuído de 45px para 28px */
         padding:
-            45px
+            28px
             12px
             50px;
     }
 
     .section h2 {
         font-size: clamp(21px, 7vw, 28px);
-        margin-bottom: 22px;
+        margin-top: 0;
     }
 
     .section p {
@@ -1766,7 +1746,6 @@ body.dark-mode .btn-nav {
 
 
     /* Cards */
-
     .cards {
         gap: 14px;
     }
@@ -1786,9 +1765,12 @@ body.dark-mode .btn-nav {
 
 
     /* Benefícios */
-
     .benefits {
         gap: 25px;
+    }
+
+    .benefits h2 {
+        margin-top: 0;
     }
 
     .benefits ul {
@@ -1798,7 +1780,6 @@ body.dark-mode .btn-nav {
 
 
     /* Fatos */
-
     .facts {
         gap: 12px;
     }
@@ -1811,7 +1792,6 @@ body.dark-mode .btn-nav {
 
 
     /* Menu */
-
     .menu {
         height:
             calc(66px + env(safe-area-inset-bottom));
@@ -1836,7 +1816,6 @@ body.dark-mode .btn-nav {
 
 
     /* Menu extra */
-
     .extra-nav {
         right: 10px;
         bottom:
@@ -1855,7 +1834,6 @@ body.dark-mode .btn-nav {
 /* =========================================================
    CELULARES MUITO PEQUENOS — ATÉ 360PX
    ========================================================= */
-
 @media (max-width: 360px) {
 
     body {
@@ -1888,7 +1866,6 @@ body.dark-mode .btn-nav {
 
 
     /* Hero */
-
     .curiosidades-hero {
         padding:
             18px
@@ -1909,7 +1886,6 @@ body.dark-mode .btn-nav {
 
 
     /* Imagem */
-
     .hero-image img {
         width: 84vw;
         border-radius: 14px;
@@ -1917,16 +1893,17 @@ body.dark-mode .btn-nav {
 
 
     /* Seções */
-
     .section {
+        /* diminuído de 40px para 25px */
         padding:
-            40px
+            25px
             10px
             45px;
     }
 
     .section h2 {
         font-size: 20px;
+        margin-top: 0;
     }
 
     .section p {
@@ -1935,7 +1912,6 @@ body.dark-mode .btn-nav {
 
 
     /* Cards */
-
     .card-box {
         padding: 16px;
         border-radius: 15px;
@@ -1952,6 +1928,9 @@ body.dark-mode .btn-nav {
 
 
     /* Benefícios */
+    .benefits h2 {
+        margin-top: 0;
+    }
 
     .benefits ul {
         padding-left: 17px;
@@ -1960,7 +1939,6 @@ body.dark-mode .btn-nav {
 
 
     /* Fatos */
-
     .fact {
         padding: 16px;
         font-size: 10px;
@@ -1968,7 +1946,6 @@ body.dark-mode .btn-nav {
 
 
     /* Menu */
-
     .menu {
         height:
             calc(62px + env(safe-area-inset-bottom));
@@ -1988,7 +1965,6 @@ body.dark-mode .btn-nav {
 /* =========================================================
    TELAS EXTREMAMENTE PEQUENAS — ATÉ 320PX
    ========================================================= */
-
 @media (max-width: 320px) {
 
     .navbar {
@@ -2014,7 +1990,6 @@ body.dark-mode .btn-nav {
         font-size: 5.5px;
     }
 
-
     .curiosidades-hero {
         padding:
             16px
@@ -2032,14 +2007,16 @@ body.dark-mode .btn-nav {
 
 
     .section {
+        /* diminuído de 35px para 22px */
         padding:
-            35px
+            22px
             8px
             40px;
     }
 
     .section h2 {
         font-size: 19px;
+        margin-top: 0;
     }
 
     .section p {
@@ -2059,6 +2036,10 @@ body.dark-mode .btn-nav {
         font-size: 9.5px;
     }
 
+
+    .benefits h2 {
+        margin-top: 0;
+    }
 
     .benefits ul {
         font-size: 10px;
@@ -2097,7 +2078,6 @@ body.dark-mode .btn-nav {
 /* =========================================================
    SEGURANÇA CONTRA OVERFLOW
    ========================================================= */
-
 @media (max-width: 800px) {
 
     .curiosidades-hero,
@@ -2128,7 +2108,6 @@ body.dark-mode .btn-nav {
 /* =========================================================
    DARK MODE — MOBILE
    ========================================================= */
-
 @media (max-width: 800px) {
 
     body.dark-mode {
