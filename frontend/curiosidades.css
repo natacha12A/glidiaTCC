@@ -366,6 +366,8 @@ body.dark-mode header{
 
 .curiosidades-text h1{
     font-size:52px;
+    font-family:'Playfair Display',serif;
+
 }
 
 .curiosidades-text p{
@@ -515,7 +517,7 @@ body.dark-mode .curiosidades-text p{
 
 }
 
-.h2{
+.section h2{
     align-items:center;
     margin-left: 40%;
     font-size:30px;
@@ -1188,21 +1190,11 @@ body.dark-mode .btn-nav a{
        ===================================================== */
 
     .hero-image {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-
-        display: flex;
-        justify-content: center;
+        display: none;
     }
 
     .hero-image img {
-        display: block;
-
-        width: min(
-            100%,
-            36rem
-        );
+        display: none;
 
         max-width: 100%;
         height: auto;
@@ -1260,17 +1252,15 @@ body.dark-mode .btn-nav a{
         margin-left: 0;
         margin-right: 0;
 
-        font-size: clamp(
-            20px,
-            7vw,
-            32px
-        );
+        font-size: 1rem;
 
         line-height: 1.15;
 
         text-align: left;
 
         overflow-wrap: break-word;
+
+        
     }
 
 
@@ -1337,11 +1327,7 @@ body.dark-mode .btn-nav a{
         margin-left: 0;
         margin-right: 0;
 
-        font-size: clamp(
-            21px,
-            7vw,
-            30px
-        );
+        font-size: 1rem;
 
         text-align: left;
     }
@@ -1408,6 +1394,12 @@ body.dark-mode .btn-nav a{
         );
 
         overflow: hidden;
+
+        font-size: clamp(
+            10px,
+            3.5vw,
+            15px
+        );
     }
 
     .card-box h3 {
@@ -1438,7 +1430,7 @@ body.dark-mode .btn-nav a{
         font-size: clamp(
             10px,
             3.5vw,
-            14px
+            15px
         );
 
         line-height: 1.55;
@@ -1490,11 +1482,7 @@ body.dark-mode .btn-nav a{
 
         margin: 0;
 
-        font-size: clamp(
-            21px,
-            7vw,
-            30px
-        );
+        font-size: 1rem;
 
         line-height: 1.2;
 
