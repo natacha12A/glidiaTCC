@@ -1037,256 +1037,124 @@ body.dark-mode::-webkit-scrollbar-thumb{
    MOBILE — LOGIN OCUPANDO A TELA
    ========================================================= */
 
+/* =========================================================
+   AUMENTO EXTRA DO LOGIN MOBILE
+   ========================================================= */
+
 @media (max-width: 900px) {
 
-    html,
-    body {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-        overflow-x: hidden;
-    }
-
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box;
-        max-width: 100%;
-    }
-
-    body {
-        min-width: 0;
-        overflow-x: hidden;
-    }
-
-
-    /* =====================================================
-       HEADER
-       ===================================================== */
-
-    header {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: transparent;
-        z-index: 10;
-    }
-
-    .navbar {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-        height: 64px;
-        padding: 10px 18px;
-        gap: 10px;
-    }
-
-    .logo {
-        min-width: 0;
-        gap: 8px;
-    }
-
-    .logo img {
-        width: clamp(24px, 6vw, 30px);
-        height: auto;
-        flex-shrink: 0;
-    }
-
-    .logo-text {
-        min-width: 0;
-        overflow: hidden;
-    }
-
-    .logo h2 {
-        margin: 0;
-        font-size: clamp(17px, 5vw, 22px);
-        line-height: 1;
-        white-space: nowrap;
-    }
-
-    .logo span {
-        font-size: clamp(6px, 2vw, 8px);
-        white-space: nowrap;
-    }
-
-    header .buttons {
-        display: none;
-    }
-
-
-    /* =====================================================
-       ÁREA PRINCIPAL
-       ===================================================== */
-
+    /* ÁREA DO LOGIN */
     .login-page {
         width: 100%;
         min-height: calc(100vh - 64px);
         min-height: calc(100svh - 64px);
 
         padding:
-            20px
-            clamp(12px, 4vw, 30px)
-            90px;
+            25px
+            clamp(12px, 3vw, 35px)
+            100px;
 
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
     }
 
-    .login-left {
-        display: none;
-    }
-
+    /* CONTAINER */
     .login-container {
         width: 100%;
-        max-width: 560px;
-        min-width: 0;
-        display: block;
+        max-width: 680px;
         margin: 0 auto;
     }
 
-    .login-image {
-        display: none;
-    }
-
-
     /* =====================================================
-       CARD
+       CARD MAIOR
        ===================================================== */
 
     .login-card {
         width: 100%;
-        max-width: 560px;
-        min-width: 0;
-
-        margin: 0 auto;
+        max-width: 680px;
 
         padding:
-            clamp(28px, 6vw, 45px)
-            clamp(22px, 6vw, 40px);
+            clamp(40px, 7vw, 65px)
+            clamp(30px, 6vw, 60px);
 
-        border: 1px solid #ff962e;
-        border-radius: clamp(16px, 4vw, 24px);
+        border-radius: clamp(18px, 3vw, 28px);
+
+        border: 1.5px solid #ff962e;
 
         box-shadow:
-            0 18px 45px rgba(0, 0, 0, .18);
+            0 20px 55px rgba(0, 0, 0, .20);
 
-        animation: none;
         overflow: hidden;
     }
 
-    .login-card:hover {
-        transform: none;
-    }
-
-
-    /* =====================================================
-       TÍTULO
-       ===================================================== */
-
+    /* TÍTULO */
     .login-card h2 {
-        margin-bottom: 10px;
-
-        font-size: clamp(28px, 7vw, 38px);
-
+        font-size: clamp(32px, 7vw, 44px);
         line-height: 1.1;
-        text-align: center;
-
-        word-break: break-word;
+        margin-bottom: 12px;
     }
 
+    /* SUBTÍTULO */
     .subtitle {
-        margin-bottom: clamp(22px, 5vw, 32px);
-
-        font-size: clamp(11px, 2.8vw, 14px);
-
-        line-height: 1.5;
-        text-align: center;
-
-        word-break: break-word;
+        font-size: clamp(12px, 2.8vw, 16px);
+        line-height: 1.6;
+        margin-bottom: clamp(28px, 5vw, 38px);
     }
-
 
     /* =====================================================
-       FORMULÁRIO
+       FORMULÁRIO MAIOR
        ===================================================== */
 
     form {
         width: 100%;
-
-        display: flex;
-        flex-direction: column;
-
-        gap: clamp(15px, 3.5vw, 20px);
+        gap: clamp(18px, 3vw, 24px);
     }
 
     .input-group {
         width: 100%;
-        min-width: 0;
-
-        display: flex;
-        flex-direction: column;
-
-        gap: 7px;
+        gap: 8px;
     }
 
     .input-group label {
-        font-size: clamp(10px, 2.5vw, 13px);
-        font-weight: 500;
+        font-size: clamp(11px, 2.5vw, 14px);
     }
 
+    /* CAMPOS */
     .input-box {
         width: 100%;
-        min-width: 0;
+        height: 58px;
+        min-height: 58px;
 
-        min-height: 50px;
-        height: 50px;
+        padding: 0 clamp(12px, 3vw, 18px);
 
-        padding: 0 clamp(10px, 3vw, 15px);
-
-        border: 1px solid #ff962e;
-        border-radius: 12px;
+        border-radius: 13px;
     }
 
     .input-box i {
-        width: 20px;
-        min-width: 20px;
-
-        font-size: 14px;
-
-        flex-shrink: 0;
+        width: 22px;
+        min-width: 22px;
+        font-size: 16px;
     }
 
     .input-box input {
         width: 100%;
-        min-width: 0;
-
-        padding: 10px 8px;
-
-        font-size: clamp(12px, 3vw, 14px);
+        padding: 12px 10px;
+        font-size: clamp(13px, 3vw, 16px);
     }
 
     #togglePassword {
-        flex-shrink: 0;
-        font-size: 14px;
+        font-size: 16px;
     }
 
-
-    /* =====================================================
-       ESQUECEU A SENHA
-       ===================================================== */
-
+    /* ESQUECEU A SENHA */
     .forgot {
-        width: 100%;
-        margin-top: -3px;
+        margin-top: -5px;
     }
 
     .forgot a {
-        font-size: clamp(10px, 2.5vw, 12px);
-        white-space: nowrap;
+        font-size: clamp(10px, 2.5vw, 13px);
     }
-
 
     /* =====================================================
        BOTÃO ENTRAR
@@ -1294,21 +1162,19 @@ body.dark-mode::-webkit-scrollbar-thumb{
 
     .login-btn {
         width: 100%;
+        height: 58px;
+        min-height: 58px;
 
-        height: clamp(46px, 11vw, 54px);
-        min-height: 46px;
+        border-radius: 13px;
 
-        border-radius: 12px;
+        gap: 10px;
 
-        gap: 8px;
-
-        font-size: clamp(12px, 3vw, 14px);
+        font-size: clamp(13px, 3vw, 16px);
     }
 
     .login-btn i {
-        font-size: clamp(12px, 3vw, 14px);
+        font-size: clamp(13px, 3vw, 16px);
     }
-
 
     /* =====================================================
        DIVISOR
@@ -1316,245 +1182,45 @@ body.dark-mode::-webkit-scrollbar-thumb{
 
     .divider {
         width: 100%;
-
-        display: flex;
-        align-items: center;
-
-        gap: 10px;
-
-        margin: 10px 0;
-    }
-
-    .divider span {
-        min-width: 0;
-        flex: 1;
+        gap: 12px;
+        margin: 14px 0;
     }
 
     .divider p {
-        flex-shrink: 0;
-
-        font-size: clamp(9px, 2.2vw, 11px);
-
-        white-space: nowrap;
+        font-size: clamp(9px, 2.2vw, 12px);
     }
 
-
     /* =====================================================
-       LOGIN SOCIAL
+       BOTÕES SOCIAIS
        ===================================================== */
 
     .social-login {
         width: 100%;
-
-        display: flex;
-        flex-direction: column;
-
-        gap: 10px;
+        gap: 12px;
     }
 
     .social-login button {
         width: 100%;
-        min-width: 0;
+        height: 52px;
+        min-height: 52px;
 
-        height: clamp(42px, 10vw, 48px);
-        min-height: 42px;
+        border-radius: 11px;
 
-        border: 1px solid #ff962e;
-        border-radius: 10px;
+        gap: 10px;
 
-        gap: 8px;
-
-        font-size: clamp(10px, 2.5vw, 12px);
-
-        overflow: hidden;
-    }
-
-    .social-login button:hover {
-        transform: none;
-        box-shadow: none;
+        font-size: clamp(11px, 2.5vw, 14px);
     }
 
     .social-login img {
-        width: clamp(16px, 4vw, 20px);
-        height: clamp(16px, 4vw, 20px);
-
-        flex-shrink: 0;
+        width: 21px;
+        height: 21px;
     }
 
-
-    /* =====================================================
-       CADASTRO
-       ===================================================== */
-
+    /* CADASTRO */
     .register {
-        margin-top: 16px;
-
-        font-size: clamp(10px, 2.5vw, 12px);
-
-        line-height: 1.5;
-
-        word-break: break-word;
-    }
-
-
-    /* =====================================================
-       MENU MOBILE
-       ===================================================== */
-
-    .menu {
-        position: fixed;
-
-        left: 0;
-        right: 0;
-        bottom: 0;
-
-        width: 100%;
-        height: 68px;
-
-        margin: 0;
-
-        padding:
-            0
-            max(8px, env(safe-area-inset-left))
-            max(8px, env(safe-area-inset-right))
-            env(safe-area-inset-bottom);
-
-        display: flex;
-
-        justify-content: space-around;
-        align-items: center;
-
-        gap: 0;
-
-        background: rgba(255, 255, 255, .97);
-
-        border-top: 1px solid #ff962e;
-
-        box-shadow:
-            0 -8px 25px rgba(0, 0, 0, .12);
-
-        z-index: 9999;
-
-        overflow: hidden;
-    }
-
-    .menu li {
-        flex: 1 1 0;
-
-        width: auto;
-        height: 100%;
-
-        min-width: 0;
-
-        display: flex;
-
-        align-items: center;
-        justify-content: center;
-    }
-
-    .menu li:nth-child(5) {
-        display: none;
-    }
-
-    .menu li:nth-child(6) {
-        display: flex;
-    }
-
-    .menu a {
-        width: clamp(40px, 12vw, 50px);
-        height: clamp(40px, 12vw, 50px);
-
-        max-width: 50px;
-        max-height: 50px;
-
-        display: flex;
-
-        align-items: center;
-        justify-content: center;
-
-        position: relative;
-
-        color: #091447;
-
-        font-size: 0;
-
-        text-decoration: none;
-    }
-
-    .menu a::before {
-        font-family: "Font Awesome 6 Free";
-        font-weight: 900;
-
-        font-size: clamp(18px, 5vw, 22px);
-
-        line-height: 1;
-    }
-
-    .menu a:hover,
-    .menu a.active {
-        color: #ff962e;
-    }
-
-    .menu li:nth-child(1) a::before {
-        content: "\f015";
-    }
-
-    .menu li:nth-child(2) a::before {
-        content: "\f02d";
-    }
-
-    .menu li:nth-child(3) a::before {
-        content: "\f29d";
-    }
-
-    .menu li:nth-child(4) a::before {
-        content: "\f15c";
-    }
-
-    .menu li:nth-child(6) a::before {
-        content: "\f141";
-    }
-
-    .menu li:nth-child(1) {
-        order: 1;
-    }
-
-    .menu li:nth-child(2) {
-        order: 2;
-    }
-
-    .menu li:nth-child(3) {
-        order: 3;
-    }
-
-    .menu li:nth-child(4) {
-        order: 4;
-    }
-
-    .menu li:nth-child(6) {
-        order: 5;
-    }
-
-    .menu a.active::after {
-        content: "";
-
-        position: absolute;
-
-        bottom: 2px;
-        left: 50%;
-
-        width: 5px;
-        height: 5px;
-
-        border-radius: 50%;
-
-        background: #ff962e;
-
-        transform: translateX(-50%);
-    }
-
-    .menu img {
-        display: none;
+        margin-top: 20px;
+        font-size: clamp(10px, 2.5vw, 13px);
+        line-height: 1.6;
     }
 }
 
@@ -1565,21 +1231,14 @@ body.dark-mode::-webkit-scrollbar-thumb{
 
 @media (max-width: 600px) {
 
-    .navbar {
-        height: 60px;
-        padding: 9px 14px;
-    }
-
     .login-page {
         min-height: calc(100vh - 60px);
         min-height: calc(100svh - 60px);
 
         padding:
-            15px
-            clamp(10px, 4vw, 18px)
-            84px;
-
-        align-items: center;
+            20px
+            12px
+            90px;
     }
 
     .login-container {
@@ -1592,49 +1251,38 @@ body.dark-mode::-webkit-scrollbar-thumb{
         max-width: 100%;
 
         padding:
-            clamp(28px, 6vw, 40px)
-            clamp(18px, 5vw, 28px);
+            38px
+            clamp(20px, 5vw, 30px);
 
-        border-radius: 16px;
+        border-radius: 18px;
     }
 
     .login-card h2 {
-        font-size: clamp(26px, 7vw, 32px);
+        font-size: clamp(29px, 8vw, 36px);
     }
 
     .subtitle {
-        font-size: clamp(10px, 2.8vw, 13px);
-    }
-
-    .input-group label {
-        font-size: clamp(9px, 2.5vw, 12px);
+        font-size: clamp(11px, 3vw, 14px);
+        margin-bottom: 28px;
     }
 
     .input-box {
-        min-height: 48px;
-        height: 48px;
+        height: 55px;
+        min-height: 55px;
     }
 
     .input-box input {
-        font-size: clamp(11px, 3vw, 13px);
+        font-size: clamp(12px, 3.2vw, 15px);
     }
 
     .login-btn {
-        height: 46px;
-        font-size: 12px;
+        height: 55px;
+        min-height: 55px;
     }
 
     .social-login button {
-        height: 42px;
-        font-size: 10px;
-    }
-
-    .register {
-        font-size: 10px;
-    }
-
-    .menu {
-        height: 64px;
+        height: 50px;
+        min-height: 50px;
     }
 }
 
@@ -1645,41 +1293,17 @@ body.dark-mode::-webkit-scrollbar-thumb{
 
 @media (max-width: 430px) {
 
-    body {
-        padding-bottom: 70px;
-    }
-
-    .navbar {
-        height: 58px;
-        padding: 8px 11px;
-    }
-
-    .logo {
-        gap: 6px;
-    }
-
-    .logo img {
-        width: 24px;
-    }
-
-    .logo h2 {
-        font-size: clamp(15px, 5vw, 19px);
-    }
-
-    .logo span {
-        font-size: clamp(5.5px, 2vw, 7px);
-    }
-
     .login-page {
-        min-height: calc(100vh - 58px);
-        min-height: calc(100svh - 58px);
+        width: 100%;
 
         padding:
-            10px
+            15px
             8px
-            78px;
+            82px;
+    }
 
-        align-items: center;
+    .login-container {
+        width: 100%;
     }
 
     .login-card {
@@ -1687,127 +1311,103 @@ body.dark-mode::-webkit-scrollbar-thumb{
         max-width: none;
 
         padding:
-            24px
-            clamp(16px, 5vw, 22px);
+            32px
+            18px;
 
-        border-radius: 15px;
-
-        box-shadow:
-            0 15px 35px rgba(0, 0, 0, .18);
+        border-radius: 16px;
     }
 
     .login-card h2 {
-        font-size: clamp(25px, 8vw, 30px);
-        margin-bottom: 8px;
+        font-size: clamp(27px, 8vw, 33px);
+        margin-bottom: 10px;
     }
 
     .subtitle {
-        margin-bottom: 20px;
-        font-size: clamp(9px, 2.7vw, 11px);
+        font-size: clamp(10px, 2.8vw, 12px);
+        margin-bottom: 25px;
     }
 
     form {
-        gap: 13px;
+        gap: 16px;
     }
 
     .input-group {
-        gap: 5px;
+        gap: 6px;
     }
 
     .input-group label {
-        font-size: clamp(8px, 2.5vw, 11px);
+        font-size: clamp(9px, 2.7vw, 12px);
     }
 
     .input-box {
-        min-height: 44px;
-        height: 44px;
+        width: 100%;
+        height: 50px;
+        min-height: 50px;
 
-        padding: 0 8px;
+        padding: 0 10px;
 
-        border-radius: 9px;
+        border-radius: 10px;
     }
 
     .input-box i {
-        width: 16px;
-        min-width: 16px;
-
-        font-size: 12px;
+        width: 18px;
+        min-width: 18px;
+        font-size: 13px;
     }
 
     .input-box input {
-        padding: 8px 6px;
-        font-size: clamp(10px, 2.8vw, 12px);
+        padding: 9px 7px;
+        font-size: clamp(11px, 3vw, 13px);
     }
 
     #togglePassword {
-        font-size: 12px;
+        font-size: 13px;
     }
 
     .forgot a {
-        font-size: clamp(8px, 2.3vw, 10px);
+        font-size: clamp(8px, 2.5vw, 11px);
     }
 
     .login-btn {
-        height: 42px;
-        min-height: 42px;
+        width: 100%;
+        height: 50px;
+        min-height: 50px;
 
-        border-radius: 9px;
+        border-radius: 10px;
 
-        font-size: clamp(10px, 2.8vw, 12px);
-    }
-
-    .login-btn i {
-        font-size: 11px;
+        font-size: clamp(11px, 3vw, 13px);
     }
 
     .divider {
-        gap: 7px;
-        margin: 7px 0;
-    }
-
-    .divider p {
-        font-size: clamp(7px, 2vw, 9px);
-    }
-
-    .social-login {
+        margin: 10px 0;
         gap: 8px;
     }
 
+    .divider p {
+        font-size: clamp(7px, 2.2vw, 10px);
+    }
+
+    .social-login {
+        gap: 9px;
+    }
+
     .social-login button {
-        height: 36px;
-        min-height: 36px;
+        height: 44px;
+        min-height: 44px;
 
-        border-radius: 8px;
+        border-radius: 9px;
 
-        font-size: clamp(8px, 2.3vw, 10px);
+        font-size: clamp(9px, 2.5vw, 11px);
     }
 
     .social-login img {
-        width: 14px;
-        height: 14px;
+        width: 16px;
+        height: 16px;
     }
 
     .register {
-        margin-top: 12px;
-        font-size: clamp(8px, 2.3vw, 10px);
-    }
-
-    .menu {
-        height: 64px;
-
-        padding-left: 5px;
-        padding-right: 5px;
-
-        padding-bottom: env(safe-area-inset-bottom);
-    }
-
-    .menu a {
-        width: 40px;
-        height: 40px;
-    }
-
-    .menu a::before {
-        font-size: 18px;
+        margin-top: 14px;
+        font-size: clamp(8px, 2.4vw, 11px);
     }
 }
 
@@ -1818,62 +1418,34 @@ body.dark-mode::-webkit-scrollbar-thumb{
 
 @media (max-width: 360px) {
 
-    .navbar {
-        height: 54px;
-        padding: 7px 8px;
-    }
-
-    .logo {
-        gap: 5px;
-    }
-
-    .logo img {
-        width: 21px;
-    }
-
-    .logo h2 {
-        font-size: 15px;
-    }
-
-    .logo span {
-        font-size: 5.5px;
-    }
-
     .login-page {
-        min-height: calc(100vh - 54px);
-        min-height: calc(100svh - 54px);
-
         padding:
-            8px
+            10px
             6px
-            74px;
-
-        align-items: center;
+            76px;
     }
 
     .login-card {
         width: 100%;
 
-        padding: 20px 12px;
+        padding:
+            28px
+            14px;
 
-        border-radius: 12px;
+        border-radius: 14px;
     }
 
     .login-card h2 {
-        font-size: 23px;
+        font-size: 25px;
     }
 
     .subtitle {
-        font-size: 8px;
-        margin-bottom: 17px;
+        font-size: 9px;
+        margin-bottom: 22px;
     }
 
     form {
-        gap: 11px;
-    }
-
-    .input-group {
-        gap: 4px;
+        gap: 13px;
     }
 
     .input-group label {
@@ -1881,87 +1453,45 @@ body.dark-mode::-webkit-scrollbar-thumb{
     }
 
     .input-box {
-        min-height: 40px;
-        height: 40px;
-
-        padding: 0 7px;
-
+        height: 46px;
+        min-height: 46px;
         border-radius: 8px;
     }
 
+    .input-box input {
+        font-size: 10px;
+        padding: 7px 5px;
+    }
+
     .input-box i {
-        width: 15px;
-        min-width: 15px;
+        width: 16px;
+        min-width: 16px;
         font-size: 11px;
     }
 
-    .input-box input {
-        padding: 7px 5px;
-        font-size: 9px;
-    }
-
     #togglePassword {
-        font-size: 10px;
-    }
-
-    .forgot a {
-        font-size: 7px;
+        font-size: 11px;
     }
 
     .login-btn {
-        height: 38px;
-        min-height: 38px;
-        font-size: 9px;
-    }
-
-    .divider {
-        gap: 5px;
-        margin: 6px 0;
-    }
-
-    .divider p {
-        font-size: 6.5px;
-    }
-
-    .social-login {
-        gap: 6px;
+        height: 46px;
+        min-height: 46px;
+        font-size: 10px;
     }
 
     .social-login button {
-        height: 32px;
-        min-height: 32px;
-
-        font-size: 7px;
-
-        border-radius: 7px;
+        height: 40px;
+        min-height: 40px;
+        font-size: 8px;
     }
 
     .social-login img {
-        width: 12px;
-        height: 12px;
+        width: 14px;
+        height: 14px;
     }
 
     .register {
-        margin-top: 9px;
-        font-size: 7px;
-    }
-
-    .menu {
-        height: 60px;
-    }
-
-    .menu a {
-        width: 36px;
-        height: 36px;
-    }
-
-    .menu a::before {
-        font-size: 17px;
-    }
-
-    .menu a.active::after {
-        width: 4px;
-        height: 4px;
+        font-size: 8px;
     }
 }
 
@@ -1972,262 +1502,52 @@ body.dark-mode::-webkit-scrollbar-thumb{
 
 @media (max-width: 320px) {
 
-    .navbar {
-        height: 52px;
-        padding: 6px;
-    }
-
-    .logo {
-        gap: 4px;
-    }
-
-    .logo img {
-        width: 19px;
-    }
-
-    .logo h2 {
-        font-size: 14px;
-    }
-
-    .logo span {
-        font-size: 5px;
-    }
-
     .login-page {
-        min-height: calc(100vh - 52px);
-        min-height: calc(100svh - 52px);
-
         padding:
-            6px
+            8px
             5px
-            72px;
-
-        align-items: center;
+            74px;
     }
 
     .login-card {
-        width: 100%;
+        padding:
+            24px
+            11px;
 
-        padding: 17px 9px;
-
-        border-radius: 10px;
+        border-radius: 12px;
     }
 
     .login-card h2 {
-        font-size: 21px;
+        font-size: 23px;
     }
 
     .subtitle {
-        font-size: 7px;
-        margin-bottom: 14px;
-    }
-
-    form {
-        gap: 9px;
-    }
-
-    .input-group {
-        gap: 3px;
-    }
-
-    .input-group label {
-        font-size: 7px;
+        font-size: 8px;
+        margin-bottom: 19px;
     }
 
     .input-box {
-        min-height: 36px;
-        height: 36px;
-
-        padding: 0 6px;
-
-        border-radius: 7px;
-    }
-
-    .input-box i {
-        width: 14px;
-        min-width: 14px;
-        font-size: 10px;
+        height: 43px;
+        min-height: 43px;
     }
 
     .input-box input {
-        padding: 6px 4px;
-        font-size: 8px;
-    }
-
-    #togglePassword {
         font-size: 9px;
     }
 
-    .forgot a {
-        font-size: 6.5px;
-    }
-
     .login-btn {
-        height: 34px;
-        min-height: 34px;
-        font-size: 8px;
-    }
-
-    .divider {
-        gap: 4px;
-        margin: 5px 0;
-    }
-
-    .divider p {
-        font-size: 6px;
-    }
-
-    .social-login {
-        gap: 5px;
+        height: 43px;
+        min-height: 43px;
+        font-size: 9px;
     }
 
     .social-login button {
-        height: 29px;
-        min-height: 29px;
-
-        font-size: 6.5px;
-    }
-
-    .social-login img {
-        width: 11px;
-        height: 11px;
+        height: 37px;
+        min-height: 37px;
+        font-size: 7px;
     }
 
     .register {
-        margin-top: 7px;
-        font-size: 6.5px;
-    }
-
-    .menu {
-        height: 58px;
-    }
-
-    .menu a {
-        width: 33px;
-        height: 34px;
-    }
-
-    .menu a::before {
-        font-size: 16px;
-    }
-}
-
-
-/* =========================================================
-   SEGURANÇA FINAL CONTRA OVERFLOW
-   ========================================================= */
-
-@media (max-width: 900px) {
-
-    img,
-    video,
-    iframe,
-    svg {
-        max-width: 100%;
-        height: auto;
-    }
-
-    input,
-    button,
-    textarea,
-    select {
-        max-width: 100%;
-    }
-
-    .login-card *,
-    .login-container *,
-    .navbar * {
-        min-width: 0;
-    }
-
-    .login-card h2,
-    .subtitle,
-    .register,
-    .input-group label {
-        overflow-wrap: anywhere;
-    }
-
-    body.dark-mode {
-        overflow-x: hidden;
-    }
-
-
-    /* =====================================================
-       DARK MODE
-       ===================================================== */
-
-    body.dark-mode .menu {
-        background: rgba(2, 11, 29, .98);
-
-        border-top: 1px solid #ff962e;
-
-        box-shadow:
-            0 -8px 25px rgba(0, 0, 0, .25);
-    }
-
-    body.dark-mode .menu a {
-        color: #ff962e;
-    }
-
-    body.dark-mode header {
-        background: transparent;
-    }
-
-    body.dark-mode .logo h2 {
-        color: #ff962e;
-    }
-
-    body.dark-mode .logo span {
-        color: #d7dbe3;
-    }
-
-    body.dark-mode .login-card {
-        background: #071126;
-        color: #fff;
-
-        border-color: #ff962e;
-    }
-
-    body.dark-mode .subtitle {
-        color: #cfcfcf;
-    }
-
-    body.dark-mode .input-group label {
-        color: #fff;
-    }
-
-    body.dark-mode .input-box {
-        background: #101a39;
-        border-color: #ff962e;
-    }
-
-    body.dark-mode .input-box input {
-        color: #fff;
-    }
-
-    body.dark-mode .input-box input::placeholder {
-        color: #bcbcbc;
-    }
-
-    body.dark-mode .input-box i {
-        color: #ff962e;
-    }
-
-    body.dark-mode .divider span {
-        background: #2d365a;
-    }
-
-    body.dark-mode .divider p {
-        color: #d2d2d2;
-    }
-
-    body.dark-mode .social-login button {
-        background: #101a39;
-        color: #fff;
-        border-color: #ff962e;
-    }
-
-    body.dark-mode .register {
-        color: #ddd;
+        font-size: 7px;
     }
 }
