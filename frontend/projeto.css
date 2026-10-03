@@ -716,493 +716,6 @@ body.dark-mode::-webkit-scrollbar-thumb{
 }
 
 
-/* =========================================================
-   GLÍDIA — RESPONSIVO MOBILE
-   Mesmas medidas da versão mobile de referência
-   ========================================================= */
-
-@media (max-width: 1050px) {
-
-    .navbar {
-        padding-inline: 20px;
-    }
-
-    .menu {
-        gap: 17px;
-    }
-
-    .menu a {
-        font-size: 11px;
-    }
-
-    .curiosidades-hero {
-        gap: 30px;
-        padding-inline: 25px;
-    }
-
-    .hero-image {
-        min-width: 340px;
-    }
-
-    .hero-image::after {
-        right: -12px;
-    }
-
-    .benefits {
-        gap: 30px;
-    }
-}
-
-
-@media (max-width: 800px) {
-
-    body {
-        padding-bottom: 78px;
-        overflow-x: hidden;
-    }
-
-    header,
-    body.dark-mode header,
-    header.header-scroll {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: transparent;
-        border-bottom: none;
-        box-shadow: none;
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-    }
-
-    .navbar {
-        width: 100%;
-        max-width: none;
-        height: 70px;
-        padding: 14px 18px;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-    }
-
-    .logo {
-        gap: 8px;
-    }
-
-    .logo img {
-        width: 28px;
-        height: auto;
-        filter: none;
-    }
-
-    .logo-text {
-        gap: 2px;
-    }
-
-    .logo h2 {
-        margin: 0;
-        font-size: 19px;
-        line-height: 1;
-        letter-spacing: normal;
-    }
-
-    .logo span {
-        font-size: 8px;
-        line-height: 1.2;
-        letter-spacing: .1px;
-        text-transform: none;
-    }
-
-    header .buttons {
-        display: none;
-    }
-
-    /* HERO */
-
-    .curiosidades-hero {
-        min-height: auto;
-        display: grid;
-        grid-template-columns: 1fr;
-        padding: 95px 20px 70px;
-        gap: 20px;
-    }
-
-    .curiosidades-text {
-        width: 100%;
-        padding-left: 8px;
-    }
-
-    .curiosidades-text h1 {
-        font-size: clamp(64px, 20vw, 94px);
-    }
-
-    .curiosidades-text p {
-        font-size: 15px;
-        line-height: 1.7;
-        margin: 22px 0;
-    }
-
-    .tag {
-        font-size: 7px;
-        letter-spacing: .12em;
-    }
-
-    .hero-image {
-        width: 100%;
-        min-width: 0;
-        max-width: 520px;
-        margin: 10px auto 0;
-    }
-
-    .hero-image img {
-        width: min(390px, 88vw);
-    }
-
-    .hero-image::after {
-        right: 2%;
-        top: 9%;
-    }
-
-    /* SEÇÕES */
-
-    .section {
-        padding: 75px 20px 90px;
-    }
-
-    .section h2 {
-        margin-bottom: 40px;
-    }
-
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
-    .card-box {
-        width: 100%;
-        padding: 24px;
-        border-radius: 20px;
-    }
-
-    /* BENEFÍCIOS */
-
-    .benefits {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .benefits h2,
-    .benefits ul {
-        margin-left: 0;
-    }
-
-    .benefits img {
-        margin-right: 0;
-        width: 100%;
-        max-width: 520px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    /* FATOS */
-
-    .facts {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 20px;
-    }
-
-    .fact {
-        width: 100%;
-    }
-
-    /* NAVEGAÇÃO MOBILE */
-
-    .menu {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 72px;
-        margin: 0;
-        padding: 0 18px;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        gap: 0;
-        list-style: none;
-        background: rgba(255, 255, 255, .96);
-        border-top: 1px solid #ff962e;
-        box-shadow: 0 -8px 25px rgba(0, 0, 0, .12);
-        z-index: 9999;
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-    }
-
-    .menu li {
-        position: static;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 20%;
-        height: 100%;
-    }
-
-    .menu li:nth-child(5) {
-        display: none;
-    }
-
-    .menu li:nth-child(6),
-    .menu li:nth-child(7) {
-        display: flex;
-    }
-
-    .menu li:nth-child(1) {
-        order: 1;
-    }
-
-    .menu li:nth-child(2) {
-        order: 2;
-    }
-
-    .menu li:nth-child(3) {
-        order: 3;
-    }
-
-    .menu li:nth-child(6) {
-        order: 4;
-    }
-
-    .menu li:nth-child(4) {
-        order: 5;
-    }
-
-    .menu li:nth-child(7) {
-        order: 6;
-    }
-
-    .menu a {
-        width: 48px;
-        height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        padding: 0;
-        color: #091447;
-        font-size: 0;
-        font-weight: normal;
-        letter-spacing: normal;
-        text-transform: none;
-        text-decoration: none;
-        transition: .25s ease;
-    }
-
-    .menu a::after {
-        display: none;
-    }
-
-    .menu a::before {
-        font-family: "Font Awesome 6 Free";
-        font-weight: 900;
-        font-size: 25px;
-        line-height: 1;
-        transition: .25s ease;
-    }
-
-    .menu li:nth-child(1) a::before {
-        content: "\f015";
-    }
-
-    .menu li:nth-child(2) a::before {
-        content: "\f02d";
-    }
-
-    .menu li:nth-child(3) a::before {
-        content: "\f29d";
-    }
-
-    .menu li:nth-child(4) a::before {
-        content: "\f15c";
-    }
-
-    .menu li:nth-child(6) a::before {
-        content: "\f2bd";
-    }
-
-    .menu li:nth-child(7) a::before {
-        content: "\f141";
-    }
-
-    .menu a:hover,
-    .menu a.active {
-        color: #ff962e;
-    }
-
-    .menu a.active::after {
-        content: "";
-        display: block;
-        position: absolute;
-        left: 50%;
-        bottom: 3px;
-        width: 5px;
-        height: 5px;
-        border-radius: 50%;
-        background: #ff962e;
-        transform: translateX(-50%);
-    }
-
-    .menu img {
-        display: none;
-    }
-
-    /* MENU EXTRA */
-
-    .extra-nav {
-        position: fixed;
-        right: 15px;
-        bottom: 78px;
-        width: 210px;
-        padding: 12px;
-        display: none;
-        flex-direction: column;
-        gap: 8px;
-        background: rgba(255, 255, 255, .98);
-        border: 1px solid #ff962e;
-        border-radius: 15px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, .18);
-        z-index: 10000;
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-    }
-
-    .extra-nav.open {
-        display: flex;
-    }
-
-    .extra-nav a,
-    .extra-nav button {
-        width: 100%;
-        padding: 11px 12px;
-        border: none;
-        border-radius: 10px;
-        background: transparent;
-        color: #091447;
-        font-family: "Poppins", sans-serif;
-        font-size: 12px;
-        text-align: left;
-        text-decoration: none;
-        cursor: pointer;
-        transition: .2s ease;
-    }
-
-    .extra-nav a:hover,
-    .extra-nav button:hover {
-        background: #f5f5f5;
-        color: #ff962e;
-    }
-
-    /* MODO ESCURO */
-
-    body.dark-mode .menu {
-        background: rgba(2, 11, 29, .98);
-        border-top: 1px solid #ff962e;
-        box-shadow: 0 -8px 25px rgba(0, 0, 0, .25);
-    }
-
-    body.dark-mode .menu a {
-        color: #ff962e;
-    }
-
-    body.dark-mode .menu a.active {
-        color: #ff962e;
-    }
-
-    body.dark-mode .extra-nav {
-        background: rgba(2, 11, 29, .98);
-        border-color: #ff962e;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, .3);
-    }
-
-    body.dark-mode .extra-nav a,
-    body.dark-mode .extra-nav button {
-        color: #ff962e;
-    }
-
-    body.dark-mode .extra-nav a:hover,
-    body.dark-mode .extra-nav button:hover {
-        background: #091447;
-    }
-}
-
-
-@media (max-width: 430px) {
-
-    .navbar {
-        height: 62px;
-        padding: 12px 17px;
-    }
-
-    .logo img {
-        width: 26px;
-    }
-
-    .logo h2 {
-        font-size: 18px;
-    }
-
-    .logo span {
-        font-size: 7.5px;
-    }
-
-    .curiosidades-hero {
-        padding: 80px 18px 60px;
-    }
-
-    .curiosidades-text h1 {
-        font-size: clamp(54px, 18vw, 78px);
-    }
-
-    .curiosidades-text p {
-        font-size: 14px;
-    }
-
-    .hero-image {
-        aspect-ratio: .95;
-    }
-
-    .hero-image img {
-        width: 82vw;
-    }
-
-    .hero-image::after {
-        font-size: 6px;
-        padding: 7px 9px;
-    }
-
-    .card-box {
-        padding: 24px;
-        border-radius: 20px;
-    }
-
-    .menu {
-        height: 68px;
-        padding: 0 10px;
-    }
-
-    .menu a {
-        width: 44px;
-        height: 44px;
-    }
-
-    .menu a::before {
-        font-size: 21px;
-    }
-
-    .menu a.active::after {
-        width: 4px;
-        height: 4px;
-    }
-}
 
 /* =========================================================
    NAVEGAÇÃO — SUBSTITUÍDA PELO CSS DO SEGUNDO ARQUIVO
@@ -1367,11 +880,136 @@ body.dark-mode .btn-nav {
     color: #fff;
 }
 
-/* NAVEGAÇÃO MOBILE */
-@media (max-width: 800px) {
-    body {
-        padding-bottom: 78px;
+/* =========================================================
+   GLÍDIA — RESPONSIVO MOBILE
+   Compatível com telas pequenas e grandes
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .navbar {
+        padding-left: 20px;
+        padding-right: 20px;
     }
+
+    .menu {
+        gap: 17px;
+    }
+
+    .menu a {
+        font-size: 11px;
+    }
+
+    .curiosidades-hero {
+        gap: 30px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    
+
+    .hero-image img {
+        display: none;
+    }
+
+    .benefits {
+        gap: 30px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE — ATÉ 800PX
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    /* -----------------------------------------------------
+       CONFIGURAÇÃO GERAL
+       ----------------------------------------------------- */
+
+    html {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        margin: 0;
+        padding-bottom: calc(74px + env(safe-area-inset-bottom));
+        overflow-x: hidden;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        min-width: 0;
+    }
+
+    img,
+    video,
+    svg,
+    iframe {
+        max-width: 100%;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+
+
+    /* -----------------------------------------------------
+       FUNDO
+       ----------------------------------------------------- */
+
+    body::before {
+        position: fixed;
+        inset: 0;
+        background:
+            radial-gradient(
+                circle at 15% 20%,
+                rgba(255, 150, 46, 0.12),
+                transparent 35%
+            ),
+            radial-gradient(
+                circle at 85% 30%,
+                rgba(9, 20, 71, 0.15),
+                transparent 40%
+            ),
+            radial-gradient(
+                circle at 50% 80%,
+                rgba(255, 150, 46, 0.08),
+                transparent 45%
+            );
+        animation: none;
+    }
+
+    body::after {
+        background-size: 45px 45px;
+        animation: none;
+        opacity: 0.35;
+    }
+
+    .tech-particles {
+        display: none;
+    }
+
+
+    /* =====================================================
+       HEADER
+       ===================================================== */
 
     header,
     body.dark-mode header,
@@ -1380,103 +1018,434 @@ body.dark-mode .btn-nav {
         top: 0;
         left: 0;
         width: 100%;
+        max-width: 100%;
         background: transparent;
-        border-bottom: none;
+        border: none;
         box-shadow: none;
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
+        transform: none;
     }
 
     .navbar {
         width: 100%;
-        max-width: none;
-        height: 70px;
-        padding: 14px 18px;
+        max-width: 100%;
+        height: 68px;
+        margin: 0;
+        padding: 10px 15px;
         display: flex;
-        justify-content: flex-start;
         align-items: center;
+        justify-content: flex-start;
+        overflow: hidden;
     }
 
+
+    /* =====================================================
+       LOGO
+       ===================================================== */
+
     .logo {
-        gap: 8px;
+        width: auto;
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        flex-shrink: 1;
     }
 
     .logo img {
         width: 28px;
+        max-width: 28px;
         height: auto;
+        flex-shrink: 0;
         filter: none;
     }
 
     .logo-text {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
         gap: 2px;
     }
 
     .logo h2 {
         margin: 0;
-        font-size: 19px;
+        font-size: clamp(16px, 5vw, 20px);
         line-height: 1;
         letter-spacing: normal;
+        white-space: nowrap;
     }
 
     .logo span {
-        font-size: 8px;
-        letter-spacing: .1px;
+        font-size: clamp(6px, 2vw, 8px);
+        line-height: 1.1;
+        letter-spacing: 0;
         text-transform: none;
+        white-space: nowrap;
     }
+
+
+    /* -----------------------------------------------------
+       LOGO DARK MODE
+       ----------------------------------------------------- */
+
+    body.dark-mode .logo h2 {
+        color: #fff;
+    }
+
+    body.dark-mode .logo span {
+        color: #aeb7cd;
+    }
+
+
+    /* =====================================================
+       BOTÕES DESKTOP
+       ===================================================== */
 
     header .buttons {
         display: none;
     }
 
-    .menu {
-        position: fixed;
-        left: 0;
-        bottom: 0;
+
+    /* =====================================================
+       HERO
+       ===================================================== */
+
+    .curiosidades-hero {
         width: 100%;
-        height: 72px;
+        max-width: 100%;
+        min-height: auto;
         margin: 0;
-        padding: 0 18px;
+        padding:
+            clamp(25px, 8vw, 60px)
+            clamp(14px, 5vw, 25px)
+            50px;
         display: flex;
-        justify-content: space-around;
-        align-items: center;
-        gap: 0;
-        list-style: none;
-        background: rgba(255,255,255,.96);
-        border-top: 1px solid #ff962e;
-        box-shadow: 0 -8px 25px rgba(0,0,0,.12);
-        z-index: 9999;
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-    }
-
-    .menu li {
-        position: static;
-        display: flex;
-        align-items: center;
+        flex-direction: column;
+        align-items: stretch;
         justify-content: center;
-        width: 20%;
-        height: 100%;
+        gap: clamp(25px, 7vw, 45px);
+        overflow: hidden;
     }
 
-    .menu li:nth-child(5) {
+
+    /* -----------------------------------------------------
+       TEXTO DO HERO
+       ----------------------------------------------------- */
+
+    .curiosidades-text {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        text-align: left;
+    }
+
+    .curiosidades-text h1 {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        font-size: clamp(32px, 10vw, 55px);
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        text-align: left;
+        overflow-wrap: break-word;
+    }
+
+    .curiosidades-text p {
+        width: 100%;
+        max-width: 100%;
+        margin: 16px 0 0;
+        font-size: clamp(12px, 3.5vw, 15px);
+        line-height: 1.6;
+        text-align: left;
+        overflow-wrap: break-word;
+    }
+
+    .tag {
+        text-align: left;
+    }
+
+
+    /* =====================================================
+       IMAGEM DO HERO
+       ===================================================== */
+
+    .hero-image img {
         display: none;
     }
 
-    .menu li:nth-child(6),
-    .menu li:nth-child(7) {
-        display: flex;
+
+    /* =====================================================
+       ONDAS
+       ===================================================== */
+
+    .waves {
+        display: none;
     }
 
-    .menu li:nth-child(1) { order: 1; }
-    .menu li:nth-child(2) { order: 2; }
-    .menu li:nth-child(3) { order: 3; }
-    .menu li:nth-child(6) { order: 4; }
-    .menu li:nth-child(4) { order: 5; }
-    .menu li:nth-child(7) { order: 6; }
+    .waves span {
+        display: none;
+    }
+
+    
+
+
+    /* =====================================================
+       SEÇÕES
+       ===================================================== */
+
+    .section {
+        width: 100%;
+        max-width: 100%;
+        padding:
+            55px
+            clamp(14px, 5vw, 25px)
+            65px;
+        overflow: hidden;
+    }
+
+    .section h2 {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 28px;
+        font-size: clamp(22px, 7vw, 32px);
+        line-height: 1.15;
+        overflow-wrap: break-word;
+    }
+
+    .section p {
+        width: 100%;
+        max-width: 100%;
+        margin: 10px 0 0;
+        font-size: clamp(12px, 3.5vw, 15px);
+        line-height: 1.6;
+    }
+
+    .oque,
+    .dia {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        text-align: left;
+    }
+
+
+    /* =====================================================
+       CARDS
+       ===================================================== */
+
+    .cards {
+        width: 100%;
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-top: 25px;
+    }
+
+    .card-box {
+        width: 100%;
+        max-width: 100%;
+        min-height: 0;
+        padding: clamp(18px, 5vw, 24px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .card-box h3 {
+        max-width: 100%;
+        font-size: clamp(15px, 4.5vw, 18px);
+        text-align: center;
+        overflow-wrap: break-word;
+    }
+
+    .card-box p {
+        width: 100%;
+        max-width: 100%;
+        font-size: clamp(11px, 3.5vw, 14px);
+        line-height: 1.55;
+        text-align: center;
+        overflow-wrap: break-word;
+    }
+
+    .card-box span {
+        font-size: clamp(18px, 5vw, 22px);
+    }
+
+
+    /* =====================================================
+       BENEFÍCIOS
+       ===================================================== */
+
+    .benefits {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin-top: 45px;
+        align-items: stretch;
+    }
+
+    .benefits h2,
+    .benefits ul {
+        margin-left: 0;
+    }
+
+    .benefits h2 {
+        width: 100%;
+        max-width: 100%;
+        font-size: clamp(22px, 7vw, 30px);
+        line-height: 1.2;
+    }
+
+    .benefits ul {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 15px;
+        padding-left: 20px;
+        font-size: clamp(12px, 3.5vw, 16px);
+        line-height: 1.7;
+        overflow-wrap: break-word;
+    }
+
+    .benefits img {
+        width: 100%;
+        max-width: 520px;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+        border-radius: 18px;
+    }
+
+
+    /* =====================================================
+       FATOS
+       ===================================================== */
+
+    .facts {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 25px;
+        margin-bottom: 10px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+        border-radius: 0;
+    }
+
+    .fact {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: clamp(18px, 5vw, 28px);
+        border-radius: 18px;
+        font-size: clamp(12px, 3.5vw, 15px);
+        line-height: 1.5;
+        overflow: hidden;
+    }
+
+
+    /* =====================================================
+       NAVEGAÇÃO INFERIOR
+       ===================================================== */
+
+    .menu {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        max-width: 100%;
+        height: calc(70px + env(safe-area-inset-bottom));
+        margin: 0;
+        padding:
+            0
+            5px
+            env(safe-area-inset-bottom);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0;
+        list-style: none;
+        background: rgba(255, 255, 255, 0.97);
+        border-top: 1px solid #ff962e;
+        box-shadow:
+            0 -8px 25px rgba(0, 0, 0, 0.12);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        z-index: 9999;
+        overflow: hidden;
+    }
+
+
+    /* -----------------------------------------------------
+       ITENS DO MENU
+       ----------------------------------------------------- */
+
+    .menu li {
+        position: static;
+        width: auto;
+        min-width: 0;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1 1 0;
+    }
+
+    /* Esconde o quinto item */
+    .menu li:nth-child(5) {
+        display: none !important;
+    }
+
+    /* Ordem */
+    .menu li:nth-child(1) {
+        order: 1;
+    }
+
+    .menu li:nth-child(2) {
+        order: 2;
+    }
+
+    .menu li:nth-child(3) {
+        order: 3;
+    }
+
+    .menu li:nth-child(6) {
+        order: 4;
+        display: flex !important;
+    }
+
+    .menu li:nth-child(4) {
+        order: 5;
+    }
+
+    .menu li:nth-child(7) {
+        order: 6;
+        display: flex !important;
+    }
+
+
+    /* -----------------------------------------------------
+       LINKS DO MENU
+       ----------------------------------------------------- */
 
     .menu a {
-        width: 48px;
-        height: 48px;
+        width: clamp(38px, 12vw, 48px);
+        height: clamp(38px, 12vw, 48px);
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1487,6 +1456,8 @@ body.dark-mode .btn-nav {
         letter-spacing: normal;
         text-transform: none;
         text-decoration: none;
+        flex-shrink: 1;
+        transition: 0.25s ease;
     }
 
     .menu a::after {
@@ -1496,16 +1467,44 @@ body.dark-mode .btn-nav {
     .menu a::before {
         font-family: "Font Awesome 6 Free";
         font-weight: 900;
-        font-size: 25px;
+        font-size: clamp(19px, 6vw, 25px);
         line-height: 1;
+        transition: 0.25s ease;
     }
 
-    .menu li:nth-child(1) a::before { content: "\f015"; }
-    .menu li:nth-child(2) a::before { content: "\f02d"; }
-    .menu li:nth-child(3) a::before { content: "\f29d"; }
-    .menu li:nth-child(4) a::before { content: "\f15c"; }
-    .menu li:nth-child(6) a::before { content: "\f2bd"; }
-    .menu li:nth-child(7) a::before { content: "\f141"; }
+
+    /* -----------------------------------------------------
+       ÍCONES
+       ----------------------------------------------------- */
+
+    .menu li:nth-child(1) a::before {
+        content: "\f015";
+    }
+
+    .menu li:nth-child(2) a::before {
+        content: "\f02d";
+    }
+
+    .menu li:nth-child(3) a::before {
+        content: "\f29d";
+    }
+
+    .menu li:nth-child(4) a::before {
+        content: "\f15c";
+    }
+
+    .menu li:nth-child(6) a::before {
+        content: "\f2bd";
+    }
+
+    .menu li:nth-child(7) a::before {
+        content: "\f141";
+    }
+
+
+    /* -----------------------------------------------------
+       ATIVO
+       ----------------------------------------------------- */
 
     .menu a:hover,
     .menu a.active {
@@ -1518,7 +1517,7 @@ body.dark-mode .btn-nav {
         position: absolute;
         left: 50%;
         right: auto;
-        bottom: 3px;
+        bottom: 2px;
         width: 5px;
         height: 5px;
         border-radius: 50%;
@@ -1530,22 +1529,30 @@ body.dark-mode .btn-nav {
         display: none;
     }
 
+
+    /* =====================================================
+       MENU EXTRA
+       ===================================================== */
+
     .extra-nav {
         position: fixed;
-        right: 15px;
-        bottom: 78px;
-        width: 210px;
-        padding: 12px;
+        right: max(10px, env(safe-area-inset-right));
+        bottom: calc(76px + env(safe-area-inset-bottom));
+        width: min(210px, calc(100vw - 20px));
+        max-width: calc(100vw - 20px);
+        padding: 10px;
         display: none;
         flex-direction: column;
-        gap: 8px;
-        background: rgba(255,255,255,.98);
+        gap: 6px;
+        background: rgba(255, 255, 255, 0.98);
         border: 1px solid #ff962e;
-        border-radius: 15px;
-        box-shadow: 0 8px 25px rgba(0,0,0,.18);
+        border-radius: 14px;
+        box-shadow:
+            0 8px 25px rgba(0, 0, 0, 0.18);
         z-index: 10000;
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
+        overflow: hidden;
     }
 
     .extra-nav.open {
@@ -1555,16 +1562,19 @@ body.dark-mode .btn-nav {
     .extra-nav a,
     .extra-nav button {
         width: 100%;
-        padding: 11px 12px;
+        max-width: 100%;
+        padding: 10px;
         border: none;
-        border-radius: 10px;
+        border-radius: 9px;
         background: transparent;
         color: #091447;
         font-family: "Poppins", sans-serif;
-        font-size: 12px;
+        font-size: clamp(10px, 3vw, 12px);
+        line-height: 1.3;
         text-align: left;
         text-decoration: none;
         cursor: pointer;
+        overflow-wrap: break-word;
     }
 
     .extra-nav a:hover,
@@ -1573,10 +1583,16 @@ body.dark-mode .btn-nav {
         color: #ff962e;
     }
 
+
+    /* =====================================================
+       DARK MODE
+       ===================================================== */
+
     body.dark-mode .menu {
-        background: rgba(2,11,29,.98);
-        border-top: 1px solid #ff962e;
-        box-shadow: 0 -8px 25px rgba(0,0,0,.25);
+        background: rgba(2, 11, 29, 0.98);
+        border-top-color: #ff962e;
+        box-shadow:
+            0 -8px 25px rgba(0, 0, 0, 0.3);
     }
 
     body.dark-mode .menu a,
@@ -1585,9 +1601,10 @@ body.dark-mode .btn-nav {
     }
 
     body.dark-mode .extra-nav {
-        background: rgba(2,11,29,.98);
+        background: rgba(2, 11, 29, 0.98);
         border-color: #ff962e;
-        box-shadow: 0 8px 25px rgba(0,0,0,.3);
+        box-shadow:
+            0 8px 25px rgba(0, 0, 0, 0.3);
     }
 
     body.dark-mode .extra-nav a,
@@ -1599,16 +1616,28 @@ body.dark-mode .btn-nav {
     body.dark-mode .extra-nav button:hover {
         background: #091447;
     }
+
+    body.dark-mode .card-box p {
+        color: #fff;
+    }
 }
 
-@media (max-width: 430px) {
+
+/* =========================================================
+   CELULARES — ATÉ 600PX
+   ========================================================= */
+
+@media (max-width: 600px) {
+
     .navbar {
-        height: 62px;
-        padding: 12px 17px;
+        height: 64px;
+        padding-left: 12px;
+        padding-right: 12px;
     }
 
     .logo img {
         width: 26px;
+        max-width: 26px;
     }
 
     .logo h2 {
@@ -1616,15 +1645,542 @@ body.dark-mode .btn-nav {
     }
 
     .logo span {
-        font-size: 7.5px;
+        font-size: 7px;
     }
 
+    .curiosidades-hero {
+        padding-top: 25px;
+        padding-bottom: 45px;
+    }
+
+    .curiosidades-text p {
+        font-size: clamp(12px, 3.8vw, 14px);
+    }
+
+    .hero-image img {
+        width: min(350px, 86vw);
+    }
+
+    .section {
+        padding-top: 50px;
+        padding-bottom: 55px;
+    }
+
+    .card-box {
+        padding: 20px;
+    }
+
+    .benefits {
+        margin-top: 35px;
+    }
+
+    .fact {
+        padding: 20px;
+    }
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS — ATÉ 430PX
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+    body {
+        padding-bottom:
+            calc(68px + env(safe-area-inset-bottom));
+    }
+
+    .navbar {
+        height: 60px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .logo {
+        gap: 6px;
+    }
+
+    .logo img {
+        width: 24px;
+        max-width: 24px;
+    }
+
+    .logo h2 {
+        font-size: 17px;
+    }
+
+    .logo span {
+        font-size: 6.5px;
+    }
+
+
+    /* Hero */
+
+    .curiosidades-hero {
+        padding:
+            20px
+            12px
+            40px;
+        gap: 25px;
+    }
+
+    .curiosidades-text p {
+        font-size: 12px;
+        line-height: 1.55;
+    }
+
+    .tag {
+        font-size: 7px;
+        padding:
+            5px
+            9px;
+    }
+
+
+    /* Imagem */
+
+    .hero-image img {
+        width: min(330px, 84vw);
+        border-radius: 16px;
+    }
+
+
+    /* Seções */
+
+    .section {
+        padding:
+            45px
+            12px
+            50px;
+    }
+
+    .section h2 {
+        font-size: clamp(21px, 7vw, 28px);
+        margin-bottom: 22px;
+    }
+
+    .section p {
+        font-size: 12px;
+    }
+
+
+    /* Cards */
+
+    .cards {
+        gap: 14px;
+    }
+
+    .card-box {
+        padding: 18px;
+        border-radius: 17px;
+    }
+
+    .card-box h3 {
+        font-size: 16px;
+    }
+
+    .card-box p {
+        font-size: 11px;
+    }
+
+
+    /* Benefícios */
+
+    .benefits {
+        gap: 25px;
+    }
+
+    .benefits ul {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+
+    /* Fatos */
+
+    .facts {
+        gap: 12px;
+    }
+
+    .fact {
+        padding: 18px;
+        border-radius: 15px;
+        font-size: 11px;
+    }
+
+
+    /* Menu */
+
     .menu {
-        height: 68px;
-        padding: 0 10px;
+        height:
+            calc(66px + env(safe-area-inset-bottom));
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+
+    .menu a {
+        width: 40px;
+        height: 42px;
     }
 
     .menu a::before {
-        font-size: 21px;
+        font-size: 20px;
+    }
+
+    .menu a.active::after {
+        width: 4px;
+        height: 4px;
+        bottom: 2px;
+    }
+
+
+    /* Menu extra */
+
+    .extra-nav {
+        right: 10px;
+        bottom:
+            calc(
+                72px + env(safe-area-inset-bottom)
+            );
+        width:
+            min(
+                200px,
+                calc(100vw - 20px)
+            );
+    }
+}
+
+
+/* =========================================================
+   CELULARES MUITO PEQUENOS — ATÉ 360PX
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    body {
+        padding-bottom:
+            calc(64px + env(safe-area-inset-bottom));
+    }
+
+    .navbar {
+        height: 56px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .logo {
+        gap: 5px;
+    }
+
+    .logo img {
+        width: 22px;
+        max-width: 22px;
+    }
+
+    .logo h2 {
+        font-size: 15px;
+    }
+
+    .logo span {
+        font-size: 6px;
+    }
+
+
+    /* Hero */
+
+    .curiosidades-hero {
+        padding:
+            18px
+            10px
+            35px;
+        gap: 20px;
+    }
+
+    .curiosidades-text p {
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+    .tag {
+        font-size: 6px;
+        padding: 4px 8px;
+    }
+
+
+    /* Imagem */
+
+    .hero-image img {
+        width: 84vw;
+        border-radius: 14px;
+    }
+
+
+    /* Seções */
+
+    .section {
+        padding:
+            40px
+            10px
+            45px;
+    }
+
+    .section h2 {
+        font-size: 20px;
+    }
+
+    .section p {
+        font-size: 11px;
+    }
+
+
+    /* Cards */
+
+    .card-box {
+        padding: 16px;
+        border-radius: 15px;
+    }
+
+    .card-box h3 {
+        font-size: 15px;
+    }
+
+    .card-box p {
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+
+    /* Benefícios */
+
+    .benefits ul {
+        padding-left: 17px;
+        font-size: 11px;
+    }
+
+
+    /* Fatos */
+
+    .fact {
+        padding: 16px;
+        font-size: 10px;
+    }
+
+
+    /* Menu */
+
+    .menu {
+        height:
+            calc(62px + env(safe-area-inset-bottom));
+    }
+
+    .menu a {
+        width: 36px;
+        height: 38px;
+    }
+
+    .menu a::before {
+        font-size: 18px;
+    }
+}
+
+
+/* =========================================================
+   TELAS EXTREMAMENTE PEQUENAS — ATÉ 320PX
+   ========================================================= */
+
+@media (max-width: 320px) {
+
+    .navbar {
+        height: 54px;
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+
+    .logo {
+        gap: 4px;
+    }
+
+    .logo img {
+        width: 20px;
+        max-width: 20px;
+    }
+
+    .logo h2 {
+        font-size: 14px;
+    }
+
+    .logo span {
+        font-size: 5.5px;
+    }
+
+
+    .curiosidades-hero {
+        padding:
+            16px
+            8px
+            30px;
+    }
+
+    .curiosidades-text p {
+        font-size: 10px;
+    }
+
+    .tag {
+        font-size: 5.5px;
+    }
+
+
+    .section {
+        padding:
+            35px
+            8px
+            40px;
+    }
+
+    .section h2 {
+        font-size: 19px;
+    }
+
+    .section p {
+        font-size: 10px;
+    }
+
+
+    .card-box {
+        padding: 14px;
+    }
+
+    .card-box h3 {
+        font-size: 14px;
+    }
+
+    .card-box p {
+        font-size: 9.5px;
+    }
+
+
+    .benefits ul {
+        font-size: 10px;
+    }
+
+
+    .fact {
+        padding: 14px;
+        font-size: 9.5px;
+    }
+
+
+    .menu {
+        height:
+            calc(60px + env(safe-area-inset-bottom));
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    .menu a {
+        width: 33px;
+        height: 36px;
+    }
+
+    .menu a::before {
+        font-size: 17px;
+    }
+
+    .menu a.active::after {
+        width: 4px;
+        height: 4px;
+    }
+}
+
+
+/* =========================================================
+   SEGURANÇA CONTRA OVERFLOW
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .curiosidades-hero,
+    .curiosidades-text,
+    .hero-image,
+    .section,
+    .cards,
+    .card-box,
+    .benefits,
+    .facts,
+    .fact {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .hero-image img,
+    .benefits img {
+        height: auto;
+    }
+
+    .menu,
+    .navbar {
+        overflow-x: hidden;
+    }
+}
+
+
+/* =========================================================
+   DARK MODE — MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    body.dark-mode {
+        background: #050b1d;
+    }
+
+    body.dark-mode .curiosidades-text p {
+        color: #bbb;
+    }
+
+    body.dark-mode .card-box {
+        background: #071126;
+    }
+
+    body.dark-mode .card-box h3 {
+        color: #ff962e;
+    }
+
+    body.dark-mode .card-box p {
+        color: #fff;
+    }
+
+    body.dark-mode .fact {
+        background: #0b1833;
+        color: #fff;
+        border-color:
+            rgba(255, 150, 46, 0.25);
+    }
+
+    body.dark-mode .menu {
+        background:
+            rgba(2, 11, 29, 0.98);
+        border-top-color: #ff962e;
+    }
+
+    body.dark-mode .menu a {
+        color: #ff962e;
+    }
+
+    body.dark-mode .extra-nav {
+        background:
+            rgba(2, 11, 29, 0.98);
+        border-color: #ff962e;
+    }
+
+    body.dark-mode .extra-nav a,
+    body.dark-mode .extra-nav button {
+        color: #ff962e;
+    }
+
+    body.dark-mode .extra-nav a:hover,
+    body.dark-mode .extra-nav button:hover {
+        background: #091447;
     }
 }
