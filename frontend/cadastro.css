@@ -615,114 +615,7 @@ form{
 
 }
 
-@media(max-width:1100px){
 
-.register-container{
-
-    grid-template-columns:1fr;
-
-    gap:60px;
-
-}
-
-.register-left{
-
-    justify-content:center;
-
-    text-align:center;
-
-}
-
-.register-card{
-
-    width:100%;
-    max-width:470px;
-
-    margin:auto;
-
-}
-
-}
-
-@media(max-width:768px){
-
-.navbar{
-
-    padding:0 20px;
-
-}
-
-.logo h2{
-
-    font-size:2rem;
-
-}
-
-.logo span{
-
-    font-size:.75rem;
-
-}
-
-.register-page{
-
-    padding:120px 20px 40px;
-
-}
-
-.register-left h1{
-
-    font-size:2.7rem;
-
-}
-
-.register-card{
-
-    padding:28px;
-
-}
-
-}
-
-@media(max-width:500px){
-
-.register-left h1{
-
-    font-size:2rem;
-
-}
-
-.register-card{
-
-    padding:22px;
-
-}
-
-.register-card h2{
-
-    font-size:2.2rem;
-
-}
-
-.input-group input{
-
-    height:42px;
-
-}
-
-.google-btn{
-
-    height:44px;
-
-}
-
-.register-btn{
-
-    width:100%;
-
-}
-
-}
 
 ::-webkit-scrollbar{
 
@@ -896,5 +789,856 @@ body.dark-mode .password-box span{
 body.dark-mode .password-box span:hover{
 
     color:#ff962e;
+
+}
+
+/* =========================================================
+   VERSÃO MOBILE - PÁGINA DE CADASTRO
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: hidden;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        max-width: 100%;
+    }
+
+    body {
+        min-width: 0;
+        overflow-x: hidden;
+    }
+
+
+    /* =====================================================
+       HEADER
+       ===================================================== */
+
+    header {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: transparent;
+        z-index: 10;
+    }
+
+    .navbar {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        height: 64px;
+        padding: 10px 18px;
+        gap: 10px;
+    }
+
+    .logo {
+        min-width: 0;
+        gap: 8px;
+    }
+
+    .logo img {
+        width: clamp(24px, 6vw, 30px);
+        height: auto;
+        flex-shrink: 0;
+    }
+
+    .logo-text {
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .logo h2 {
+        margin: 0;
+        font-size: clamp(17px, 5vw, 22px);
+        line-height: 1;
+        white-space: nowrap;
+    }
+
+    .logo span {
+        font-size: clamp(6px, 2vw, 8px);
+        white-space: nowrap;
+    }
+
+    header .buttons {
+        display: none;
+    }
+
+
+
+    /* =========================
+       ÁREA PRINCIPAL
+       ========================= */
+
+    .register-page {
+        width: 100%;
+        min-height: calc(100vh - 64px);
+        min-height: calc(100svh - 64px);
+        padding: 20px 12px 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    /* =========================
+       CONTAINER
+       ========================= */
+
+    .register-container {
+        width: 100%;
+        max-width: 680px;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+    }
+
+
+    /* =========================
+       PARTE ESQUERDA
+       ========================= */
+
+    .register-left {
+        display: none;
+    }
+
+    .register-image,
+    .login-image {
+        display: none;
+    }
+
+
+    /* =========================
+       CARD DE CADASTRO
+       ========================= */
+
+    .register-card {
+        width: 100%;
+        max-width: 680px;
+        min-width: 0;
+        height: auto;
+        min-height: 0;
+        margin: 0 auto;
+
+        padding:
+            clamp(30px, 6vw, 55px)
+            clamp(22px, 6vw, 55px);
+
+        border: 2px solid #ff962e;
+        border-radius: clamp(18px, 4vw, 28px);
+        box-shadow: 0 20px 55px rgba(0, 0, 0, .20);
+        overflow: hidden;
+    }
+
+    .register-card:hover {
+        transform: none;
+        box-shadow: 0 20px 55px rgba(0, 0, 0, .20);
+    }
+
+
+    /* =========================
+       TÍTULO
+       ========================= */
+
+    .register-card h2 {
+        width: 100%;
+        margin: 0 0 clamp(20px, 4vw, 30px);
+
+        font-size: clamp(28px, 7vw, 42px);
+        line-height: 1.15;
+
+        text-align: center;
+
+        word-break: break-word;
+        overflow-wrap: anywhere;
+    }
+
+
+    /* =========================
+       FORMULÁRIO
+       ========================= */
+
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: clamp(16px, 3.5vw, 23px);
+    }
+
+    .input-group {
+        width: 100%;
+        min-width: 0;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 7px;
+    }
+
+    /* LABELS MAIORES */
+
+    .input-group label {
+        width: 100%;
+
+        font-size: clamp(13px, 3vw, 16px);
+        line-height: 1.3;
+
+        font-weight: 600;
+
+        margin: 0;
+
+        overflow-wrap: anywhere;
+    }
+
+    .input-group input {
+        width: 100%;
+        min-width: 0;
+
+        height: clamp(50px, 12vw, 58px);
+
+        padding: 0 clamp(12px, 3vw, 18px);
+
+        border-radius: 12px;
+
+        font-size: clamp(13px, 3.2vw, 16px);
+
+        outline: none;
+    }
+
+
+    /* =========================
+       SENHA
+       ========================= */
+
+    .password-box {
+        width: 100%;
+        min-width: 0;
+        position: relative;
+    }
+
+    .password-box input {
+        width: 100%;
+        min-width: 0;
+        padding-right: 48px;
+    }
+
+    .password-box span {
+        right: 14px;
+        font-size: 16px;
+    }
+
+
+    /* =========================
+       BOTÃO CADASTRAR
+       ========================= */
+
+    .register-btn {
+        width: 100%;
+
+        height: clamp(50px, 12vw, 58px);
+        min-height: 50px;
+
+        border-radius: 12px;
+
+        font-size: clamp(13px, 3.2vw, 16px);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 0 15px;
+    }
+
+    .register-btn:hover {
+        transform: none;
+    }
+
+
+    /* =========================
+       DIVISOR
+       ========================= */
+
+    .divider {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+
+        gap: 10px;
+
+        margin: 12px 0 18px;
+    }
+
+    .divider span {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .divider p {
+        flex-shrink: 0;
+
+        font-size: clamp(9px, 2.4vw, 12px);
+
+        white-space: nowrap;
+    }
+
+
+    /* =========================
+       GOOGLE
+       ========================= */
+
+    .google-btn {
+        width: 100%;
+        min-width: 0;
+
+        height: clamp(46px, 11vw, 52px);
+
+        border-radius: 11px;
+
+        gap: 9px;
+
+        font-size: clamp(11px, 2.8vw, 14px);
+
+        padding: 0 12px;
+
+        overflow: hidden;
+    }
+
+    .google-btn img {
+        width: clamp(17px, 4vw, 21px);
+        height: clamp(17px, 4vw, 21px);
+
+        flex-shrink: 0;
+    }
+
+    .google-btn:hover {
+        transform: none;
+    }
+
+
+    /* =========================
+       LINK LOGIN
+       ========================= */
+
+    .login-link {
+        width: 100%;
+
+        margin-top: 18px;
+
+        font-size: clamp(10px, 2.6vw, 13px);
+
+        line-height: 1.5;
+
+        text-align: center;
+
+        overflow-wrap: anywhere;
+    }
+
+
+    /* =========================
+       DARK MODE
+       ========================= */
+
+    body.dark-mode .register-card {
+        background: #040d22;
+        border-color: #b77b37;
+    }
+
+    body.dark-mode .input-group input {
+        background: #040d22;
+        color: #fff;
+        border-color: #d58423;
+    }
+
+    body.dark-mode .google-btn {
+        background: transparent;
+        color: #fff;
+    }
+
+
+    /* =========================
+       SEGURANÇA CONTRA OVERFLOW
+       ========================= */
+
+    .register-card *,
+    .register-container *,
+    .navbar * {
+        min-width: 0;
+    }
+
+    img,
+    video,
+    iframe,
+    svg {
+        max-width: 100%;
+        height: auto;
+    }
+
+    input,
+    button,
+    textarea,
+    select {
+        max-width: 100%;
+    }
+}
+
+
+/* =========================================================
+   CELULARES ATÉ 600px
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        height: 60px;
+        padding: 8px 13px;
+    }
+
+    .register-page {
+        min-height: calc(100vh - 60px);
+        min-height: calc(100svh - 60px);
+
+        padding: 15px 10px 25px;
+    }
+
+    .register-container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .register-card {
+        width: 100%;
+        max-width: 100%;
+
+        padding:
+            34px
+            clamp(18px, 5vw, 30px);
+
+        border-radius: 18px;
+    }
+
+    .register-card h2 {
+        font-size: clamp(27px, 8vw, 36px);
+        margin-bottom: 24px;
+    }
+
+    form {
+        gap: 17px;
+    }
+
+    .input-group {
+        gap: 7px;
+    }
+
+    /* LABEL MAIOR */
+
+    .input-group label {
+        font-size: clamp(13px, 3.2vw, 16px);
+        font-weight: 600;
+    }
+
+    .input-group input {
+        height: 52px;
+        min-height: 52px;
+
+        border-radius: 11px;
+
+        font-size: clamp(12px, 3.2vw, 15px);
+    }
+
+    .register-btn {
+        height: 52px;
+        min-height: 52px;
+
+        border-radius: 11px;
+
+        font-size: clamp(12px, 3.2vw, 15px);
+    }
+
+    .google-btn {
+        height: 48px;
+        min-height: 48px;
+
+        border-radius: 10px;
+    }
+
+    .login-link {
+        margin-top: 16px;
+    }
+}
+
+
+/* =========================================================
+   CELULARES ATÉ 430px
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+    .navbar {
+        height: 57px;
+        padding: 7px 10px;
+    }
+
+    .logo {
+        gap: 6px;
+    }
+
+    .logo img {
+        width: 24px;
+    }
+
+    .logo h2 {
+        font-size: clamp(16px, 5vw, 20px);
+    }
+
+    .logo span {
+        font-size: clamp(5.5px, 2vw, 7px);
+    }
+
+    .register-page {
+        min-height: calc(100vh - 57px);
+        min-height: calc(100svh - 57px);
+
+        padding: 12px 7px 20px;
+    }
+
+    .register-card {
+        width: 100%;
+        max-width: none;
+
+        padding:
+            30px
+            clamp(15px, 5vw, 22px);
+
+        border-radius: 16px;
+    }
+
+    .register-card h2 {
+        font-size: clamp(25px, 8vw, 32px);
+        margin-bottom: 22px;
+    }
+
+    form {
+        gap: 15px;
+    }
+
+    .input-group {
+        gap: 6px;
+    }
+
+    /* LABEL MAIOR */
+
+    .input-group label {
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1.3;
+    }
+
+    .input-group input {
+        height: 48px;
+        min-height: 48px;
+
+        padding: 0 11px;
+
+        border-radius: 10px;
+
+        font-size: clamp(11px, 3vw, 13px);
+    }
+
+    .password-box input {
+        padding-right: 43px;
+    }
+
+    .password-box span {
+        right: 12px;
+        font-size: 14px;
+    }
+
+    .register-btn {
+        height: 48px;
+        min-height: 48px;
+
+        border-radius: 10px;
+
+        font-size: clamp(11px, 3vw, 13px);
+    }
+
+    .divider {
+        gap: 7px;
+        margin: 9px 0 14px;
+    }
+
+    .divider p {
+        font-size: clamp(8px, 2.2vw, 10px);
+    }
+
+    .google-btn {
+        height: 44px;
+        min-height: 44px;
+
+        border-radius: 9px;
+
+        font-size: clamp(9px, 2.5vw, 11px);
+    }
+
+    .google-btn img {
+        width: 17px;
+        height: 17px;
+    }
+
+    .login-link {
+        margin-top: 13px;
+        font-size: clamp(8px, 2.4vw, 10px);
+    }
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS ATÉ 360px
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .navbar {
+        height: 53px;
+        padding: 6px 8px;
+    }
+
+    .logo {
+        gap: 5px;
+    }
+
+    .logo img {
+        width: 21px;
+    }
+
+    .logo h2 {
+        font-size: 15px;
+    }
+
+    .logo span {
+        font-size: 5.5px;
+    }
+
+    .register-page {
+        min-height: calc(100vh - 53px);
+        min-height: calc(100svh - 53px);
+
+        padding: 8px 5px 15px;
+    }
+
+    .register-card {
+        padding: 25px 12px;
+        border-radius: 13px;
+    }
+
+    .register-card h2 {
+        font-size: 24px;
+        margin-bottom: 19px;
+    }
+
+    form {
+        gap: 12px;
+    }
+
+    .input-group {
+        gap: 5px;
+    }
+
+    /* LABEL MAIOR */
+
+    .input-group label {
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1.3;
+    }
+
+    .input-group input {
+        height: 44px;
+        min-height: 44px;
+
+        padding: 0 9px;
+
+        border-radius: 8px;
+
+        font-size: 10px;
+    }
+
+    .password-box input {
+        padding-right: 40px;
+    }
+
+    .password-box span {
+        right: 10px;
+        font-size: 12px;
+    }
+
+    .register-btn {
+        height: 44px;
+        min-height: 44px;
+
+        border-radius: 8px;
+
+        font-size: 10px;
+    }
+
+    .divider {
+        gap: 5px;
+        margin: 7px 0 11px;
+    }
+
+    .divider p {
+        font-size: 7px;
+    }
+
+    .google-btn {
+        height: 39px;
+        min-height: 39px;
+
+        border-radius: 7px;
+
+        font-size: 8px;
+    }
+
+    .google-btn img {
+        width: 14px;
+        height: 14px;
+    }
+
+    .login-link {
+        margin-top: 10px;
+        font-size: 7.5px;
+    }
+}
+
+
+/* =========================================================
+   CELULARES MUITO PEQUENOS ATÉ 320px
+   ========================================================= */
+
+@media (max-width: 320px) {
+
+    .navbar {
+        height: 50px;
+        padding: 5px 6px;
+    }
+
+    .logo {
+        gap: 4px;
+    }
+
+    .logo img {
+        width: 19px;
+    }
+
+    .logo h2 {
+        font-size: 14px;
+    }
+
+    .logo span {
+        font-size: 5px;
+    }
+
+    .register-page {
+        min-height: calc(100vh - 50px);
+        min-height: calc(100svh - 50px);
+
+        padding: 6px 4px 12px;
+    }
+
+    .register-card {
+        padding: 21px 9px;
+        border-radius: 11px;
+    }
+
+    .register-card h2 {
+        font-size: 21px;
+        margin-bottom: 16px;
+    }
+
+    form {
+        gap: 10px;
+    }
+
+    .input-group {
+        gap: 4px;
+    }
+
+    /* LABEL MAIOR */
+
+    .input-group label {
+        font-size: 11px;
+        font-weight: 600;
+        line-height: 1.3;
+    }
+
+    .input-group input {
+        height: 40px;
+        min-height: 40px;
+
+        padding: 0 7px;
+
+        border-radius: 7px;
+
+        font-size: 9px;
+    }
+
+    .password-box input {
+        padding-right: 36px;
+    }
+
+    .password-box span {
+        right: 9px;
+        font-size: 10px;
+    }
+
+    .register-btn {
+        height: 40px;
+        min-height: 40px;
+
+        border-radius: 7px;
+
+        font-size: 9px;
+    }
+
+    .divider {
+        gap: 4px;
+        margin: 6px 0 9px;
+    }
+
+    .divider p {
+        font-size: 6px;
+    }
+
+    .google-btn {
+        height: 36px;
+        min-height: 36px;
+
+        border-radius: 6px;
+
+        font-size: 6.5px;
+    }
+
+    .google-btn img {
+        width: 12px;
+        height: 12px;
+    }
+
+    .login-link {
+        margin-top: 8px;
+        font-size: 6.5px;
+    }
 
 }
