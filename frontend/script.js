@@ -58,16 +58,15 @@ if (themeBtn) {
     if (savedTheme === "dark") {
 
         document.body.classList.add("dark-mode");
-        themeBtn.textContent = "☀️";
+
+        themeBtn.classList.remove("fa-moon");
+        themeBtn.classList.add("fa-sun");
 
         images.forEach(img => {
-
             if (img.dataset.dark) {
                 img.src = img.dataset.dark;
             }
-
         });
-
     }
 
     themeBtn.addEventListener("click", () => {
@@ -86,12 +85,16 @@ if (themeBtn) {
 
         });
 
-        themeBtn.textContent = dark ? "☀️" : "🌙";
+        if (dark) {
+            themeBtn.classList.remove("fa-moon");
+            themeBtn.classList.add("fa-sun");
+        } else {
+            themeBtn.classList.remove("fa-sun");
+            themeBtn.classList.add("fa-moon");
+        }
 
         localStorage.setItem("theme", dark ? "dark" : "light");
-
     });
-
 }
 
 const botao = document.getElementById("ler-site");
@@ -114,9 +117,11 @@ if (botao) {
             fala.onend = () => {
 
                 lendo = false;
-                botao.classList.remove("lendo");
-                botao.innerHTML = "🔊";
 
+                botao.classList.remove("lendo");
+
+                botao.classList.remove("fa-stop");
+                botao.classList.add("fa-volume-high");
             };
 
             speechSynthesis.cancel();
@@ -125,7 +130,9 @@ if (botao) {
             lendo = true;
 
             botao.classList.add("lendo");
-            botao.innerHTML = "⏹";
+
+            botao.classList.remove("fa-volume-high");
+            botao.classList.add("fa-stop");
 
         } else {
 
@@ -134,14 +141,12 @@ if (botao) {
             lendo = false;
 
             botao.classList.remove("lendo");
-            botao.innerHTML = "🔊";
 
+            botao.classList.remove("fa-stop");
+            botao.classList.add("fa-volume-high");
         }
-
     });
-
 }
-
 
 const backBtn = document.getElementById("back-btn");
 

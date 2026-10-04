@@ -247,24 +247,24 @@ header {
 }
 
 .btn-nav {
+    padding: 11px 20px;
     border: none;
-    padding: 15px 24px;
-    border-radius: 14px;
+    border-radius: 999px;
     background: #091447;
     color: #fff;
-    font-weight: 500;
+    font-size: 13px;
+    
     cursor: pointer;
-    transition: .3s;
 }
 
-.btn-nav a {
+.buttons a {
     color: #fff;
     border: none;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 .btn-nav:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
 .hero {
@@ -2641,4 +2641,86 @@ body.dark-mode .scroll-progress { box-shadow: 0 0 20px rgba(255,150,46,.45); }
         font-size: 21px;
     }
 
+}
+
+/* =========================================================
+   ÍCONES DO TEMA E LEITURA — ALINHADOS À NAVEGAÇÃO
+   Sem fundo e sem alterar o botão "Conheça o jogo"
+   ========================================================= */
+
+header .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+header .theme-btn,
+header #ler-site {
+    width: auto;
+    height: auto;
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 0;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: var(--navy);
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: color .3s ease, transform .3s ease;
+}
+
+header .theme-btn:hover,
+header #ler-site:hover {
+    background: transparent !important;
+    color: var(--orange);
+    transform: translateY(-2px) scale(1.08);
+}
+
+header #ler-site.lendo {
+    background: transparent !important;
+    color: #e74c3c;
+    box-shadow: none !important;
+    animation: none;
+}
+
+body.dark-mode header .theme-btn,
+body.dark-mode header #ler-site {
+    background: transparent !important;
+    color: var(--orange);
+    box-shadow: none !important;
+}
+
+body.dark-mode header .theme-btn:hover,
+body.dark-mode header #ler-site:hover {
+    background: transparent !important;
+    color: #fff;
+}
+
+body.dark-mode header #ler-site.lendo {
+    background: transparent !important;
+    color: #ff5c5c;
+    box-shadow: none !important;
+    animation: none;
+}
+
+/* O botão do jogo permanece com a estilização original */
+header .btn-nav {
+    padding: 12px 18px;
+    border-radius: 999px;
+    background: var(--navy);
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(9,20,71,.16);
+}
+
+header .btn-nav:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(9,20,71,.22);
 }
