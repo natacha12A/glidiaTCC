@@ -2239,9 +2239,10 @@ body.dark-mode .contact-info{
         color: #ff962e;
     }
 
-    body.dark-mode .menu a.active {
-        color: #fff;
-    }
+     body.dark-mode .menu a.active,
+body.dark-mode .menu a.active::before {
+    color: #ff962e !important;
+}
 
     body.dark-mode .extra-nav {
         background: rgba(2, 11, 29, .98);

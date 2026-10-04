@@ -2033,7 +2033,8 @@ body.dark-mode .scroll-progress { box-shadow: 0 0 20px rgba(255,150,46,.45); }
     }
 
     .hero-text h1 {
-        font-size: clamp(64px, 20vw, 94px);
+        font-size:
+            clamp(44px, 10vw, 70px) !important;
     }
 
     /* PRIMEIRO PARÁGRAFO COM O MESMO TAMANHO DO SEGUNDO CÓDIGO */
