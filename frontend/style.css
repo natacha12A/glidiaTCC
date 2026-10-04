@@ -1624,15 +1624,7 @@ header .buttons { gap: 9px; }
 }
 
 .hero::before {
-    content: "01";
-    position: absolute;
-    top: 145px;
-    left: -8px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: .3em;
-    color: rgba(9,20,71,.35);
-    writing-mode: vertical-rl;
+    display: none;
 }
 
 .hero-text {
@@ -1808,14 +1800,7 @@ header .buttons { gap: 9px; }
     padding: 115px 35px 130px;
 }
 .diferencial::before {
-    content: "02";
-    position: absolute;
-    top: 115px;
-    left: 3px;
-    color: rgba(9,20,71,.28);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: .3em;
+    display: none;
 }
 .diferencial h2 {
     position: relative;
