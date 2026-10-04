@@ -838,7 +838,7 @@ object-fit:cover;
 
 .person-card h3{
 
-font-family:'Playfair Display';
+font-family: "Poppins", serif !important;
 
 font-size:14px;
 
@@ -865,6 +865,7 @@ margin-top:10px;
     align-items:center;
     gap:18px;
     margin-top:15px;
+    margin-left: 20px;
 }
 
 .social a img{
@@ -1280,20 +1281,14 @@ body.dark-mode .contact-info{
         height: 72px;
         margin: 0;
         padding: 4px clamp(5px, 2vw, 12px);
-
         display: flex;
         align-items: center;
         justify-content: space-around;
-
         gap: 0;
-
         background: rgba(255, 255, 255, 0.97);
-
         border-top: 1px solid #ff962e;
-
         box-shadow:
             0 -8px 25px rgba(0, 0, 0, .12);
-
         z-index: 9999;
         overflow: hidden;
     }
@@ -1302,11 +1297,9 @@ body.dark-mode .contact-info{
         width: auto;
         min-width: 0;
         height: 100%;
-
         display: flex;
         align-items: center;
         justify-content: center;
-
         flex: 1 1 0;
     }
 
@@ -1349,21 +1342,15 @@ body.dark-mode .contact-info{
 
     .menu a {
         position: relative;
-
         width: clamp(42px, 13vw, 52px);
         height: clamp(42px, 13vw, 52px);
-
         display: flex;
         align-items: center;
         justify-content: center;
-
         color: #091447;
-
         font-size: 0;
         text-decoration: none;
-
         border-radius: 12px;
-
         flex-shrink: 0;
     }
 
@@ -1405,17 +1392,13 @@ body.dark-mode .contact-info{
 
     .menu a.active::after {
         content: "";
-
         position: absolute;
         left: 50%;
         bottom: 3px;
-
         width: 5px;
         height: 5px;
-
         border-radius: 50%;
         background: #ff962e;
-
         transform: translateX(-50%);
     }
 
@@ -1430,29 +1413,20 @@ body.dark-mode .contact-info{
 
     .extra-nav {
         position: fixed;
-
         right: clamp(10px, 3vw, 18px);
         bottom: 82px;
-
         width: min(220px, calc(100vw - 20px));
         max-width: calc(100vw - 20px);
-
         padding: 12px;
-
         display: none;
         flex-direction: column;
         gap: 7px;
-
         background: rgba(255, 255, 255, .98);
-
         border: 1px solid #ff962e;
         border-radius: 15px;
-
         box-shadow:
             0 8px 25px rgba(0, 0, 0, .18);
-
         z-index: 10000;
-
         box-sizing: border-box;
     }
 
@@ -1464,23 +1438,16 @@ body.dark-mode .contact-info{
     .extra-nav button {
         width: 100%;
         min-width: 0;
-
         padding: 11px 12px;
-
         border: none;
         border-radius: 10px;
-
         background: transparent;
         color: #091447;
-
         font-family: "Poppins", sans-serif;
         font-size: 12px;
-
         text-align: left;
         text-decoration: none;
-
         cursor: pointer;
-
         white-space: normal;
         overflow-wrap: anywhere;
     }
@@ -1499,31 +1466,23 @@ body.dark-mode .contact-info{
     .hero {
         width: 100%;
         max-width: 1200px;
-
         min-height: auto;
-
         margin: 0 auto;
-
         padding:
             clamp(35px, 8vw, 70px)
             clamp(16px, 5vw, 35px)
             clamp(45px, 9vw, 80px);
-
         display: flex;
         flex-direction: column;
-
         align-items: center;
         justify-content: center;
-
         gap: clamp(35px, 8vw, 60px);
-
         text-align: center;
     }
 
     .hero-text {
         width: 100%;
         max-width: 700px;
-
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1532,34 +1491,24 @@ body.dark-mode .contact-info{
     .hero-text h1 {
         width: 100%;
         max-width: 100%;
-
         margin: 0;
-
         font-size: clamp(
             42px,
             13vw,
             76px
         );
-
         line-height: .95;
-
         overflow-wrap: break-word;
     }
 
+    /* PARÁGRAFO = 12PX */
     .hero-text p {
         width: 100%;
         max-width: 600px;
-
         margin:
             clamp(18px, 4vw, 25px)
             auto;
-
-        font-size: clamp(
-            15px,
-            4vw,
-            20px
-        );
-
+        font-size: 12px;
         line-height: 1.55;
     }
 
@@ -1571,36 +1520,28 @@ body.dark-mode .contact-info{
     .hero .buttons {
         width: 100%;
         max-width: 500px;
-
         display: flex;
         flex-wrap: wrap;
-
         align-items: center;
         justify-content: center;
-
         gap: 10px;
     }
 
     .primary,
     .secondary {
         min-height: 46px;
-
         padding:
             12px
             clamp(16px, 5vw, 25px);
-
         border-radius: 12px;
-
         font-size: clamp(
             13px,
             3.5vw,
             16px
         );
-
         display: flex;
         align-items: center;
         justify-content: center;
-
         max-width: 100%;
     }
 
@@ -1622,13 +1563,10 @@ body.dark-mode .contact-info{
     .purpose {
         width: 100%;
         max-width: 550px;
-
         display: flex;
         align-items: center;
         justify-content: center;
-
         gap: clamp(10px, 3vw, 18px);
-
         text-align: left;
     }
 
@@ -1648,17 +1586,12 @@ body.dark-mode .contact-info{
             6vw,
             30px
         );
-
         line-height: 1.2;
     }
 
+    /* PARÁGRAFO = 12PX */
     .purpose-text p {
-        font-size: clamp(
-            13px,
-            3.5vw,
-            20px
-        );
-
+        font-size: 12px;
         line-height: 1.35;
     }
 
@@ -1670,45 +1603,35 @@ body.dark-mode .contact-info{
     .hero-image {
         width: 100%;
         max-width: 550px;
-
         display: flex;
         justify-content: center;
         align-items: center;
-
         position: relative;
     }
 
     .hero-image img {
         width: min(100%, 430px);
         height: auto;
-
         position: relative;
         z-index: 2;
     }
 
     .waves {
         position: absolute;
-
         top: 50%;
         left: 50%;
-
         transform: translate(-50%, -50%);
-
         width: min(100vw, 430px);
         height: min(100vw, 430px);
     }
 
     .waves span {
         position: absolute;
-
         top: 50%;
         left: 50%;
-
         transform: translate(-50%, -50%);
-
         border: 1px solid #f39a4c;
         border-radius: 50%;
-
         animation: pulse 4s infinite;
     }
 
@@ -1740,9 +1663,7 @@ body.dark-mode .contact-info{
     .diferencial {
         width: 100%;
         max-width: 1200px;
-
         margin: 0 auto;
-
         padding:
             clamp(45px, 10vw, 80px)
             clamp(16px, 5vw, 30px);
@@ -1750,16 +1671,13 @@ body.dark-mode .contact-info{
 
     .diferencial h2 {
         width: 100%;
-
         margin-bottom:
             clamp(30px, 7vw, 50px);
-
         font-size: clamp(
             28px,
             8vw,
             42px
         );
-
         line-height: 1.1;
     }
 
@@ -1770,17 +1688,13 @@ body.dark-mode .contact-info{
 
     .cards-small {
         width: 100%;
-
         display: grid;
-
         grid-template-columns:
             repeat(
                 2,
                 minmax(0, 1fr)
             );
-
         gap: clamp(12px, 4vw, 25px);
-
         margin-bottom:
             clamp(30px, 7vw, 50px);
     }
@@ -1788,12 +1702,9 @@ body.dark-mode .contact-info{
     .card {
         width: 100%;
         min-width: 0;
-
         padding:
             clamp(16px, 4vw, 25px);
-
         border-radius: 15px;
-
         overflow: hidden;
     }
 
@@ -1803,7 +1714,6 @@ body.dark-mode .contact-info{
             8vw,
             40px
         );
-
         margin-bottom: 12px;
     }
 
@@ -1813,19 +1723,13 @@ body.dark-mode .contact-info{
             4vw,
             20px
         );
-
         overflow-wrap: anywhere;
     }
 
+    /* PARÁGRAFO = 12PX */
     .card p {
-        font-size: clamp(
-            12px,
-            3.2vw,
-            15px
-        );
-
+        font-size: 12px;
         line-height: 1.5;
-
         overflow-wrap: anywhere;
     }
 
@@ -1840,46 +1744,35 @@ body.dark-mode .contact-info{
 
     .cards-large {
         width: 100%;
-
         display: grid;
-
         grid-template-columns:
             repeat(
                 2,
                 minmax(0, 1fr)
             );
-
         gap: clamp(14px, 4vw, 30px);
     }
 
     .card-large {
         width: 100%;
         min-width: 0;
-
         padding:
             clamp(18px, 4vw, 35px);
-
         border-radius: 15px;
-
         overflow: hidden;
     }
 
     .card-large h3 {
         display: flex;
         align-items: center;
-
         gap: 10px;
-
         margin-bottom: 12px;
-
         font-size: clamp(
             16px,
             4vw,
             22px
         );
-
         line-height: 1.2;
-
         overflow-wrap: anywhere;
     }
 
@@ -1889,25 +1782,18 @@ body.dark-mode .contact-info{
             9vw,
             40px
         );
-
         height: clamp(
             30px,
             9vw,
             40px
         );
-
         flex-shrink: 0;
     }
 
+    /* PARÁGRAFO = 12PX */
     .card-large p {
-        font-size: clamp(
-            12px,
-            3.2vw,
-            15px
-        );
-
+        font-size: 12px;
         line-height: 1.5;
-
         overflow-wrap: anywhere;
     }
 
@@ -1923,9 +1809,7 @@ body.dark-mode .contact-info{
     .about-page {
         width: 100%;
         max-width: 1200px;
-
         margin: 0 auto;
-
         padding:
             clamp(25px, 6vw, 60px)
             clamp(16px, 5vw, 30px)
@@ -1934,53 +1818,38 @@ body.dark-mode .contact-info{
 
     .about-top {
         width: 100%;
-
         display: flex;
         flex-direction: column;
-
         align-items: stretch;
         justify-content: flex-start;
-
         gap: clamp(25px, 6vw, 40px);
     }
 
     .about-text {
         width: 100%;
         max-width: 700px;
-
         margin: 0 auto;
     }
 
     .about-text h1 {
         width: 100%;
-
         margin: 0;
-
         font-size: clamp(
             32px,
             10vw,
             55px
         );
-
         line-height: 1.05;
-
         overflow-wrap: break-word;
     }
 
+    /* PARÁGRAFO = 12PX */
     .about-text p {
         width: 100%;
-
         margin:
             18px 0 0;
-
         max-width: 650px;
-
-        font-size: clamp(
-            13px,
-            3.6vw,
-            16px
-        );
-
+        font-size: 12px;
         line-height: 1.6;
     }
 
@@ -1993,9 +1862,7 @@ body.dark-mode .contact-info{
     .team {
         width: 100%;
         max-width: 700px;
-
         margin: 0 auto;
-
         display: grid;
 
         /*
@@ -2003,15 +1870,12 @@ body.dark-mode .contact-info{
            para ficar igual à imagem
         */
         grid-template-columns: 1fr;
-
         gap: 22px;
-
         justify-content: center;
     }
 
     .person-card {
         position: relative;
-
         width: 100%;
         min-width: 0;
 
@@ -2024,37 +1888,25 @@ body.dark-mode .contact-info{
            FOTO | TEXTO
         */
         display: grid;
-
         grid-template-columns: 80px minmax(0, 1fr);
-
         grid-template-rows:
             auto
             auto
             auto;
-
         column-gap: 20px;
-
         align-items: center;
-
         padding: 10px 20px;
-
         background: #fff;
-
         border: 1px solid #0b1630;
-
         border-radius: 20px;
-
         box-shadow:
             4px 7px 8px rgba(0, 0, 0, .35);
-
         overflow: hidden;
-
         box-sizing: border-box;
     }
 
     .person-card:hover {
         transform: none;
-
         box-shadow:
             4px 7px 8px rgba(0, 0, 0, .35);
     }
@@ -2062,73 +1914,57 @@ body.dark-mode .contact-info{
     /*
        FOTO PRINCIPAL
     */
+
     .person-card > img {
         grid-column: 1;
         grid-row: 1 / 4;
-
         width: 80px;
         height: 80px;
-
         border-radius: 50%;
-
         object-fit: cover;
-
         display: block;
-
         flex-shrink: 0;
     }
 
     /*
        NOME
     */
+
     .person-card h3 {
         grid-column: 2;
         grid-row: 1;
-
         margin: 0 0 3px;
-
         font-family:
             "Playfair Display",
             serif;
-
         font-size: clamp(
             18px,
             3vw,
             21px
         );
-
         font-weight: 500;
-
         line-height: 1.2;
-
         text-align: left;
-
         color: #102447;
-
         overflow-wrap: anywhere;
     }
 
     /*
        CARGO
     */
+
     .person-card > span {
         grid-column: 2;
         grid-row: 2;
-
         margin: 0;
-
         font-size: clamp(
             13px,
             2.5vw,
             15px
         );
-
         line-height: 1.3;
-
         text-align: left;
-
         color: #102447;
-
         overflow-wrap: anywhere;
     }
 
@@ -2140,32 +1976,22 @@ body.dark-mode .contact-info{
     .person-card .social {
         grid-column: 2;
         grid-row: 3;
-
         position: static;
-
         display: flex;
-
         justify-content: flex-start;
         align-items: center;
-
         gap: 38px;
-
         margin-top: 6px;
     }
 
     .person-card .social a {
         width: 28px;
         height: 28px;
-
         display: flex;
-
         align-items: center;
         justify-content: center;
-
         color: #000;
-
         text-decoration: none;
-
         flex-shrink: 0;
     }
 
@@ -2173,11 +1999,8 @@ body.dark-mode .contact-info{
     .person-card .social img {
         width: 24px;
         height: 24px;
-
         object-fit: contain;
-
         display: block;
-
         transition: transform .2s ease;
     }
 
@@ -2200,28 +2023,20 @@ body.dark-mode .contact-info{
 
     .contact-box {
         width: 100%;
-
         margin-top:
             clamp(20px, 5vw, 35px);
-
         padding:
             clamp(15px, 4vw, 28px);
-
         display: flex;
         flex-direction: column;
-
         gap: 25px;
-
         background: #fff;
         color: #091447;
-
         border: 1px solid #ff962e;
         border-radius: 15px;
-
         box-shadow:
             0 10px 25px
             rgba(0, 0, 0, .08);
-
         overflow: hidden;
     }
 
@@ -2232,31 +2047,25 @@ body.dark-mode .contact-info{
 
     .contatoForm h2 {
         margin: 0;
-
         font-family:
             "Playfair Display",
             serif;
-
         font-size: clamp(
             20px,
             6vw,
             28px
         );
-
         line-height: 1.2;
-
         color: #ff962e;
     }
 
     .contact1 {
         margin-top: 8px;
-
         font-size: clamp(
             11px,
             3vw,
             14px
         );
-
         line-height: 1.5;
     }
 
@@ -2267,17 +2076,13 @@ body.dark-mode .contact-info{
 
     .inputs {
         width: 100%;
-
         display: grid;
-
         grid-template-columns:
             repeat(
                 2,
                 minmax(0, 1fr)
             );
-
         gap: 10px;
-
         margin-top: 20px;
     }
 
@@ -2285,31 +2090,23 @@ body.dark-mode .contact-info{
     textarea {
         width: 100%;
         min-width: 0;
-
         background: #fff;
         color: #091447;
-
         border: 1px solid #c8c8c8;
         border-radius: 10px;
-
         padding: 11px;
-
         box-shadow:
             0 3px 10px
             rgba(0, 0, 0, .08);
-
         font-family:
             "Poppins",
             sans-serif;
-
         font-size: clamp(
             11px,
             3vw,
             14px
         );
-
         outline: none;
-
         box-sizing: border-box;
     }
 
@@ -2324,40 +2121,29 @@ body.dark-mode .contact-info{
 
     textarea {
         height: 120px;
-
         margin-top: 12px;
-
         resize: none;
     }
 
     .contatoForm button {
         width: 100%;
-
         min-height: 42px;
-
         margin-top: 10px;
-
         padding:
             10px
             20px;
-
         border: 1px solid #ff962e;
-
         background: #091447;
         color: #fff;
-
         border-radius: 10px;
-
         font-family:
             "Poppins",
             sans-serif;
-
         font-size: clamp(
             12px,
             3.2vw,
             15px
         );
-
         transition: .3s;
     }
 
@@ -2374,20 +2160,13 @@ body.dark-mode .contact-info{
     .contact-info {
         width: 100%;
         min-width: 0;
-
         border-left: none;
-
         border-top: 1px solid #ff962e;
-
         padding-top: 20px;
-
         display: flex;
-
         align-items: center;
         justify-content: center;
-
         flex-direction: column;
-
         text-align: center;
     }
 
@@ -2398,49 +2177,36 @@ body.dark-mode .contact-info{
 
     .contact-info h3 {
         width: 100%;
-
         margin-top: 15px;
-
         font-size: clamp(
             12px,
             3.5vw,
             15px
         );
-
         line-height: 1.4;
     }
 
     .contact-info i {
         font-size: 35px;
         color: #ff962e;
-
         margin-top: 20px;
     }
 
     .btn-login {
         width: min(100%, 250px);
-
         min-height: 44px;
-
         margin-top: 18px;
-
         padding:
             10px
             20px;
-
         display: inline-flex;
-
         align-items: center;
         justify-content: center;
-
         background: #091447;
         color: #fff;
-
         border: 1px solid #ff962e;
         border-radius: 12px;
-
         font-size: 14px;
-
         text-decoration: none;
     }
 
@@ -2468,9 +2234,7 @@ body.dark-mode .contact-info{
 
     body.dark-mode .menu {
         background: rgba(2, 11, 29, .98);
-
         border-top: 1px solid #ff962e;
-
         box-shadow:
             0 -8px 25px
             rgba(0, 0, 0, .25);
@@ -2486,9 +2250,7 @@ body.dark-mode .contact-info{
 
     body.dark-mode .extra-nav {
         background: rgba(2, 11, 29, .98);
-
         border-color: #ff962e;
-
         box-shadow:
             0 8px 25px
             rgba(0, 0, 0, .3);
@@ -2515,12 +2277,11 @@ body.dark-mode .contact-info{
     /*
        CARD DA EQUIPE NO DARK
     */
+
     body.dark-mode .person-card {
         background: #050b1d;
         color: #fff;
-
         border: 1px solid #ff962e;
-
         box-shadow:
             4px 7px 8px rgba(0, 0, 0, .45);
     }
@@ -2540,7 +2301,6 @@ body.dark-mode .contact-info{
     body.dark-mode .contact-box {
         background: #071126;
         color: #fff;
-
         border: 1px solid #ff962e;
     }
 
@@ -2556,7 +2316,6 @@ body.dark-mode .contact-info{
     body.dark-mode textarea {
         background: #11183d;
         color: #fff;
-
         border: 1px solid #ff962e;
     }
 
@@ -2600,7 +2359,6 @@ body.dark-mode .contact-info{
 
     .navbar {
         min-height: 60px;
-
         padding-left: 14px;
         padding-right: 14px;
     }
@@ -2634,7 +2392,7 @@ body.dark-mode .contact-info{
     }
 
     .hero-text p {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .hero .buttons {
@@ -2673,23 +2431,17 @@ body.dark-mode .contact-info{
 
     .team {
         grid-template-columns: 1fr;
-
         width: 100%;
         max-width: 100%;
-
         gap: 18px;
     }
 
     .person-card {
         width: 100%;
         max-width: 100%;
-
         min-height: 115px;
-
         grid-template-columns: 70px minmax(0, 1fr);
-
         column-gap: 15px;
-
         padding: 10px 15px;
     }
 
@@ -2751,7 +2503,6 @@ body.dark-mode .contact-info{
 
     .navbar {
         min-height: 58px;
-
         padding:
             8px
             12px;
@@ -2778,7 +2529,6 @@ body.dark-mode .contact-info{
 
     .menu {
         height: 68px;
-
         padding:
             3px
             5px;
@@ -2796,7 +2546,6 @@ body.dark-mode .contact-info{
     .extra-nav {
         right: 10px;
         bottom: 76px;
-
         width: min(
             210px,
             calc(100vw - 20px)
@@ -2811,7 +2560,6 @@ body.dark-mode .contact-info{
             25px
             14px
             45px;
-
         gap: 30px;
     }
 
@@ -2824,18 +2572,16 @@ body.dark-mode .contact-info{
     }
 
     .hero-text p {
-        font-size: 13px;
+        font-size: 12px;
         line-height: 1.5;
     }
 
     .primary,
     .secondary {
         max-width: 280px;
-
         padding:
             11px
             16px;
-
         font-size: 13px;
     }
 
@@ -2879,6 +2625,11 @@ body.dark-mode .contact-info{
         padding: 16px;
     }
 
+    .card p,
+    .card-large p {
+        font-size: 12px;
+    }
+
 
     /* ABOUT */
 
@@ -2905,11 +2656,8 @@ body.dark-mode .contact-info{
 
     .person-card {
         min-height: 105px;
-
         grid-template-columns: 62px minmax(0, 1fr);
-
         column-gap: 12px;
-
         padding:
             8px
             12px;
@@ -3015,7 +2763,7 @@ body.dark-mode .contact-info{
     }
 
     .purpose-text p {
-        font-size: 11px;
+        font-size: 12px;
     }
 
 
@@ -3040,7 +2788,7 @@ body.dark-mode .contact-info{
 
     .card p,
     .card-large p {
-        font-size: 11px;
+        font-size: 12px;
     }
 
 
@@ -3050,6 +2798,10 @@ body.dark-mode .contact-info{
         font-size: 28px;
     }
 
+    .about-text p {
+        font-size: 12px;
+    }
+
 
     /* =====================================================
        EQUIPE
@@ -3057,11 +2809,8 @@ body.dark-mode .contact-info{
 
     .person-card {
         min-height: 100px;
-
         grid-template-columns: 58px minmax(0, 1fr);
-
         column-gap: 11px;
-
         padding:
             8px
             10px;
@@ -3159,6 +2908,10 @@ body.dark-mode .contact-info{
         font-size: 35px;
     }
 
+    .hero-text p {
+        font-size: 12px;
+    }
+
     .primary,
     .secondary {
         max-width: 260px;
@@ -3177,7 +2930,7 @@ body.dark-mode .contact-info{
     }
 
     .purpose-text p {
-        font-size: 10px;
+        font-size: 12px;
     }
 
 
@@ -3189,11 +2942,23 @@ body.dark-mode .contact-info{
     }
 
 
+    /* CARDS */
+
+    .card p,
+    .card-large p {
+        font-size: 12px;
+    }
+
+
     /* ABOUT */
 
     .about-page {
         padding-left: 12px;
         padding-right: 12px;
+    }
+
+    .about-text p {
+        font-size: 12px;
     }
 
 
@@ -3203,11 +2968,8 @@ body.dark-mode .contact-info{
 
     .person-card {
         min-height: 94px;
-
         grid-template-columns: 54px minmax(0, 1fr);
-
         column-gap: 10px;
-
         padding:
             7px
             9px;
@@ -3220,6 +2982,7 @@ body.dark-mode .contact-info{
 
     .person-card h3 {
         font-size: 14px;
+        
     }
 
     .person-card > span {

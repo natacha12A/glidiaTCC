@@ -1278,7 +1278,7 @@ body.dark-mode::-webkit-scrollbar-thumb {
     }
 
     .logo img {
-        width: clamp(25px, 7vw, 30px) !important;
+        width: 28px !important;
         height: auto !important;
         flex-shrink: 0;
         filter: none !important;
@@ -1293,24 +1293,11 @@ body.dark-mode::-webkit-scrollbar-thumb {
     }
 
     .logo h2 {
-        margin: 0 !important;
-        padding: 0 !important;
-        font-size: clamp(17px, 5vw, 20px) !important;
-        line-height: 1 !important;
-        letter-spacing: normal !important;
-        white-space: nowrap;
-        color: #091447 !important;
+        display: none !important;
     }
 
     .logo span {
-        margin: 0 !important;
-        padding: 0 !important;
-        font-size: clamp(7px, 2vw, 8px) !important;
-        line-height: 1 !important;
-        letter-spacing: .1px !important;
-        text-transform: none !important;
-        white-space: nowrap;
-        color: #555 !important;
+        display: none !important;
     }
 
 
