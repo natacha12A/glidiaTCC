@@ -2058,8 +2058,7 @@ body.dark-mode .scroll-progress { box-shadow: 0 0 20px rgba(255,150,46,.45); }
 
         margin-top: 16px;
 
-        font-size:
-            clamp(13px, 3vw, 18px);
+        font-size: 13px;
 
         line-height: 1.5;
 
@@ -2103,16 +2102,19 @@ body.dark-mode .scroll-progress { box-shadow: 0 0 20px rgba(255,150,46,.45); }
     }
 
     .diferencial {
-        padding: 75px 20px 90px;
+        padding: 20px 20px 90px;
     }
 
     .diferencial::before {
-        top: 76px;
+        top: 40px;
         left: 5px;
     }
 
     .diferencial h2 {
-        margin-bottom: 40px;
+        
+        margin-top: 0;
+        font-size: clamp(32px, 6vw, 52px);
+       margin-left: 1rem;
     }
 
     .cards-small,
@@ -2126,8 +2128,7 @@ body.dark-mode .scroll-progress { box-shadow: 0 0 20px rgba(255,150,46,.45); }
 
         margin-top: 16px;
 
-        font-size:
-            clamp(13px, 3vw, 18px);
+        font-size: 13px;
 
         line-height: 1.5;
 
@@ -2141,8 +2142,7 @@ body.dark-mode .scroll-progress { box-shadow: 0 0 20px rgba(255,150,46,.45); }
 
         margin-top: 16px;
 
-        font-size:
-            clamp(13px, 3vw, 18px);
+        font-size: 13px;
 
         line-height: 1.5;
 
