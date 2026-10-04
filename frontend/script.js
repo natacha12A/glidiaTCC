@@ -1,674 +1,2245 @@
-const header = document.getElementById("header");
+// ============================================================
+// GLÍDIA - JAVASCRIPT PRINCIPAL
+// ============================================================
+
+// ============================================================
+// CONFIGURAÇÃO DA API
+// ============================================================
 
 const API_URL = "https://glidia-backend.vercel.app";
 
+
+// ============================================================
+// HEADER
+// ============================================================
+
+const header = document.getElementById("header");
+
 if (header) {
+
     window.addEventListener("scroll", () => {
-        header.classList.toggle("header-scroll", window.scrollY > 40);
+
+        header.classList.toggle(
+            "header-scroll",
+            window.scrollY > 40
+        );
+
     });
 }
 
+
+// ============================================================
+// ANIMAÇÕES REVEAL
+// ============================================================
 
 const reveals = document.querySelectorAll(".reveal");
 
-if (reveals.length) {
+if (reveals.length > 0) {
 
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver(
 
-        entries.forEach(entry => {
+        (entries) => {
 
-            if (entry.isIntersecting) {
-                entry.target.classList.add("active");
-            }
+            entries.forEach((entry) => {
 
-        });
+                if (entry.isIntersecting) {
 
-    }, {
-        threshold: 0.2
+                    entry.target.classList.add("active");
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.2
+        }
+
+    );
+
+    reveals.forEach((item) => {
+
+        observer.observe(item);
+
     });
-
-    reveals.forEach(item => observer.observe(item));
-
 }
 
 
-const heroImage = document.querySelector(".hero-image img");
+// ============================================================
+// MOVIMENTO DA IMAGEM DO HERO
+// ============================================================
+
+const heroImage =
+    document.querySelector(".hero-image img");
 
 if (heroImage) {
 
     window.addEventListener("mousemove", (e) => {
 
-        const x = (window.innerWidth / 2 - e.clientX) / 60;
-        const y = (window.innerHeight / 2 - e.clientY) / 60;
+        const x =
+            (window.innerWidth / 2 - e.clientX) / 60;
 
-        heroImage.style.transform = `translate(${x}px, ${y}px)`;
+        const y =
+            (window.innerHeight / 2 - e.clientY) / 60;
+
+        heroImage.style.transform =
+            `translate(${x}px, ${y}px)`;
+
+    });
+}
+
+
+// ============================================================
+// TEMA
+// ============================================================
+
+const themeBtn =
+    document.getElementById("theme-toggle");
+
+const images =
+    document.querySelectorAll("img[data-light]");
+
+
+// ============================================================
+// APLICAR TEMA
+// ============================================================
+
+function aplicarTema(tema) {
+
+    const dark =
+        tema === "dark";
+
+    document.body.classList.toggle(
+        "dark-mode",
+        dark
+    );
+
+
+    if (themeBtn) {
+
+        themeBtn.classList.toggle(
+            "fa-moon",
+            !dark
+        );
+
+        themeBtn.classList.toggle(
+            "fa-sun",
+            dark
+        );
+
+    }
+
+
+    images.forEach((img) => {
+
+        if (dark && img.dataset.dark) {
+
+            img.src = img.dataset.dark;
+
+        } else if (!dark && img.dataset.light) {
+
+            img.src = img.dataset.light;
+
+        }
 
     });
 
 }
 
 
-const themeBtn = document.getElementById("theme-toggle");
-const images = document.querySelectorAll("img[data-light]");
+// ============================================================
+// CARREGAR TEMA SALVO
+// ============================================================
+
+const savedTheme =
+    localStorage.getItem("theme") || "light";
+
+aplicarTema(savedTheme);
+
+
+// ============================================================
+// BOTÃO DE TEMA
+// ============================================================
 
 if (themeBtn) {
 
-    const savedTheme = localStorage.getItem("theme");
-
-    if (savedTheme === "dark") {
-
-        document.body.classList.add("dark-mode");
-
-        themeBtn.classList.remove("fa-moon");
-        themeBtn.classList.add("fa-sun");
-
-        images.forEach(img => {
-            if (img.dataset.dark) {
-                img.src = img.dataset.dark;
-            }
-        });
-    }
-
     themeBtn.addEventListener("click", () => {
 
-        document.body.classList.toggle("dark-mode");
+        const dark =
+            document.body.classList.contains("dark-mode");
 
-        const dark = document.body.classList.contains("dark-mode");
+        const novoTema =
+            dark ? "light" : "dark";
 
-        images.forEach(img => {
+        aplicarTema(novoTema);
 
-            if (dark && img.dataset.dark) {
-                img.src = img.dataset.dark;
-            } else if (img.dataset.light) {
-                img.src = img.dataset.light;
-            }
+        localStorage.setItem(
+            "theme",
+            novoTema
+        );
 
-        });
-
-        if (dark) {
-            themeBtn.classList.remove("fa-moon");
-            themeBtn.classList.add("fa-sun");
-        } else {
-            themeBtn.classList.remove("fa-sun");
-            themeBtn.classList.add("fa-moon");
-        }
-
-        localStorage.setItem("theme", dark ? "dark" : "light");
     });
+
 }
 
-const botao = document.getElementById("ler-site");
+
+// ============================================================
+// LEITOR DE SITE
+// ============================================================
+
+const botao =
+    document.getElementById("ler-site");
 
 if (botao) {
 
     let lendo = false;
 
+
     botao.addEventListener("click", () => {
 
-        if (!lendo) {
+        // Verificar suporte
+        if (
+            !("speechSynthesis" in window) ||
+            !("SpeechSynthesisUtterance" in window)
+        ) {
 
-            const fala = new SpeechSynthesisUtterance(document.body.innerText);
+            alert(
+                "Seu navegador não suporta leitura de voz."
+            );
 
-            fala.lang = "pt-BR";
-            fala.rate = 1;
-            fala.pitch = 1;
-            fala.volume = 1;
+            return;
 
-            fala.onend = () => {
+        }
 
-                lendo = false;
 
-                botao.classList.remove("lendo");
+        // ----------------------------------------------------
+        // PARAR LEITURA
+        // ----------------------------------------------------
 
-                botao.classList.remove("fa-stop");
-                botao.classList.add("fa-volume-high");
-            };
-
-            speechSynthesis.cancel();
-            speechSynthesis.speak(fala);
-
-            lendo = true;
-
-            botao.classList.add("lendo");
-
-            botao.classList.remove("fa-volume-high");
-            botao.classList.add("fa-stop");
-
-        } else {
+        if (lendo) {
 
             speechSynthesis.cancel();
 
             lendo = false;
 
             botao.classList.remove("lendo");
-
             botao.classList.remove("fa-stop");
             botao.classList.add("fa-volume-high");
-        }
-    });
-}
 
-const backBtn = document.getElementById("back-btn");
-
-if (backBtn) {
-    backBtn.addEventListener("click", () => {
-        window.location.href = "index.html";
-    });
-}
-
-
-const loginForm = document.querySelector(".login-card form");
-const passwordInput = document.getElementById("password");
-const togglePassword = document.getElementById("togglePassword");
-
-
-if (togglePassword && passwordInput) {
-
-    togglePassword.addEventListener("click", () => {
-
-        const isPassword = passwordInput.type === "password";
-
-        passwordInput.type = isPassword ? "text" : "password";
-
-        togglePassword.innerHTML = isPassword
-            ? '<i class="fa-regular fa-eye-slash"></i>'
-            : '<i class="fa-regular fa-eye"></i>';
-
-    });
-
-}
-if (loginForm) {
-
-    loginForm.addEventListener("submit", async (e) => {
-
-        e.preventDefault();
-
-        const email = document.getElementById("email").value;
-        const senha = document.getElementById("password").value;
-
-        console.log("Tentando login...");
-        console.log({ email, senha });
-
-        try {
-
-            const resposta = await fetch("http://localhost:3000/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    email,
-                    senha
-                })
-            });
-
-            const dados = await resposta.json();
-
-            console.log(dados);
-
-            alert(dados.mensagem);
-
-            if (resposta.ok) {
-
-            localStorage.setItem("usuarioLogado", "true");
-
-            localStorage.setItem("nomeUsuario", dados.usuario.nome);
-
-            localStorage.setItem("emailUsuario", dados.usuario.email);
-
-            window.location.href = "index.html";
-
+            return;
         }
 
-        } catch (erro) {
 
-            console.error(erro);
-            alert("Erro ao conectar ao servidor.");
+        // ----------------------------------------------------
+        // INICIAR LEITURA
+        // ----------------------------------------------------
 
-        }
-
-        
-    });
-
-}
-
-const formContato = document.getElementById("contatoForm");
-
-if (formContato) {
-
-    formContato.addEventListener("submit", async (e) => {
-
-        e.preventDefault();
-
-        const dados = {
-            nome: formContato.nome.value,
-            email: formContato.email.value,
-            assunto: formContato.assunto.value,
-            mensagem: formContato.mensagem.value
-        };
-
-        try {
-
-            const resposta = await fetch("http://localhost:3000/contato", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(dados)
-            });
-
-            const json = await resposta.json();
-
-            alert(json.mensagem);
-
-            if (resposta.ok) {
-                formContato.reset();
-            }
-
-        } catch (erro) {
-
-            console.log(erro);
-            alert("Erro ao conectar com o servidor.");
-
-        }
-
-    });
-
-}
-
-const telefoneInput = document.getElementById("telefoneEmergencia");
-
-if (telefoneInput) {
-
-    telefoneInput.addEventListener("input", () => {
-
-        let telefone = telefoneInput.value.replace(/\D/g, "");
-
-        if (telefone.length > 11) {
-
-            telefone = telefone.substring(0, 11);
-
-        }
-
-        if (telefone.length > 6) {
-
-            telefone = telefone.replace(
-                /^(\d{2})(\d{5})(\d{0,4}).*/,
-                "($1) $2-$3"
-            );
-
-        } else if (telefone.length > 2) {
-
-            telefone = telefone.replace(
-                /^(\d{2})(\d+)/,
-                "($1) $2"
-            );
-
-        }
-
-        telefoneInput.value = telefone;
-
-    });
-
-}
+        const texto =
+            document.body.innerText.trim();
 
 
-const registerForm = document.getElementById("registerForm");
+        if (!texto) {
 
-if (registerForm) {
-
-    registerForm.addEventListener("submit", async (e) => {
-
-        e.preventDefault();
-
-        const nome = document.getElementById("nome").value;
-        const email = document.getElementById("email").value;
-        const senha = document.getElementById("password").value;
-        const confirmar = document.getElementById("confirmPassword").value;
-        const telefoneEmergencia = document.getElementById("telefoneEmergencia").value;
-
-        if (senha !== confirmar) {
-
-            alert("As senhas não coincidem.");
             return;
 
         }
 
-        const cadastro = {
 
-            nome: nome,
-            email: email,
-            senha: senha,
-            telefone_emergencia: telefoneEmergencia
+        const fala =
+            new SpeechSynthesisUtterance(texto);
+
+
+        fala.lang = "pt-BR";
+        fala.rate = 1;
+        fala.pitch = 1;
+        fala.volume = 1;
+
+
+        fala.onend = () => {
+
+            lendo = false;
+
+            botao.classList.remove("lendo");
+            botao.classList.remove("fa-stop");
+            botao.classList.add("fa-volume-high");
 
         };
 
 
-        console.log("Dados enviados:", cadastro);
+        fala.onerror = () => {
+
+            lendo = false;
+
+            botao.classList.remove("lendo");
+            botao.classList.remove("fa-stop");
+            botao.classList.add("fa-volume-high");
+
+        };
 
 
-        try {
+        speechSynthesis.cancel();
 
-            const resposta = await fetch("http://localhost:3000/cadastro", {
+        speechSynthesis.speak(fala);
 
-                method: "POST",
+        lendo = true;
 
-                headers: {
-                    "Content-Type": "application/json"
-                },
+        botao.classList.add("lendo");
+        botao.classList.remove("fa-volume-high");
+        botao.classList.add("fa-stop");
 
-                body: JSON.stringify(cadastro)
+    });
 
-            });
-
-
-            const dados = await resposta.json();
-
-            console.log(dados);
+}
 
 
-            if (resposta.ok) {
+// ============================================================
+// BOTÃO VOLTAR
+// ============================================================
 
-                alert("Cadastro realizado com sucesso!");
+const backBtn =
+    document.getElementById("back-btn");
 
-                registerForm.reset();
+if (backBtn) {
 
-            } else {
+    backBtn.addEventListener("click", () => {
 
-                alert(dados.mensagem || "Erro ao realizar cadastro.");
+        window.location.href = "index.html";
 
-            }
+    });
+
+}
 
 
-        } catch (erro) {
+// ============================================================
+// MOSTRAR / OCULTAR SENHA
+// ============================================================
 
-            console.error("Erro:", erro);
+const passwordInput =
+    document.getElementById("password");
 
-            alert("Erro ao conectar ao servidor.");
+const togglePassword =
+    document.getElementById("togglePassword");
+
+if (
+    togglePassword &&
+    passwordInput
+) {
+
+    togglePassword.addEventListener(
+        "click",
+        () => {
+
+            const isPassword =
+                passwordInput.type === "password";
+
+
+            passwordInput.type =
+                isPassword
+                    ? "text"
+                    : "password";
+
+
+            togglePassword.innerHTML =
+                isPassword
+                    ? '<i class="fa-regular fa-eye-slash"></i>'
+                    : '<i class="fa-regular fa-eye"></i>';
 
         }
-
-    });
-
-}
-
-
-const btnFuncionalidades = document.getElementById("btnFuncionalidades");
-
-if (
-    btnFuncionalidades &&
-    localStorage.getItem("usuarioLogado") === "true"
-) {
-    btnFuncionalidades.style.display = "block";
-}
-
-
-const btnSair = document.getElementById("btnSair");
-
-if (
-    btnSair &&
-    localStorage.getItem("usuarioLogado") === "true"
-) {
-    btnSair.style.display = "block";
-
-    btnSair.addEventListener("click", (e) => {
-        e.preventDefault();
-
-        localStorage.removeItem("usuarioLogado");
-
-        window.location.href = "login.html";
-    });
-}
-
-const reminderList = document.querySelector(".reminder-list");
-const novoLembreteBtn = document.querySelector(".dashboard-card .dashboard-btn");
-
-let lembretes = JSON.parse(localStorage.getItem("lembretes")) || [];
-
-function salvarLembretes() {
-    localStorage.setItem("lembretes", JSON.stringify(lembretes));
-}
-
-function mostrarLembretes() {
-
-    if (!reminderList) return;
-
-    reminderList.innerHTML = "";
-
-    if (lembretes.length === 0) {
-
-        reminderList.innerHTML =
-        `<p style="text-align:center;opacity:.7;">
-            Nenhum lembrete cadastrado.
-        </p>`;
-
-        return;
-    }
-
-    lembretes.forEach((item, index) => {
-
-        const div = document.createElement("div");
-        div.className = "reminder";
-
-        div.innerHTML = `
-            <div>
-                <strong>${item.titulo}</strong>
-                <span>
-                    <i class="fa-regular fa-calendar"></i>
-                    ${item.data}
-                </span>
-            </div>
-
-            <button data-id="${index}" class="remover-lembrete">
-                <i class="fa-solid fa-trash"></i>
-            </button>
-        `;
-
-        reminderList.appendChild(div);
-
-    });
-
-}
-
-mostrarLembretes();
-
-if (novoLembreteBtn) {
-
-    novoLembreteBtn.addEventListener("click", () => {
-
-        const titulo = prompt("Nome do lembrete:");
-
-        if (!titulo) return;
-
-        const data = prompt("Data e horário\nEx: 28/07/2026 - 19:00");
-
-        if (!data) return;
-
-        lembretes.push({
-            titulo,
-            data
-        });
-
-        salvarLembretes();
-        mostrarLembretes();
-
-    });
-
-}
-
-document.addEventListener("click", (e)=>{
-
-    const btn = e.target.closest(".remover-lembrete");
-
-    if(!btn) return;
-
-    const id = btn.dataset.id;
-
-    if(confirm("Excluir lembrete?")){
-
-        lembretes.splice(id,1);
-
-        salvarLembretes();
-
-        mostrarLembretes();
-
-    }
-
-});
-
-const switches = document.querySelectorAll(".settings-list input[type='checkbox']");
-
-let configuracoes = JSON.parse(localStorage.getItem("configuracoes")) || {
-
-    notificacoes:true,
-    voz:true,
-    tema:false
-
-};
-
-function salvarConfiguracoes(){
-
-    localStorage.setItem(
-        "configuracoes",
-        JSON.stringify(configuracoes)
     );
 
 }
 
-const temaSwitch = switches[0];
 
-if(temaSwitch){
+// ============================================================
+// LOGIN
+// ============================================================
 
-    temaSwitch.checked = configuracoes.tema;
+const loginForm =
+    document.querySelector(".login-card form");
 
-    if(configuracoes.tema){
+if (loginForm) {
 
-        document.body.classList.add("dark-mode");
+    loginForm.addEventListener(
+        "submit",
+        async (e) => {
+
+            e.preventDefault();
+
+
+            const emailElement =
+                document.getElementById("email");
+
+            const senhaElement =
+                document.getElementById("password");
+
+
+            if (
+                !emailElement ||
+                !senhaElement
+            ) {
+
+                alert(
+                    "Não foi possível encontrar os campos de login."
+                );
+
+                return;
+
+            }
+
+
+            const email =
+                emailElement.value.trim();
+
+            const senha =
+                senhaElement.value;
+
+
+            if (!email || !senha) {
+
+                alert(
+                    "Preencha o e-mail e a senha."
+                );
+
+                return;
+
+            }
+
+
+            console.log(
+                "Tentando login..."
+            );
+
+
+            try {
+
+                const resposta =
+                    await fetch(
+                        `${API_URL}/login`,
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body: JSON.stringify({
+                                email,
+                                senha
+                            })
+                        }
+                    );
+
+
+                const dados =
+                    await resposta.json();
+
+
+                console.log(
+                    "Resposta do login:",
+                    dados
+                );
+
+
+                alert(
+                    dados.mensagem ||
+                    "Resposta recebida."
+                );
+
+
+                if (
+                    resposta.ok &&
+                    dados.usuario
+                ) {
+
+                    localStorage.setItem(
+                        "usuarioLogado",
+                        "true"
+                    );
+
+
+                    localStorage.setItem(
+                        "nomeUsuario",
+                        dados.usuario.nome || ""
+                    );
+
+
+                    localStorage.setItem(
+                        "emailUsuario",
+                        dados.usuario.email || ""
+                    );
+
+
+                    window.location.href =
+                        "index.html";
+
+                }
+
+            } catch (erro) {
+
+                console.error(
+                    "Erro no login:",
+                    erro
+                );
+
+
+                alert(
+                    "Erro ao conectar ao servidor."
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// FORMULÁRIO DE CONTATO
+// ============================================================
+
+const formContato =
+    document.getElementById("contatoForm");
+
+if (formContato) {
+
+    formContato.addEventListener(
+        "submit",
+        async (e) => {
+
+            e.preventDefault();
+
+
+            const nome =
+                formContato.elements["nome"]?.value.trim();
+
+            const email =
+                formContato.elements["email"]?.value.trim();
+
+            const assunto =
+                formContato.elements["assunto"]?.value.trim();
+
+            const mensagem =
+                formContato.elements["mensagem"]?.value.trim();
+
+
+            if (
+                !nome ||
+                !email ||
+                !assunto ||
+                !mensagem
+            ) {
+
+                alert(
+                    "Preencha todos os campos."
+                );
+
+                return;
+
+            }
+
+
+            const dados = {
+                nome,
+                email,
+                assunto,
+                mensagem
+            };
+
+
+            try {
+
+                const resposta =
+                    await fetch(
+                        `${API_URL}/contato`,
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body:
+                                JSON.stringify(dados)
+                        }
+                    );
+
+
+                const json =
+                    await resposta.json();
+
+
+                alert(
+                    json.mensagem ||
+                    "Mensagem processada."
+                );
+
+
+                if (resposta.ok) {
+
+                    formContato.reset();
+
+                }
+
+            } catch (erro) {
+
+                console.error(
+                    "Erro no contato:",
+                    erro
+                );
+
+
+                alert(
+                    "Erro ao conectar com o servidor."
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// TELEFONE DE EMERGÊNCIA
+// ============================================================
+
+const telefoneInput =
+    document.getElementById(
+        "telefoneEmergencia"
+    );
+
+if (telefoneInput) {
+
+    telefoneInput.addEventListener(
+        "input",
+        () => {
+
+            let telefone =
+                telefoneInput.value
+                    .replace(/\D/g, "");
+
+
+            if (telefone.length > 11) {
+
+                telefone =
+                    telefone.substring(
+                        0,
+                        11
+                    );
+
+            }
+
+
+            if (telefone.length > 6) {
+
+                telefone =
+                    telefone.replace(
+                        /^(\d{2})(\d{5})(\d{0,4}).*/,
+                        "($1) $2-$3"
+                    );
+
+            } else if (
+                telefone.length > 2
+            ) {
+
+                telefone =
+                    telefone.replace(
+                        /^(\d{2})(\d+)/,
+                        "($1) $2"
+                    );
+
+            }
+
+
+            telefoneInput.value =
+                telefone;
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// CADASTRO
+// ============================================================
+
+const registerForm =
+    document.getElementById(
+        "registerForm"
+    );
+
+if (registerForm) {
+
+    registerForm.addEventListener(
+        "submit",
+        async (e) => {
+
+            e.preventDefault();
+
+
+            const nomeElement =
+                document.getElementById("nome");
+
+            const emailElement =
+                document.getElementById("email");
+
+            const senhaElement =
+                document.getElementById("password");
+
+            const confirmarElement =
+                document.getElementById(
+                    "confirmPassword"
+                );
+
+            const telefoneElement =
+                document.getElementById(
+                    "telefoneEmergencia"
+                );
+
+
+            if (
+                !nomeElement ||
+                !emailElement ||
+                !senhaElement ||
+                !confirmarElement ||
+                !telefoneElement
+            ) {
+
+                alert(
+                    "Não foi possível encontrar todos os campos do cadastro."
+                );
+
+                return;
+
+            }
+
+
+            const nome =
+                nomeElement.value.trim();
+
+            const email =
+                emailElement.value.trim();
+
+            const senha =
+                senhaElement.value;
+
+            const confirmar =
+                confirmarElement.value;
+
+            const telefoneEmergencia =
+                telefoneElement.value.trim();
+
+
+            if (
+                !nome ||
+                !email ||
+                !senha ||
+                !confirmar ||
+                !telefoneEmergencia
+            ) {
+
+                alert(
+                    "Preencha todos os campos."
+                );
+
+                return;
+
+            }
+
+
+            if (senha !== confirmar) {
+
+                alert(
+                    "As senhas não coincidem."
+                );
+
+                return;
+
+            }
+
+
+            const cadastro = {
+
+                nome,
+
+                email,
+
+                senha,
+
+                telefone_emergencia:
+                    telefoneEmergencia
+
+            };
+
+
+            console.log(
+                "Dados enviados:",
+                {
+                    nome,
+                    email,
+                    telefone_emergencia:
+                        telefoneEmergencia
+                }
+            );
+
+
+            try {
+
+                const resposta =
+                    await fetch(
+                        `${API_URL}/cadastro`,
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body:
+                                JSON.stringify(
+                                    cadastro
+                                )
+                        }
+                    );
+
+
+                const dados =
+                    await resposta.json();
+
+
+                console.log(
+                    "Resposta cadastro:",
+                    dados
+                );
+
+
+                if (resposta.ok) {
+
+                    alert(
+                        dados.mensagem ||
+                        "Cadastro realizado com sucesso!"
+                    );
+
+
+                    registerForm.reset();
+
+                } else {
+
+                    alert(
+                        dados.mensagem ||
+                        "Erro ao realizar cadastro."
+                    );
+
+                }
+
+            } catch (erro) {
+
+                console.error(
+                    "Erro no cadastro:",
+                    erro
+                );
+
+
+                alert(
+                    "Erro ao conectar ao servidor."
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// BOTÃO FUNCIONALIDADES
+// ============================================================
+
+const btnFuncionalidades =
+    document.getElementById(
+        "btnFuncionalidades"
+    );
+
+const usuarioLogado =
+    localStorage.getItem(
+        "usuarioLogado"
+    ) === "true";
+
+
+if (
+    btnFuncionalidades &&
+    usuarioLogado
+) {
+
+    btnFuncionalidades.style.display =
+        "block";
+
+}
+
+
+// ============================================================
+// BOTÃO SAIR
+// ============================================================
+
+const btnSair =
+    document.getElementById("btnSair");
+
+if (btnSair) {
+
+    if (usuarioLogado) {
+
+        btnSair.style.display =
+            "block";
 
     }
 
-    temaSwitch.addEventListener("change",()=>{
 
-        configuracoes.tema = temaSwitch.checked;
+    btnSair.addEventListener(
+        "click",
+        (e) => {
 
-        salvarConfiguracoes();
+            e.preventDefault();
 
-        document.body.classList.toggle(
-            "dark-mode",
-            configuracoes.tema
-        );
 
-        localStorage.setItem(
-            "theme",
-            configuracoes.tema ? "dark":"light"
-        );
+            localStorage.removeItem(
+                "usuarioLogado"
+            );
 
-    });
+            localStorage.removeItem(
+                "nomeUsuario"
+            );
 
-}
+            localStorage.removeItem(
+                "emailUsuario"
+            );
 
-const notificacoesItem = document.querySelectorAll(".setting-item")[1];
 
-if(notificacoesItem){
+            window.location.href =
+                "login.html";
 
-    notificacoesItem.addEventListener("click",()=>{
-
-        configuracoes.notificacoes =
-        !configuracoes.notificacoes;
-
-        salvarConfiguracoes();
-
-        alert(
-            configuracoes.notificacoes
-            ? "Notificações ativadas."
-            : "Notificações desativadas."
-        );
-
-    });
+        }
+    );
 
 }
 
-const perfil = document.querySelectorAll(".setting-item")[0];
+
+// ============================================================
+// LEMBRETES
+// ============================================================
+
+const reminderList =
+    document.querySelector(
+        ".reminder-list"
+    );
+
+const novoLembreteBtn =
+    document.querySelector(
+        ".dashboard-card .dashboard-btn"
+    );
 
 
+let lembretes = [];
 
-const nomeSalvo = localStorage.getItem("nomeUsuario");
+try {
 
-if(nomeSalvo){
+    lembretes =
+        JSON.parse(
+            localStorage.getItem(
+                "lembretes"
+            )
+        ) || [];
 
-    const span = document.querySelector(".profile-card h2 span");
+    if (!Array.isArray(lembretes)) {
 
-    if(span){
-
-        span.textContent = nomeSalvo;
+        lembretes = [];
 
     }
 
-}
+} catch (erro) {
 
-const idioma = document.querySelectorAll(".setting-item")[3];
+    console.error(
+        "Erro ao carregar lembretes:",
+        erro
+    );
 
-if(idioma){
-
-    idioma.addEventListener("click",()=>{
-
-        alert("Em breve teremos mais idiomas.");
-
-    });
+    lembretes = [];
 
 }
 
-const privacidade = document.querySelectorAll(".setting-item")[4];
 
-if(privacidade){
+// ============================================================
+// SALVAR LEMBRETES
+// ============================================================
 
-    privacidade.addEventListener("click",()=>{
+function salvarLembretes() {
 
-        if(confirm("Deseja apagar todos os dados desta página?")){
+    localStorage.setItem(
+        "lembretes",
+        JSON.stringify(lembretes)
+    );
 
-            localStorage.removeItem("lembretes");
-            localStorage.removeItem("configuracoes");
-            localStorage.removeItem("nomeUsuario");
+}
 
-            location.reload();
+
+// ============================================================
+// ESCAPAR HTML
+// ============================================================
+
+function escaparHTML(texto) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent =
+        String(texto);
+
+    return div.innerHTML;
+
+}
+
+
+// ============================================================
+// MOSTRAR LEMBRETES
+// ============================================================
+
+function mostrarLembretes() {
+
+    if (!reminderList) {
+
+        return;
+
+    }
+
+
+    reminderList.innerHTML = "";
+
+
+    if (lembretes.length === 0) {
+
+        reminderList.innerHTML = `
+            <p style="text-align:center;opacity:.7;">
+                Nenhum lembrete cadastrado.
+            </p>
+        `;
+
+        return;
+
+    }
+
+
+    lembretes.forEach(
+        (item, index) => {
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.className =
+                "reminder";
+
+
+            div.innerHTML = `
+
+                <div>
+
+                    <strong>
+                        ${escaparHTML(
+                            item.titulo || ""
+                        )}
+                    </strong>
+
+                    <span>
+
+                        <i class="fa-regular fa-calendar"></i>
+
+                        ${escaparHTML(
+                            item.data || ""
+                        )}
+
+                    </span>
+
+                </div>
+
+                <button
+                    type="button"
+                    data-id="${index}"
+                    class="remover-lembrete"
+                    aria-label="Excluir lembrete"
+                >
+
+                    <i class="fa-solid fa-trash"></i>
+
+                </button>
+
+            `;
+
+
+            reminderList.appendChild(
+                div
+            );
+
+        }
+    );
+
+}
+
+
+mostrarLembretes();
+
+
+// ============================================================
+// NOVO LEMBRETE
+// ============================================================
+
+if (novoLembreteBtn) {
+
+    novoLembreteBtn.addEventListener(
+        "click",
+        () => {
+
+            const titulo =
+                prompt(
+                    "Nome do lembrete:"
+                );
+
+
+            if (!titulo) {
+
+                return;
+
+            }
+
+
+            const data =
+                prompt(
+                    "Data e horário\nEx: 28/07/2026 - 19:00"
+                );
+
+
+            if (!data) {
+
+                return;
+
+            }
+
+
+            lembretes.push({
+
+                titulo:
+                    titulo.trim(),
+
+                data:
+                    data.trim()
+
+            });
+
+
+            salvarLembretes();
+
+            mostrarLembretes();
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// EXCLUIR LEMBRETE
+// ============================================================
+
+document.addEventListener(
+    "click",
+    (e) => {
+
+        const btn =
+            e.target.closest(
+                ".remover-lembrete"
+            );
+
+
+        if (!btn) {
+
+            return;
 
         }
 
-    });
+
+        const id =
+            Number(btn.dataset.id);
+
+
+        if (
+            Number.isNaN(id) ||
+            id < 0 ||
+            id >= lembretes.length
+        ) {
+
+            return;
+
+        }
+
+
+        if (
+            confirm(
+                "Excluir lembrete?"
+            )
+        ) {
+
+            lembretes.splice(
+                id,
+                1
+            );
+
+            salvarLembretes();
+
+            mostrarLembretes();
+
+        }
+
+    }
+);
+
+
+// ============================================================
+// CONFIGURAÇÕES
+// ============================================================
+
+const switches =
+    document.querySelectorAll(
+        ".settings-list input[type='checkbox']"
+    );
+
+
+let configuracoes = {
+
+    notificacoes: true,
+
+    voz: true,
+
+    tema: false
+
+};
+
+
+try {
+
+    const configuracoesSalvas =
+        JSON.parse(
+            localStorage.getItem(
+                "configuracoes"
+            )
+        );
+
+
+    if (
+        configuracoesSalvas &&
+        typeof configuracoesSalvas === "object"
+    ) {
+
+        configuracoes = {
+            ...configuracoes,
+            ...configuracoesSalvas
+        };
+
+    }
+
+} catch (erro) {
+
+    console.error(
+        "Erro ao carregar configurações:",
+        erro
+    );
 
 }
 
-const salvar = document.getElementById("salvarConfig");
 
-if(salvar){
+// ============================================================
+// SALVAR CONFIGURAÇÕES
+// ============================================================
 
-    salvar.addEventListener("click",()=>{
+function salvarConfiguracoes() {
 
-        salvarConfiguracoes();
-
-        alert("Configurações salvas com sucesso!");
-
-    });
+    localStorage.setItem(
+        "configuracoes",
+        JSON.stringify(
+            configuracoes
+        )
+    );
 
 }
 
 
+// ============================================================
+// TEMA NAS CONFIGURAÇÕES
+// ============================================================
 
-const spanNome = document.querySelector(".profile-card h2 span");
+const temaSwitch =
+    switches[0];
 
-const nome = localStorage.getItem("nomeUsuario");
+if (temaSwitch) {
 
-if (spanNome && nome) {
-    spanNome.textContent = nome;
+    temaSwitch.checked =
+        document.body.classList.contains(
+            "dark-mode"
+        );
+
+
+    temaSwitch.addEventListener(
+        "change",
+        () => {
+
+            configuracoes.tema =
+                temaSwitch.checked;
+
+
+            salvarConfiguracoes();
+
+
+            document.body.classList.toggle(
+                "dark-mode",
+                configuracoes.tema
+            );
+
+
+            localStorage.setItem(
+                "theme",
+                configuracoes.tema
+                    ? "dark"
+                    : "light"
+            );
+
+        }
+    );
+
 }
 
 
-const btnExtraNav = document.getElementById("btn-extra-nav")
-const extraNav = document.getElementById("extra-nav")
+// ============================================================
+// NOTIFICAÇÕES
+// ============================================================
 
-btnExtraNav.addEventListener("click", (e) => {
-    e.preventDefault()
+const notificacoesSwitch =
+    switches[1];
 
-    extraNav.classList.toggle("open")
-})
+if (notificacoesSwitch) {
 
+    notificacoesSwitch.checked =
+        configuracoes.notificacoes;
+
+
+    notificacoesSwitch.addEventListener(
+        "change",
+        () => {
+
+            configuracoes.notificacoes =
+                notificacoesSwitch.checked;
+
+
+            salvarConfiguracoes();
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// VOZ
+// ============================================================
+
+const vozSwitch =
+    switches[2];
+
+if (vozSwitch) {
+
+    vozSwitch.checked =
+        configuracoes.voz;
+
+
+    vozSwitch.addEventListener(
+        "change",
+        () => {
+
+            configuracoes.voz =
+                vozSwitch.checked;
+
+
+            salvarConfiguracoes();
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// IDIOMA
+// ============================================================
+
+const idiomaItem =
+    document.querySelector(
+        ".setting-item[data-setting='idioma']"
+    );
+
+
+if (idiomaItem) {
+
+    idiomaItem.addEventListener(
+        "click",
+        () => {
+
+            alert(
+                "Em breve teremos mais idiomas."
+            );
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// PRIVACIDADE
+// ============================================================
+
+const privacidadeItem =
+    document.querySelector(
+        ".setting-item[data-setting='privacidade']"
+    );
+
+
+if (privacidadeItem) {
+
+    privacidadeItem.addEventListener(
+        "click",
+        () => {
+
+            if (
+                confirm(
+                    "Deseja apagar todos os dados desta página?"
+                )
+            ) {
+
+                localStorage.removeItem(
+                    "lembretes"
+                );
+
+                localStorage.removeItem(
+                    "configuracoes"
+                );
+
+                localStorage.removeItem(
+                    "nomeUsuario"
+                );
+
+                localStorage.removeItem(
+                    "emailUsuario"
+                );
+
+                localStorage.removeItem(
+                    "usuarioLogado"
+                );
+
+
+                location.reload();
+
+            }
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// SALVAR CONFIGURAÇÕES
+// ============================================================
+
+const salvar =
+    document.getElementById(
+        "salvarConfig"
+    );
+
+
+if (salvar) {
+
+    salvar.addEventListener(
+        "click",
+        () => {
+
+            salvarConfiguracoes();
+
+            alert(
+                "Configurações salvas com sucesso!"
+            );
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// NOME DO USUÁRIO
+// ============================================================
+
+const nomeSalvo =
+    localStorage.getItem(
+        "nomeUsuario"
+    );
+
+
+if (nomeSalvo) {
+
+    const spansNome =
+        document.querySelectorAll(
+            ".profile-card h2 span"
+        );
+
+
+    spansNome.forEach(
+        (span) => {
+
+            span.textContent =
+                nomeSalvo;
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// MENU EXTRA
+// ============================================================
+
+const btnExtraNav =
+    document.getElementById(
+        "btn-extra-nav"
+    );
+
+const extraNav =
+    document.getElementById(
+        "extra-nav"
+    );
+
+
+if (
+    btnExtraNav &&
+    extraNav
+) {
+
+    btnExtraNav.addEventListener(
+        "click",
+        (e) => {
+
+            e.preventDefault();
+
+            extraNav.classList.toggle(
+                "open"
+            );
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// GLÍDIA - VOZ
+// ============================================================
+
+let ouvindo = false;
+
+let glidiaFalando = false;
+
+let voz = null;
+
+
+// ============================================================
+// STATUS
+// ============================================================
+
+function atualizarStatus(texto) {
+
+    const status =
+        document.getElementById(
+            "status"
+        );
+
+
+    if (status) {
+
+        status.textContent =
+            texto;
+
+    }
+
+}
+
+
+// ============================================================
+// FALAR
+// ============================================================
+
+function glidiaFalar(
+    texto,
+    depois = null
+) {
+
+    if (
+        !("speechSynthesis" in window)
+    ) {
+
+        if (depois) {
+
+            depois();
+
+        }
+
+        return;
+
+    }
+
+
+    glidiaFalando = true;
+
+
+    if (
+        voz &&
+        ouvindo
+    ) {
+
+        try {
+
+            voz.stop();
+
+        } catch (e) {
+
+            console.log(
+                "Erro ao parar reconhecimento:",
+                e
+            );
+
+        }
+
+    }
+
+
+    ouvindo = false;
+
+
+    speechSynthesis.cancel();
+
+
+    const fala =
+        new SpeechSynthesisUtterance(
+            texto
+        );
+
+
+    fala.lang =
+        "pt-BR";
+
+    fala.rate =
+        1;
+
+    fala.pitch =
+        1;
+
+    fala.volume =
+        1;
+
+
+    fala.onend = () => {
+
+        glidiaFalando =
+            false;
+
+
+        if (depois) {
+
+            depois();
+
+        }
+
+    };
+
+
+    fala.onerror = () => {
+
+        glidiaFalando =
+            false;
+
+
+        if (depois) {
+
+            depois();
+
+        }
+
+    };
+
+
+    speechSynthesis.speak(
+        fala
+    );
+
+}
+
+
+// ============================================================
+// RECONHECIMENTO DE VOZ
+// ============================================================
+
+const ReconhecimentoVoz =
+    window.SpeechRecognition ||
+    window.webkitSpeechRecognition;
+
+
+if (ReconhecimentoVoz) {
+
+    voz =
+        new ReconhecimentoVoz();
+
+
+    voz.lang =
+        "pt-BR";
+
+
+    voz.continuous =
+        false;
+
+
+    voz.interimResults =
+        false;
+
+
+    voz.maxAlternatives =
+        1;
+
+
+    voz.onstart = () => {
+
+        ouvindo =
+            true;
+
+
+        atualizarStatus(
+            "🎤 Estou ouvindo..."
+        );
+
+    };
+
+
+    voz.onend = () => {
+
+        ouvindo =
+            false;
+
+    };
+
+
+    voz.onerror = (erro) => {
+
+        console.log(
+            "Erro voz:",
+            erro
+        );
+
+
+        ouvindo =
+            false;
+
+
+        if (
+            erro.error ===
+            "no-speech"
+        ) {
+
+            atualizarStatus(
+                "Pressione o botão para falar novamente."
+            );
+
+            return;
+
+        }
+
+
+        if (
+            erro.error ===
+            "not-allowed"
+        ) {
+
+            atualizarStatus(
+                "Permissão do microfone bloqueada."
+            );
+
+            return;
+
+        }
+
+
+        if (
+            erro.error ===
+            "audio-capture"
+        ) {
+
+            atualizarStatus(
+                "Nenhum microfone foi encontrado."
+            );
+
+            return;
+
+        }
+
+
+        atualizarStatus(
+            "Não foi possível ouvir. Pressione o botão para tentar novamente."
+        );
+
+    };
+
+
+    voz.onresult = (event) => {
+
+        let comando =
+            event.results[0][0]
+                .transcript
+                .toLowerCase()
+                .trim();
+
+
+        console.log(
+            "Reconhecido:",
+            comando
+        );
+
+
+        if (glidiaFalando) {
+
+            return;
+
+        }
+
+
+        const palavrasSemSentido = [
+
+            "",
+
+            "hã",
+
+            "hum",
+
+            "aham",
+
+            "é",
+
+            "eh",
+
+            "lalala",
+
+            "la la la",
+
+            "música",
+
+            "musica",
+
+            "milímetro",
+
+            "milimetro"
+
+        ];
+
+
+        if (
+            palavrasSemSentido.includes(
+                comando
+            ) ||
+            comando.length < 2
+        ) {
+
+            atualizarStatus(
+                "Pressione o botão para falar novamente."
+            );
+
+            return;
+
+        }
+
+
+        atualizarStatus(
+            "🤖 Entendi: " +
+            comando
+        );
+
+
+        processarComando(
+            comando
+        );
+
+    };
+
+}
+
+
+// ============================================================
+// BOTÃO DA GLÍDIA
+// ============================================================
+
+function botaoBengala() {
+
+    iniciarGlidia();
+
+}
+
+
+// ============================================================
+// INICIAR GLÍDIA
+// ============================================================
+
+function iniciarGlidia() {
+
+    if (
+        glidiaFalando ||
+        ouvindo
+    ) {
+
+        return;
+
+    }
+
+
+    atualizarStatus(
+        "🟢 Glídia ativada"
+    );
+
+
+    glidiaFalar(
+
+        "Olá! Como posso te ajudar?",
+
+        () => {
+
+            iniciarEscuta();
+
+        }
+
+    );
+
+}
+
+
+// ============================================================
+// INICIAR ESCUTA
+// ============================================================
+
+function iniciarEscuta() {
+
+    if (!voz) {
+
+        atualizarStatus(
+            "Seu navegador não suporta reconhecimento de voz."
+        );
+
+        return;
+
+    }
+
+
+    if (glidiaFalando) {
+
+        return;
+
+    }
+
+
+    if (ouvindo) {
+
+        return;
+
+    }
+
+
+    try {
+
+        voz.start();
+
+    } catch (e) {
+
+        console.log(
+            "Erro ao iniciar reconhecimento:",
+            e
+        );
+
+    }
+
+}
+
+
+// ============================================================
+// PROCESSAR COMANDO
+// ============================================================
+
+function processarComando(
+    comando
+) {
+
+    const texto =
+        comando
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(
+                /[\u0300-\u036f]/g,
+                ""
+            );
+
+
+    // --------------------------------------------------------
+    // GPS
+    // --------------------------------------------------------
+
+    if (
+
+        texto.includes("gps") ||
+
+        texto.includes("mapa") ||
+
+        texto.includes("google maps") ||
+
+        texto.includes("localizacao") ||
+
+        texto.includes("navegacao")
+
+    ) {
+
+        abrirGPS();
+
+        return;
+
+    }
+
+
+    // --------------------------------------------------------
+    // UBER
+    // --------------------------------------------------------
+
+    if (
+
+        texto.includes("uber") ||
+
+        texto.includes("chamar um carro") ||
+
+        texto.includes("chamar carro") ||
+
+        texto.includes("quero um carro")
+
+    ) {
+
+        abrirUber();
+
+        return;
+
+    }
+
+
+    // --------------------------------------------------------
+    // OUTROS COMANDOS
+    // --------------------------------------------------------
+
+    enviarComando(
+        comando
+    );
+
+}
+
+
+// ============================================================
+// ABRIR GPS
+// ============================================================
+
+function abrirGPS() {
+
+    const url =
+        "https://www.google.com/maps/search/?api=1&query=Google+Maps";
+
+
+    atualizarStatus(
+        "📍 Abrindo GPS..."
+    );
+
+
+    glidiaFalar(
+
+        "Abrindo o GPS.",
+
+        () => {
+
+            window.open(
+                url,
+                "_blank",
+                "noopener,noreferrer"
+            );
+
+        }
+
+    );
+
+}
+
+
+// ============================================================
+// ABRIR UBER
+// ============================================================
+
+function abrirUber() {
+
+    const url =
+        "https://m.uber.com/";
+
+
+    atualizarStatus(
+        "🚖 Abrindo Uber..."
+    );
+
+
+    glidiaFalar(
+
+        "Abrindo o Uber.",
+
+        () => {
+
+            window.open(
+                url,
+                "_blank",
+                "noopener,noreferrer"
+            );
+
+        }
+
+    );
+
+}
+
+
+// ============================================================
+// ENVIAR COMANDO PARA O BACKEND
+// ============================================================
+
+async function enviarComando(
+    comando
+) {
+
+    try {
+
+        const resposta =
+            await fetch(
+                `${API_URL}/comando`,
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        comando
+                    })
+                }
+            );
+
+
+        if (!resposta.ok) {
+
+            throw new Error(
+                `Erro HTTP: ${resposta.status}`
+            );
+
+        }
+
+
+        const dados =
+            await resposta.json();
+
+
+        console.log(
+            "Servidor respondeu:",
+            dados
+        );
+
+
+        if (
+            dados.resposta
+        ) {
+
+            atualizarStatus(
+                "🤖 " +
+                dados.resposta
+            );
+
+
+            glidiaFalar(
+                dados.resposta
+            );
+
+
+            // ----------------------------------------------
+            // Se o backend retornar uma URL
+            // ----------------------------------------------
+
+            if (dados.url) {
+
+                setTimeout(() => {
+
+                    window.open(
+                        dados.url,
+                        "_blank",
+                        "noopener,noreferrer"
+                    );
+
+                }, 500);
+
+            }
+
+
+            return;
+
+        }
+
+
+        atualizarStatus(
+            "Resposta inválida."
+        );
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao conectar com Glídia:",
+            erro
+        );
+
+
+        atualizarStatus(
+            "Erro de conexão com o sistema."
+        );
+
+
+        glidiaFalar(
+            "Não consegui conectar ao sistema."
+        );
+
+    }
+
+}
