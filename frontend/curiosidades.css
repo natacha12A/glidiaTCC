@@ -1049,27 +1049,11 @@ body.dark-mode .btn-nav a{
     }
 
     .logo h2 {
-        margin: 0;
-
-        font-size: clamp(14px, 5.5vw, 29px);
-        line-height: 1;
-
-        letter-spacing: normal;
-
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+       display: none;
     }
 
     .logo span {
-        margin-top: 3px;
-
-        font-size: clamp(5px, 2vw, 10px);
-        line-height: 1.1;
-
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+       display: none;
     }
 
 

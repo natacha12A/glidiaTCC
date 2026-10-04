@@ -1057,18 +1057,11 @@ body.dark-mode .btn-nav {
     }
 
     .logo-text {
-        min-width: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
+        display: none;
     }
 
     .logo h2 {
-        margin: 0;
-        font-size: clamp(16px, 5vw, 20px);
-        line-height: 1;
-        letter-spacing: normal;
-        white-space: nowrap;
+        display: none;
     }
 
     .logo span {
