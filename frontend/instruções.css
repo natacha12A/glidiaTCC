@@ -1641,6 +1641,7 @@ body.dark-mode .btn-nav{
     header,
     body.dark-mode header,
     header.header-scroll {
+
         position: relative;
         top: 0;
         left: 0;
@@ -1653,6 +1654,7 @@ body.dark-mode .btn-nav{
     }
 
     .navbar {
+
         width: 100%;
         max-width: none;
         min-height: 70px;
@@ -1664,21 +1666,25 @@ body.dark-mode .btn-nav{
     }
 
     .logo {
+
         gap: 9px;
         min-width: 0;
     }
 
     .logo img {
+
         width: clamp(30px, 6vw, 43px);
         height: auto;
         flex-shrink: 0;
     }
 
     .logo-text {
+
         min-width: 0;
     }
 
     .logo h2 {
+
         margin: 0;
         font-size: clamp(1.35rem, 4vw, 1.8rem);
         line-height: 1;
@@ -1686,11 +1692,13 @@ body.dark-mode .btn-nav{
     }
 
     .logo span {
+
         font-size: clamp(.5rem, 1.5vw, .65rem);
         white-space: nowrap;
     }
 
     header .buttons {
+
         display: none;
     }
 
@@ -1700,6 +1708,7 @@ body.dark-mode .btn-nav{
        ------------------------- */
 
     body {
+
         padding-bottom: 82px;
         overflow-x: hidden;
     }
@@ -1710,6 +1719,7 @@ body.dark-mode .btn-nav{
        ------------------------- */
 
     .instructions {
+
         width: 100%;
         max-width: 1200px;
         min-height: auto;
@@ -1721,6 +1731,7 @@ body.dark-mode .btn-nav{
     }
 
     .left-side {
+
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -1729,6 +1740,7 @@ body.dark-mode .btn-nav{
     }
 
     .left-side h1 {
+
         margin: 0;
         font-size: clamp(42px, 10vw, 68px);
         line-height: .98;
@@ -1741,6 +1753,7 @@ body.dark-mode .btn-nav{
        ------------------------- */
 
     .video-btn {
+
         width: min(100%, 360px);
         min-height: 64px;
         height: auto;
@@ -1754,11 +1767,13 @@ body.dark-mode .btn-nav{
     }
 
     .video-btn:hover {
+
         transform: none;
         box-shadow: none;
     }
 
     .play {
+
         width: 38px;
         height: 38px;
         min-width: 38px;
@@ -1767,19 +1782,22 @@ body.dark-mode .btn-nav{
     }
 
     .play img {
+
         width: 18px;
         height: 18px;
     }
 
     .video-btn h3 {
+
         margin: 0 0 3px;
-        font-size: clamp(12px, 2vw, 14px);
+        font-size: 14px !important;
         line-height: 1.15;
     }
 
     .video-btn p {
+
         margin: 0;
-        font-size: clamp(9px, 1.6vw, 11px);
+        font-size: 12px;
         line-height: 1.35;
     }
 
@@ -1789,6 +1807,7 @@ body.dark-mode .btn-nav{
        ------------------------- */
 
     .right-side {
+
         width: 100%;
         margin: 0;
         padding: 0;
@@ -1798,17 +1817,20 @@ body.dark-mode .btn-nav{
     }
 
     .right-side .section-title:first-child {
+
         margin-top: clamp(40px, 7vw, 55px);
         margin-bottom: 15px;
     }
 
     .section-title {
+
         display: flex;
         align-items: center;
         gap: 7px;
     }
 
     .section-title h3 {
+
         margin: 0;
         margin-bottom: 15px;
         margin-top: 15px;
@@ -1818,6 +1840,7 @@ body.dark-mode .btn-nav{
     }
 
     .dot {
+
         width: 8px;
         height: 8px;
         min-width: 8px;
@@ -1830,6 +1853,7 @@ body.dark-mode .btn-nav{
        ------------------------- */
 
     .steps {
+
         width: 100%;
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1837,6 +1861,7 @@ body.dark-mode .btn-nav{
     }
 
     .step-card {
+
         width: 100%;
         min-width: 0;
         min-height: 105px;
@@ -1848,19 +1873,22 @@ body.dark-mode .btn-nav{
     }
 
     .step-card:hover {
+
         transform: none;
         box-shadow: none;
     }
 
     .step-card h2 {
+
         margin: 0;
         font-size: clamp(24px, 5vw, 36px);
         line-height: 1;
     }
 
     .step-card p {
+
         margin: 8px 0 0;
-        font-size: clamp(10px, 1.7vw, 13px);
+        font-size: 12px;
         line-height: 1.35;
     }
 
@@ -1870,6 +1898,7 @@ body.dark-mode .btn-nav{
        ------------------------- */
 
     .right-side .section-title:nth-of-type(2) {
+
         margin-top: clamp(28px, 5vw, 40px);
         margin-bottom: 15px;
     }
@@ -1880,6 +1909,7 @@ body.dark-mode .btn-nav{
        ------------------------- */
 
     .resources {
+
         width: 100%;
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1887,6 +1917,7 @@ body.dark-mode .btn-nav{
     }
 
     .resource-card {
+
         width: 100%;
         min-width: 0;
         min-height: 125px;
@@ -1903,6 +1934,7 @@ body.dark-mode .btn-nav{
     }
 
     .resource-card:hover {
+
         transform: none;
         box-shadow: none;
     }
@@ -1911,6 +1943,7 @@ body.dark-mode .btn-nav{
     .icon-micro,
     .icon-local,
     .icon-car {
+
         width: clamp(38px, 8vw, 52px);
         height: clamp(38px, 8vw, 52px);
         min-width: clamp(38px, 8vw, 52px);
@@ -1920,21 +1953,25 @@ body.dark-mode .btn-nav{
     }
 
     .icon-micro img {
+
         width: 55%;
         height: auto;
     }
 
     .icon-local img {
+
         width: 45%;
         height: auto;
     }
 
     .icon-car img {
+
         width: 45%;
         height: auto;
     }
 
     .resource-card h3 {
+
         margin: 0 0 4px;
         font-size: clamp(9px, 1.7vw, 12px);
         line-height: 1.2;
@@ -1942,8 +1979,9 @@ body.dark-mode .btn-nav{
     }
 
     .resource-card p {
+
         margin: 0;
-        font-size: clamp(9px, 1.6vw, 12px);
+        font-size: 10px !important;
         line-height: 1.3;
     }
 
@@ -1954,6 +1992,7 @@ body.dark-mode .btn-nav{
 
     .reveal,
     .reveal.active {
+
         opacity: 1;
         transform: none;
     }
@@ -1964,6 +2003,7 @@ body.dark-mode .btn-nav{
        ------------------------- */
 
     .menu {
+
         position: fixed;
         left: 0;
         bottom: 0;
@@ -1984,6 +2024,7 @@ body.dark-mode .btn-nav{
     }
 
     .menu li {
+
         width: 20%;
         height: 100%;
         display: flex;
@@ -1992,22 +2033,42 @@ body.dark-mode .btn-nav{
     }
 
     .menu li:nth-child(5) {
+
         display: none;
     }
 
     .menu li:nth-child(6),
     .menu li:nth-child(7) {
+
         display: flex;
     }
 
-    .menu li:nth-child(1) { order: 1; }
-    .menu li:nth-child(2) { order: 2; }
-    .menu li:nth-child(3) { order: 3; }
-    .menu li:nth-child(6) { order: 4; }
-    .menu li:nth-child(4) { order: 5; }
-    .menu li:nth-child(7) { order: 6; }
+    .menu li:nth-child(1) {
+        order: 1;
+    }
+
+    .menu li:nth-child(2) {
+        order: 2;
+    }
+
+    .menu li:nth-child(3) {
+        order: 3;
+    }
+
+    .menu li:nth-child(6) {
+        order: 4;
+    }
+
+    .menu li:nth-child(4) {
+        order: 5;
+    }
+
+    .menu li:nth-child(7) {
+        order: 6;
+    }
 
     .menu a {
+
         width: 48px;
         height: 48px;
         padding: 0;
@@ -2021,29 +2082,50 @@ body.dark-mode .btn-nav{
     }
 
     .menu a::after {
+
         display: none;
     }
 
     .menu a::before {
+
         font-family: "Font Awesome 6 Free";
         font-weight: 900;
         font-size: clamp(21px, 5vw, 25px);
         line-height: 1;
     }
 
-    .menu li:nth-child(1) a::before { content: "\f015"; }
-    .menu li:nth-child(2) a::before { content: "\f02d"; }
-    .menu li:nth-child(3) a::before { content: "\f29d"; }
-    .menu li:nth-child(4) a::before { content: "\f15c"; }
-    .menu li:nth-child(6) a::before { content: "\f2bd"; }
-    .menu li:nth-child(7) a::before { content: "\f141"; }
+    .menu li:nth-child(1) a::before {
+        content: "\f015";
+    }
+
+    .menu li:nth-child(2) a::before {
+        content: "\f02d";
+    }
+
+    .menu li:nth-child(3) a::before {
+        content: "\f29d";
+    }
+
+    .menu li:nth-child(4) a::before {
+        content: "\f15c";
+    }
+
+    .menu li:nth-child(6) a::before {
+        content: "\f2bd";
+    }
+
+    .menu li:nth-child(7) a::before {
+        content: "\f141";
+    }
 
     .menu a:hover,
     .menu a.active {
+
         color: #ff962e;
     }
 
     .menu a.active::after {
+
         content: "";
         display: block;
         position: absolute;
@@ -2057,6 +2139,7 @@ body.dark-mode .btn-nav{
     }
 
     .menu img {
+
         display: none;
     }
 
@@ -2066,6 +2149,7 @@ body.dark-mode .btn-nav{
        ------------------------- */
 
     .extra-nav {
+
         position: fixed;
         right: clamp(10px, 4vw, 20px);
         bottom: 82px;
@@ -2084,11 +2168,13 @@ body.dark-mode .btn-nav{
     }
 
     .extra-nav.open {
+
         display: flex;
     }
 
     .extra-nav a,
     .extra-nav button {
+
         width: 100%;
         padding: 11px 12px;
         border: none;
@@ -2108,26 +2194,31 @@ body.dark-mode .btn-nav{
        ------------------------- */
 
     body.dark-mode .menu {
+
         background: rgba(2, 11, 29, .98);
         border-top-color: #ff962e;
     }
 
     body.dark-mode .menu a {
+
         color: #ff962e;
     }
 
     body.dark-mode .extra-nav {
+
         background: rgba(2, 11, 29, .98);
         border-color: #ff962e;
     }
 
     body.dark-mode .extra-nav a,
     body.dark-mode .extra-nav button {
+
         color: #ff962e;
     }
 
     body.dark-mode .extra-nav a:hover,
     body.dark-mode .extra-nav button:hover {
+
         background: #091447;
     }
 }
@@ -2141,41 +2232,50 @@ body.dark-mode .btn-nav{
 @media (max-width: 600px) {
 
     .navbar {
+
         padding: 12px 18px;
     }
 
     .instructions {
+
         padding-left: 18px;
         padding-right: 18px;
     }
 
     .left-side h1 {
+
         font-size: clamp(40px, 11vw, 55px);
     }
 
     .video-btn {
+
         max-width: 330px;
     }
 
     .step-card {
+
         min-height: 100px;
     }
 
     .resource-card {
+
         min-height: 115px;
         padding-left: 6px;
         padding-right: 6px;
     }
 
     .resource-card h3 {
+
         font-size: 9px;
     }
 
     .resource-card p {
-        font-size: 9px;
+
+        font-size: 12px;
     }
 
     .menu {
+
         height: 70px;
     }
 }
@@ -2189,36 +2289,44 @@ body.dark-mode .btn-nav{
 @media (max-width: 430px) {
 
     .navbar {
+
         min-height: 62px;
         padding: 11px 16px;
     }
 
     .logo {
+
         gap: 7px;
     }
 
     .logo img {
+
         width: 27px;
     }
 
     .logo h2 {
+
         font-size: 18px;
     }
 
     .logo span {
+
         font-size: 7.5px;
     }
 
     .instructions {
+
         padding: 20px 15px 30px;
     }
 
     .left-side h1 {
+
         font-size: clamp(37px, 12vw, 50px);
         letter-spacing: -.8px;
     }
 
     .video-btn {
+
         width: 100%;
         max-width: 300px;
         min-height: 58px;
@@ -2226,57 +2334,69 @@ body.dark-mode .btn-nav{
     }
 
     .play {
+
         width: 32px;
         height: 32px;
         min-width: 32px;
     }
 
     .play img {
+
         width: 15px;
         height: 15px;
     }
 
     .video-btn h3 {
+
         font-size: 12px;
     }
 
     .video-btn p {
-        font-size: 9px;
+
+        font-size: 12px;
     }
 
     .right-side .section-title:first-child {
+
         margin-top: 36px;
     }
 
     .section-title h3 {
+
         font-size: 14px;
     }
 
     .steps {
+
         gap: 10px;
     }
 
     .step-card {
+
         min-height: 94px;
         padding: 9px;
         border-radius: 10px;
     }
 
     .step-card h2 {
+
         font-size: 24px;
     }
 
     .step-card p {
+
         margin-top: 6px;
-        font-size: 9px;
+        font-size: 12px;
         line-height: 1.3;
     }
 
     .resources {
+
         gap: 7px;
     }
 
     .resource-card {
+
         min-height: 105px;
         padding: 8px 4px;
         border-radius: 10px;
@@ -2286,6 +2406,7 @@ body.dark-mode .btn-nav{
     .icon-micro,
     .icon-local,
     .icon-car {
+
         width: 34px;
         height: 34px;
         min-width: 34px;
@@ -2293,30 +2414,36 @@ body.dark-mode .btn-nav{
     }
 
     .resource-card h3 {
+
         font-size: 8px;
         line-height: 1.15;
     }
 
     .resource-card p {
-        font-size: 8px;
+
+        font-size: 12px;
         line-height: 1.25;
     }
 
     .menu {
+
         height: 68px;
         padding: 0 8px;
     }
 
     .menu a {
+
         width: 44px;
         height: 44px;
     }
 
     .menu a::before {
+
         font-size: 21px;
     }
 
     .extra-nav {
+
         right: 10px;
         bottom: 78px;
         width: min(210px, calc(100vw - 20px));
@@ -2332,57 +2459,70 @@ body.dark-mode .btn-nav{
 @media (max-width: 360px) {
 
     .navbar {
+
         padding-left: 12px;
         padding-right: 12px;
     }
 
     .logo img {
+
         width: 24px;
     }
 
     .logo h2 {
+
         font-size: 16px;
     }
 
     .logo span {
+
         font-size: 7px;
     }
 
     .instructions {
+
         padding-left: 12px;
         padding-right: 12px;
     }
 
     .left-side h1 {
+
         font-size: clamp(34px, 12vw, 43px);
     }
 
     .video-btn {
+
         max-width: 100%;
     }
 
     .steps {
+
         gap: 8px;
     }
 
     .step-card {
+
         min-height: 90px;
         padding: 8px;
     }
 
     .step-card h2 {
+
         font-size: 22px;
     }
 
     .step-card p {
-        font-size: 8px;
+
+        font-size: 12px;
     }
 
     .resources {
+
         gap: 5px;
     }
 
     .resource-card {
+
         min-height: 100px;
         padding: 7px 3px;
     }
@@ -2391,29 +2531,36 @@ body.dark-mode .btn-nav{
     .icon-micro,
     .icon-local,
     .icon-car {
+
         width: 31px;
         height: 31px;
         min-width: 31px;
     }
 
     .resource-card h3 {
+
         font-size: 7px;
     }
 
     .resource-card p {
-        font-size: 7.5px;
+
+        font-size: 12px;
     }
 
     .menu {
+
         padding: 0 4px;
     }
 
     .menu a {
+
         width: 40px;
         height: 40px;
     }
 
     .menu a::before {
+
         font-size: 19px;
     }
+
 }
