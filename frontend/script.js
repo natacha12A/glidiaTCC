@@ -352,8 +352,7 @@ if (loginForm) {
             try {
 
                 const resposta =
-                    await fetch(
-                        `${API_URL}/login`,
+                    await fetch(`${API_URL}/login`,
                         {
                             method: "POST",
 
@@ -485,9 +484,7 @@ if (formContato) {
             try {
 
                 const resposta =
-                    await fetch(
-                        `${API_URL}/contato`,
-                        {
+                    await fetch(`${API_URL}/contato`, {
                             method: "POST",
 
                             headers: {
@@ -715,9 +712,7 @@ if (registerForm) {
             try {
 
                 const resposta =
-                    await fetch(
-                        `${API_URL}/cadastro`,
-                        {
+                    await fetch(`${API_URL}/cadastro`, {
                             method: "POST",
 
                             headers: {
@@ -1919,9 +1914,7 @@ async function enviarComando(
     try {
 
         const resposta =
-            await fetch(
-                `${API_URL}/comando`,
-                {
+            await fetch(`${API_URL}/comando`, {
                     method: "POST",
 
                     headers: {
