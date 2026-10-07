@@ -1,2009 +1,967 @@
+// GLÍDIA - JAVASCRIPT PRINCIPAL
+
 const API_URL = "https://glidia-backend.vercel.app";
 
+document.addEventListener("DOMContentLoaded", () => {
+    inicializarTema();
+    inicializarMenu();
+    inicializarScroll();
+    inicializarAnimacoes();
+    inicializarLeitura();
+    inicializarLogin();
+    inicializarCadastro();
+    inicializarContato();
+    inicializarComandoVoz();
+    inicializarGPS();
+    inicializarUber();
+    inicializarConfiguracoes();
+    inicializarLembretes();
+    inicializarLogout();
+});
 
-const header = document.getElementById("header");
+function inicializarTema() {
+    const themeBtn = document.getElementById("theme-btn");
 
-if (header) {
+    if (!themeBtn) return;
 
-    window.addEventListener("scroll", () => {
+    const temaSalvo = localStorage.getItem("tema");
 
-        header.classList.toggle(
-            "header-scroll",
-            window.scrollY > 40
-        );
-
-    });
-}
-
-const reveals = document.querySelectorAll(".reveal");
-
-if (reveals.length > 0) {
-
-    const observer = new IntersectionObserver(
-
-        (entries) => {
-
-            entries.forEach((entry) => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("active");
-
-                }
-
-            });
-
-        },
-
-        {
-            threshold: 0.2
-        }
-
-    );
-
-    reveals.forEach((item) => {
-
-        observer.observe(item);
-
-    });
-}
-
-
-const heroImage =
-    document.querySelector(".hero-image img");
-
-if (heroImage) {
-
-    window.addEventListener("mousemove", (e) => {
-
-        const x =
-            (window.innerWidth / 2 - e.clientX) / 60;
-
-        const y =
-            (window.innerHeight / 2 - e.clientY) / 60;
-
-        heroImage.style.transform =
-            `translate(${x}px, ${y}px)`;
-
-    });
-}
-
-
-const themeBtn =
-    document.getElementById("theme-toggle");
-
-const images =
-    document.querySelectorAll("img[data-light]");
-
-
-function aplicarTema(tema) {
-
-    const dark =
-        tema === "dark";
-
-    document.body.classList.toggle(
-        "dark-mode",
-        dark
-    );
-
-
-    if (themeBtn) {
-
-        themeBtn.classList.toggle(
-            "fa-moon",
-            !dark
-        );
-
-        themeBtn.classList.toggle(
-            "fa-sun",
-            dark
-        );
-
+    if (temaSalvo === "dark") {
+        document.body.classList.add("dark-mode");
     }
 
-
-    images.forEach((img) => {
-
-        if (dark && img.dataset.dark) {
-
-            img.src = img.dataset.dark;
-
-        } else if (!dark && img.dataset.light) {
-
-            img.src = img.dataset.light;
-
-        }
-
-    });
-
-}
-
-
-const savedTheme =
-    localStorage.getItem("theme") || "light";
-
-aplicarTema(savedTheme);
-
-
-if (themeBtn) {
+    atualizarIconeTema();
 
     themeBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
 
-        const dark =
-            document.body.classList.contains("dark-mode");
+        const temaAtual = document.body.classList.contains("dark-mode")
+            ? "dark"
+            : "light";
 
-        const novoTema =
-            dark ? "light" : "dark";
-
-        aplicarTema(novoTema);
-
-        localStorage.setItem(
-            "theme",
-            novoTema
-        );
-
+        localStorage.setItem("tema", temaAtual);
+        atualizarIconeTema();
     });
-
 }
 
+function atualizarIconeTema() {
+    const themeBtn = document.getElementById("theme-btn");
 
-const botao =
-    document.getElementById("ler-site");
+    if (!themeBtn) return;
 
-if (botao) {
+    const darkMode = document.body.classList.contains("dark-mode");
+
+    themeBtn.innerHTML = darkMode
+        ? '<i class="fas fa-sun"></i>'
+        : '<i class="fas fa-moon"></i>';
+}
+
+function inicializarMenu() {
+    const menuBtn = document.querySelector(".menu-btn");
+    const menu = document.querySelector(".menu");
+
+    if (!menuBtn || !menu) return;
+
+    menuBtn.addEventListener("click", () => {
+        menu.classList.toggle("active");
+        menuBtn.classList.toggle("active");
+    });
+
+    menu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            menu.classList.remove("active");
+            menuBtn.classList.remove("active");
+        });
+    });
+}
+
+function inicializarScroll() {
+    const header = document.querySelector("header");
+
+    if (!header) return;
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    });
+}
+
+function inicializarAnimacoes() {
+    const elementos = document.querySelectorAll(
+        ".reveal, .card, .section-title, .produto-card, .instrucao-card"
+    );
+
+    if (!elementos.length) return;
+
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                }
+            });
+        },
+        {
+            threshold: 0.1
+        }
+    );
+
+    elementos.forEach(elemento => observer.observe(elemento));
+}
+
+function inicializarLeitura() {
+    const botao = document.getElementById("ler-site");
+
+    if (!botao || !("speechSynthesis" in window)) return;
 
     let lendo = false;
 
-
     botao.addEventListener("click", () => {
-
-        // Verificar suporte
-        if (
-            !("speechSynthesis" in window) ||
-            !("SpeechSynthesisUtterance" in window)
-        ) {
-
-            alert(
-                "Seu navegador não suporta leitura de voz."
-            );
-
-            return;
-
-        }
-
-
         if (lendo) {
-
-            speechSynthesis.cancel();
-
+            window.speechSynthesis.cancel();
             lendo = false;
-
             botao.classList.remove("lendo");
-            botao.classList.remove("fa-stop");
-            botao.classList.add("fa-volume-high");
-
+            botao.innerHTML = '<i class="fas fa-volume-up"></i>';
             return;
         }
 
+        const texto = document.body.innerText;
 
-        const texto =
-            document.body.innerText.trim();
+        if (!texto.trim()) return;
 
-
-        if (!texto) {
-
-            return;
-
-        }
-
-
-        const fala =
-            new SpeechSynthesisUtterance(texto);
-
+        const fala = new SpeechSynthesisUtterance(texto);
 
         fala.lang = "pt-BR";
-        fala.rate = 1;
+        fala.rate = 0.9;
         fala.pitch = 1;
         fala.volume = 1;
 
+        fala.onstart = () => {
+            lendo = true;
+            botao.classList.add("lendo");
+            botao.innerHTML = '<i class="fas fa-stop"></i>';
+        };
 
         fala.onend = () => {
-
             lendo = false;
-
             botao.classList.remove("lendo");
-            botao.classList.remove("fa-stop");
-            botao.classList.add("fa-volume-high");
-
+            botao.innerHTML = '<i class="fas fa-volume-up"></i>';
         };
-
 
         fala.onerror = () => {
-
             lendo = false;
-
             botao.classList.remove("lendo");
-            botao.classList.remove("fa-stop");
-            botao.classList.add("fa-volume-high");
-
+            botao.innerHTML = '<i class="fas fa-volume-up"></i>';
         };
 
-
-        speechSynthesis.cancel();
-
-        speechSynthesis.speak(fala);
-
-        lendo = true;
-
-        botao.classList.add("lendo");
-        botao.classList.remove("fa-volume-high");
-        botao.classList.add("fa-stop");
-
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(fala);
     });
-
 }
 
-const backBtn =
-    document.getElementById("back-btn");
+function mostrarMensagem(mensagem, tipo = "info") {
+    const antiga = document.querySelector(".mensagem-glidia");
 
-if (backBtn) {
+    if (antiga) antiga.remove();
 
-    backBtn.addEventListener("click", () => {
+    const div = document.createElement("div");
 
-        window.location.href = "index.html";
+    div.className = `mensagem-glidia ${tipo}`;
+    div.textContent = mensagem;
 
-    });
+    document.body.appendChild(div);
 
+    setTimeout(() => {
+        div.classList.add("mostrar");
+    }, 10);
+
+    setTimeout(() => {
+        div.classList.remove("mostrar");
+
+        setTimeout(() => {
+            div.remove();
+        }, 300);
+    }, 4000);
 }
 
-
-const passwordInput =
-    document.getElementById("password");
-
-const togglePassword =
-    document.getElementById("togglePassword");
-
-if (
-    togglePassword &&
-    passwordInput
-) {
-
-    togglePassword.addEventListener(
-        "click",
-        () => {
-
-            const isPassword =
-                passwordInput.type === "password";
-
-
-            passwordInput.type =
-                isPassword
-                    ? "text"
-                    : "password";
-
-
-            togglePassword.innerHTML =
-                isPassword
-                    ? '<i class="fa-regular fa-eye-slash"></i>'
-                    : '<i class="fa-regular fa-eye"></i>';
-
-        }
-    );
-
-}
-
-
-const loginForm =
-    document.querySelector(".login-card form");
-
-if (loginForm) {
-
-    loginForm.addEventListener(
-        "submit",
-        async (e) => {
-
-            e.preventDefault();
-
-
-            const emailElement =
-                document.getElementById("email");
-
-            const senhaElement =
-                document.getElementById("password");
-
-
-            if (
-                !emailElement ||
-                !senhaElement
-            ) {
-
-                alert(
-                    "Não foi possível encontrar os campos de login."
-                );
-
-                return;
-
+async function fazerRequisicao(url, opcoes = {}) {
+    try {
+        const resposta = await fetch(url, {
+            ...opcoes,
+            headers: {
+                "Content-Type": "application/json",
+                ...(opcoes.headers || {})
             }
+        });
 
+        const texto = await resposta.text();
 
-            const email =
-                emailElement.value.trim();
+        let dados = {};
 
-            const senha =
-                senhaElement.value;
-
-
-            if (!email || !senha) {
-
-                alert(
-                    "Preencha o e-mail e a senha."
-                );
-
-                return;
-
-            }
-
-
-            console.log(
-                "Tentando login..."
-            );
-
-
+        if (texto) {
             try {
-
-                const resposta =
-                    await fetch(`${API_URL}/login`,
-                        {
-                            method: "POST",
-
-                            headers: {
-                                "Content-Type":
-                                    "application/json"
-                            },
-
-                            body: JSON.stringify({
-                                email,
-                                senha
-                            })
-                        }
-                    );
-
-
-                const dados =
-                    await resposta.json();
-
-
-                console.log(
-                    "Resposta do login:",
-                    dados
-                );
-
-
-                alert(
-                    dados.mensagem ||
-                    "Resposta recebida."
-                );
-
-
-                if (
-                    resposta.ok &&
-                    dados.usuario
-                ) {
-
-                    localStorage.setItem(
-                        "usuarioLogado",
-                        "true"
-                    );
-
-
-                    localStorage.setItem(
-                        "nomeUsuario",
-                        dados.usuario.nome || ""
-                    );
-
-
-                    localStorage.setItem(
-                        "emailUsuario",
-                        dados.usuario.email || ""
-                    );
-
-
-                    window.location.href =
-                        "index.html";
-
-                }
-
-            } catch (erro) {
-
-                console.error(
-                    "Erro no login:",
-                    erro
-                );
-
-
-                alert(
-                    "Erro ao conectar ao servidor."
-                );
-
+                dados = JSON.parse(texto);
+            } catch {
+                dados = {
+                    mensagem: texto
+                };
             }
-
         }
-    );
 
-}
-
-const formContato =
-    document.getElementById("contatoForm");
-
-if (formContato) {
-
-    formContato.addEventListener(
-        "submit",
-        async (e) => {
-
-            e.preventDefault();
-
-
-            const nome =
-                formContato.elements["nome"]?.value.trim();
-
-            const email =
-                formContato.elements["email"]?.value.trim();
-
-            const assunto =
-                formContato.elements["assunto"]?.value.trim();
-
-            const mensagem =
-                formContato.elements["mensagem"]?.value.trim();
-
-
-            if (
-                !nome ||
-                !email ||
-                !assunto ||
-                !mensagem
-            ) {
-
-                alert(
-                    "Preencha todos os campos."
-                );
-
-                return;
-
-            }
-
-
-            const dados = {
-                nome,
-                email,
-                assunto,
-                mensagem
-            };
-
-
-            try {
-
-                const resposta =
-                    await fetch(`${API_URL}/contato`, {
-                            method: "POST",
-
-                            headers: {
-                                "Content-Type":
-                                    "application/json"
-                            },
-
-                            body:
-                                JSON.stringify(dados)
-                        }
-                    );
-
-
-                const json =
-                    await resposta.json();
-
-
-                alert(
-                    json.mensagem ||
-                    "Mensagem processada."
-                );
-
-
-                if (resposta.ok) {
-
-                    formContato.reset();
-
-                }
-
-            } catch (erro) {
-
-                console.error(
-                    "Erro no contato:",
-                    erro
-                );
-
-
-                alert(
-                    "Erro ao conectar com o servidor."
-                );
-
-            }
-
-        }
-    );
-
-}
-
-const telefoneInput =
-    document.getElementById(
-        "telefoneEmergencia"
-    );
-
-if (telefoneInput) {
-
-    telefoneInput.addEventListener(
-        "input",
-        () => {
-
-            let telefone =
-                telefoneInput.value
-                    .replace(/\D/g, "");
-
-
-            if (telefone.length > 11) {
-
-                telefone =
-                    telefone.substring(
-                        0,
-                        11
-                    );
-
-            }
-
-
-            if (telefone.length > 6) {
-
-                telefone =
-                    telefone.replace(
-                        /^(\d{2})(\d{5})(\d{0,4}).*/,
-                        "($1) $2-$3"
-                    );
-
-            } else if (
-                telefone.length > 2
-            ) {
-
-                telefone =
-                    telefone.replace(
-                        /^(\d{2})(\d+)/,
-                        "($1) $2"
-                    );
-
-            }
-
-
-            telefoneInput.value =
-                telefone;
-
-        }
-    );
-
-}
-
-const registerForm =
-    document.getElementById(
-        "registerForm"
-    );
-
-if (registerForm) {
-
-    registerForm.addEventListener(
-        "submit",
-        async (e) => {
-
-            e.preventDefault();
-
-
-            const nomeElement =
-                document.getElementById("nome");
-
-            const emailElement =
-                document.getElementById("email");
-
-            const senhaElement =
-                document.getElementById("password");
-
-            const confirmarElement =
-                document.getElementById(
-                    "confirmPassword"
-                );
-
-            const telefoneElement =
-                document.getElementById(
-                    "telefoneEmergencia"
-                );
-
-
-            if (
-                !nomeElement ||
-                !emailElement ||
-                !senhaElement ||
-                !confirmarElement ||
-                !telefoneElement
-            ) {
-
-                alert(
-                    "Não foi possível encontrar todos os campos do cadastro."
-                );
-
-                return;
-
-            }
-
-
-            const nome =
-                nomeElement.value.trim();
-
-            const email =
-                emailElement.value.trim();
-
-            const senha =
-                senhaElement.value;
-
-            const confirmar =
-                confirmarElement.value;
-
-            const telefoneEmergencia =
-                telefoneElement.value.trim();
-
-
-            if (
-                !nome ||
-                !email ||
-                !senha ||
-                !confirmar ||
-                !telefoneEmergencia
-            ) {
-
-                alert(
-                    "Preencha todos os campos."
-                );
-
-                return;
-
-            }
-
-
-            if (senha !== confirmar) {
-
-                alert(
-                    "As senhas não coincidem."
-                );
-
-                return;
-
-            }
-
-
-            const cadastro = {
-
-                nome,
-
-                email,
-
-                senha,
-
-                telefone_emergencia:
-                    telefoneEmergencia
-
-            };
-
-
-            console.log(
-                "Dados enviados:",
-                {
-                    nome,
-                    email,
-                    telefone_emergencia:
-                        telefoneEmergencia
-                }
+        if (!resposta.ok) {
+            throw new Error(
+                dados.mensagem ||
+                dados.message ||
+                `Erro do servidor: ${resposta.status}`
             );
-
-
-            try {
-
-                const resposta =
-                    await fetch(`${API_URL}/cadastro`, {
-                            method: "POST",
-
-                            headers: {
-                                "Content-Type":
-                                    "application/json"
-                            },
-
-                            body:
-                                JSON.stringify(
-                                    cadastro
-                                )
-                        }
-                    );
-
-
-                const dados =
-                    await resposta.json();
-
-
-                console.log(
-                    "Resposta cadastro:",
-                    dados
-                );
-
-
-                if (resposta.ok) {
-
-                    alert(
-                        dados.mensagem ||
-                        "Cadastro realizado com sucesso!"
-                    );
-
-
-                    registerForm.reset();
-
-                } else {
-
-                    alert(
-                        dados.mensagem ||
-                        "Erro ao realizar cadastro."
-                    );
-
-                }
-
-            } catch (erro) {
-
-                console.error(
-                    "Erro no cadastro:",
-                    erro
-                );
-
-
-                alert(
-                    "Erro ao conectar ao servidor."
-                );
-
-            }
-
-        }
-    );
-
-}
-
-const btnFuncionalidades =
-    document.getElementById(
-        "btnFuncionalidades"
-    );
-
-const usuarioLogado =
-    localStorage.getItem(
-        "usuarioLogado"
-    ) === "true";
-
-
-if (
-    btnFuncionalidades &&
-    usuarioLogado
-) {
-
-    btnFuncionalidades.style.display =
-        "block";
-
-}
-
-const btnSair =
-    document.getElementById("btnSair");
-
-if (btnSair) {
-
-    if (usuarioLogado) {
-
-        btnSair.style.display =
-            "block";
-
-    }
-
-
-    btnSair.addEventListener(
-        "click",
-        (e) => {
-
-            e.preventDefault();
-
-
-            localStorage.removeItem(
-                "usuarioLogado"
-            );
-
-            localStorage.removeItem(
-                "nomeUsuario"
-            );
-
-            localStorage.removeItem(
-                "emailUsuario"
-            );
-
-
-            window.location.href =
-                "login.html";
-
-        }
-    );
-
-}
-
-const reminderList =
-    document.querySelector(
-        ".reminder-list"
-    );
-
-const novoLembreteBtn =
-    document.querySelector(
-        ".dashboard-card .dashboard-btn"
-    );
-
-
-let lembretes = [];
-
-try {
-
-    lembretes =
-        JSON.parse(
-            localStorage.getItem(
-                "lembretes"
-            )
-        ) || [];
-
-    if (!Array.isArray(lembretes)) {
-
-        lembretes = [];
-
-    }
-
-} catch (erro) {
-
-    console.error(
-        "Erro ao carregar lembretes:",
-        erro
-    );
-
-    lembretes = [];
-
-}
-
-
-function salvarLembretes() {
-
-    localStorage.setItem(
-        "lembretes",
-        JSON.stringify(lembretes)
-    );
-
-}
-
-
-function escaparHTML(texto) {
-
-    const div =
-        document.createElement("div");
-
-    div.textContent =
-        String(texto);
-
-    return div.innerHTML;
-
-}
-
-
-function mostrarLembretes() {
-
-    if (!reminderList) {
-
-        return;
-
-    }
-
-
-    reminderList.innerHTML = "";
-
-
-    if (lembretes.length === 0) {
-
-        reminderList.innerHTML = `
-            <p style="text-align:center;opacity:.7;">
-                Nenhum lembrete cadastrado.
-            </p>
-        `;
-
-        return;
-
-    }
-
-
-    lembretes.forEach(
-        (item, index) => {
-
-            const div =
-                document.createElement(
-                    "div"
-                );
-
-
-            div.className =
-                "reminder";
-
-
-            div.innerHTML = `
-
-                <div>
-
-                    <strong>
-                        ${escaparHTML(
-                            item.titulo || ""
-                        )}
-                    </strong>
-
-                    <span>
-
-                        <i class="fa-regular fa-calendar"></i>
-
-                        ${escaparHTML(
-                            item.data || ""
-                        )}
-
-                    </span>
-
-                </div>
-
-                <button
-                    type="button"
-                    data-id="${index}"
-                    class="remover-lembrete"
-                    aria-label="Excluir lembrete"
-                >
-
-                    <i class="fa-solid fa-trash"></i>
-
-                </button>
-
-            `;
-
-
-            reminderList.appendChild(
-                div
-            );
-
-        }
-    );
-
-}
-
-
-mostrarLembretes();
-
-
-if (novoLembreteBtn) {
-
-    novoLembreteBtn.addEventListener(
-        "click",
-        () => {
-
-            const titulo =
-                prompt(
-                    "Nome do lembrete:"
-                );
-
-
-            if (!titulo) {
-
-                return;
-
-            }
-
-
-            const data =
-                prompt(
-                    "Data e horário\nEx: 28/07/2026 - 19:00"
-                );
-
-
-            if (!data) {
-
-                return;
-
-            }
-
-
-            lembretes.push({
-
-                titulo:
-                    titulo.trim(),
-
-                data:
-                    data.trim()
-
-            });
-
-
-            salvarLembretes();
-
-            mostrarLembretes();
-
-        }
-    );
-
-}
-
-document.addEventListener(
-    "click",
-    (e) => {
-
-        const btn =
-            e.target.closest(
-                ".remover-lembrete"
-            );
-
-
-        if (!btn) {
-
-            return;
-
         }
 
-
-        const id =
-            Number(btn.dataset.id);
-
+        return dados;
+    } catch (erro) {
+        console.error("Erro na requisição:", erro);
 
         if (
-            Number.isNaN(id) ||
-            id < 0 ||
-            id >= lembretes.length
+            erro.name === "TypeError" ||
+            erro.message.toLowerCase().includes("failed to fetch")
         ) {
+            throw new Error(
+                "Não foi possível conectar ao servidor."
+            );
+        }
 
+        throw erro;
+    }
+}
+
+function inicializarLogin() {
+    const formulario = document.getElementById("login-form");
+
+    if (!formulario) return;
+
+    formulario.addEventListener("submit", async evento => {
+        evento.preventDefault();
+
+        const emailInput =
+            formulario.querySelector('input[type="email"]');
+
+        const senhaInput =
+            formulario.querySelector('input[type="password"]');
+
+        if (!emailInput || !senhaInput) return;
+
+        const email = emailInput.value.trim();
+        const senha = senhaInput.value;
+
+        if (!email || !senha) {
+            mostrarMensagem(
+                "Preencha todos os campos.",
+                "erro"
+            );
             return;
-
         }
 
+        const botao =
+            formulario.querySelector('button[type="submit"]');
 
-        if (
-            confirm(
-                "Excluir lembrete?"
-            )
-        ) {
-
-            lembretes.splice(
-                id,
-                1
-            );
-
-            salvarLembretes();
-
-            mostrarLembretes();
-
+        if (botao) {
+            botao.disabled = true;
         }
-
-    }
-);
-
-const switches =
-    document.querySelectorAll(
-        ".settings-list input[type='checkbox']"
-    );
-
-
-let configuracoes = {
-
-    notificacoes: true,
-
-    voz: true,
-
-    tema: false
-
-};
-
-
-try {
-
-    const configuracoesSalvas =
-        JSON.parse(
-            localStorage.getItem(
-                "configuracoes"
-            )
-        );
-
-
-    if (
-        configuracoesSalvas &&
-        typeof configuracoesSalvas === "object"
-    ) {
-
-        configuracoes = {
-            ...configuracoes,
-            ...configuracoesSalvas
-        };
-
-    }
-
-} catch (erro) {
-
-    console.error(
-        "Erro ao carregar configurações:",
-        erro
-    );
-
-}
-
-function salvarConfiguracoes() {
-
-    localStorage.setItem(
-        "configuracoes",
-        JSON.stringify(
-            configuracoes
-        )
-    );
-
-}
-
-const temaSwitch =
-    switches[0];
-
-if (temaSwitch) {
-
-    temaSwitch.checked =
-        document.body.classList.contains(
-            "dark-mode"
-        );
-
-
-    temaSwitch.addEventListener(
-        "change",
-        () => {
-
-            configuracoes.tema =
-                temaSwitch.checked;
-
-
-            salvarConfiguracoes();
-
-
-            document.body.classList.toggle(
-                "dark-mode",
-                configuracoes.tema
-            );
-
-
-            localStorage.setItem(
-                "theme",
-                configuracoes.tema
-                    ? "dark"
-                    : "light"
-            );
-
-        }
-    );
-
-}
-
-const notificacoesSwitch =
-    switches[1];
-
-if (notificacoesSwitch) {
-
-    notificacoesSwitch.checked =
-        configuracoes.notificacoes;
-
-
-    notificacoesSwitch.addEventListener(
-        "change",
-        () => {
-
-            configuracoes.notificacoes =
-                notificacoesSwitch.checked;
-
-
-            salvarConfiguracoes();
-
-        }
-    );
-
-}
-
-const vozSwitch =
-    switches[2];
-
-if (vozSwitch) {
-
-    vozSwitch.checked =
-        configuracoes.voz;
-
-
-    vozSwitch.addEventListener(
-        "change",
-        () => {
-
-            configuracoes.voz =
-                vozSwitch.checked;
-
-
-            salvarConfiguracoes();
-
-        }
-    );
-
-}
-
-
-const idiomaItem =
-    document.querySelector(
-        ".setting-item[data-setting='idioma']"
-    );
-
-
-if (idiomaItem) {
-
-    idiomaItem.addEventListener(
-        "click",
-        () => {
-
-            alert(
-                "Em breve teremos mais idiomas."
-            );
-
-        }
-    );
-
-}
-
-const privacidadeItem =
-    document.querySelector(
-        ".setting-item[data-setting='privacidade']"
-    );
-
-
-if (privacidadeItem) {
-
-    privacidadeItem.addEventListener(
-        "click",
-        () => {
-
-            if (
-                confirm(
-                    "Deseja apagar todos os dados desta página?"
-                )
-            ) {
-
-                localStorage.removeItem(
-                    "lembretes"
-                );
-
-                localStorage.removeItem(
-                    "configuracoes"
-                );
-
-                localStorage.removeItem(
-                    "nomeUsuario"
-                );
-
-                localStorage.removeItem(
-                    "emailUsuario"
-                );
-
-                localStorage.removeItem(
-                    "usuarioLogado"
-                );
-
-
-                location.reload();
-
-            }
-
-        }
-    );
-
-}
-
-const salvar =
-    document.getElementById(
-        "salvarConfig"
-    );
-
-
-if (salvar) {
-
-    salvar.addEventListener(
-        "click",
-        () => {
-
-            salvarConfiguracoes();
-
-            alert(
-                "Configurações salvas com sucesso!"
-            );
-
-        }
-    );
-
-}
-
-const nomeSalvo =
-    localStorage.getItem(
-        "nomeUsuario"
-    );
-
-
-if (nomeSalvo) {
-
-    const spansNome =
-        document.querySelectorAll(
-            ".profile-card h2 span"
-        );
-
-
-    spansNome.forEach(
-        (span) => {
-
-            span.textContent =
-                nomeSalvo;
-
-        }
-    );
-
-}
-
-const btnExtraNav =
-    document.getElementById(
-        "btn-extra-nav"
-    );
-
-const extraNav =
-    document.getElementById(
-        "extra-nav"
-    );
-
-
-if (
-    btnExtraNav &&
-    extraNav
-) {
-
-    btnExtraNav.addEventListener(
-        "click",
-        (e) => {
-
-            e.preventDefault();
-
-            extraNav.classList.toggle(
-                "open"
-            );
-
-        }
-    );
-
-}
-
-let ouvindo = false;
-
-let glidiaFalando = false;
-
-let voz = null;
-
-
-function atualizarStatus(texto) {
-
-    const status =
-        document.getElementById(
-            "status"
-        );
-
-
-    if (status) {
-
-        status.textContent =
-            texto;
-
-    }
-
-}
-
-
-function glidiaFalar(
-    texto,
-    depois = null
-) {
-
-    if (
-        !("speechSynthesis" in window)
-    ) {
-
-        if (depois) {
-
-            depois();
-
-        }
-
-        return;
-
-    }
-
-
-    glidiaFalando = true;
-
-
-    if (
-        voz &&
-        ouvindo
-    ) {
 
         try {
-
-            voz.stop();
-
-        } catch (e) {
-
-            console.log(
-                "Erro ao parar reconhecimento:",
-                e
-            );
-
-        }
-
-    }
-
-
-    ouvindo = false;
-
-
-    speechSynthesis.cancel();
-
-
-    const fala =
-        new SpeechSynthesisUtterance(
-            texto
-        );
-
-
-    fala.lang =
-        "pt-BR";
-
-    fala.rate =
-        1;
-
-    fala.pitch =
-        1;
-
-    fala.volume =
-        1;
-
-
-    fala.onend = () => {
-
-        glidiaFalando =
-            false;
-
-
-        if (depois) {
-
-            depois();
-
-        }
-
-    };
-
-
-    fala.onerror = () => {
-
-        glidiaFalando =
-            false;
-
-
-        if (depois) {
-
-            depois();
-
-        }
-
-    };
-
-
-    speechSynthesis.speak(
-        fala
-    );
-
-}
-
-const ReconhecimentoVoz =
-    window.SpeechRecognition ||
-    window.webkitSpeechRecognition;
-
-
-if (ReconhecimentoVoz) {
-
-    voz =
-        new ReconhecimentoVoz();
-
-
-    voz.lang =
-        "pt-BR";
-
-
-    voz.continuous =
-        false;
-
-
-    voz.interimResults =
-        false;
-
-
-    voz.maxAlternatives =
-        1;
-
-
-    voz.onstart = () => {
-
-        ouvindo =
-            true;
-
-
-        atualizarStatus(
-            "🎤 Estou ouvindo..."
-        );
-
-    };
-
-
-    voz.onend = () => {
-
-        ouvindo =
-            false;
-
-    };
-
-
-    voz.onerror = (erro) => {
-
-        console.log(
-            "Erro voz:",
-            erro
-        );
-
-
-        ouvindo =
-            false;
-
-
-        if (
-            erro.error ===
-            "no-speech"
-        ) {
-
-            atualizarStatus(
-                "Pressione o botão para falar novamente."
-            );
-
-            return;
-
-        }
-
-
-        if (
-            erro.error ===
-            "not-allowed"
-        ) {
-
-            atualizarStatus(
-                "Permissão do microfone bloqueada."
-            );
-
-            return;
-
-        }
-
-
-        if (
-            erro.error ===
-            "audio-capture"
-        ) {
-
-            atualizarStatus(
-                "Nenhum microfone foi encontrado."
-            );
-
-            return;
-
-        }
-
-
-        atualizarStatus(
-            "Não foi possível ouvir. Pressione o botão para tentar novamente."
-        );
-
-    };
-
-
-    voz.onresult = (event) => {
-
-        let comando =
-            event.results[0][0]
-                .transcript
-                .toLowerCase()
-                .trim();
-
-
-        console.log(
-            "Reconhecido:",
-            comando
-        );
-
-
-        if (glidiaFalando) {
-
-            return;
-
-        }
-
-
-        const palavrasSemSentido = [
-
-            "",
-
-            "hã",
-
-            "hum",
-
-            "aham",
-
-            "é",
-
-            "eh",
-
-            "lalala",
-
-            "la la la",
-
-            "música",
-
-            "musica",
-
-            "milímetro",
-
-            "milimetro"
-
-        ];
-
-
-        if (
-            palavrasSemSentido.includes(
-                comando
-            ) ||
-            comando.length < 2
-        ) {
-
-            atualizarStatus(
-                "Pressione o botão para falar novamente."
-            );
-
-            return;
-
-        }
-
-
-        atualizarStatus(
-            "🤖 Entendi: " +
-            comando
-        );
-
-
-        processarComando(
-            comando
-        );
-
-    };
-
-}
-
-
-function botaoBengala() {
-
-    iniciarGlidia();
-
-}
-
-function iniciarGlidia() {
-
-    if (
-        glidiaFalando ||
-        ouvindo
-    ) {
-
-        return;
-
-    }
-
-
-    atualizarStatus(
-        "🟢 Glídia ativada"
-    );
-
-
-    glidiaFalar(
-
-        "Olá! Como posso te ajudar?",
-
-        () => {
-
-            iniciarEscuta();
-
-        }
-
-    );
-
-}
-
-function iniciarEscuta() {
-
-    if (!voz) {
-
-        atualizarStatus(
-            "Seu navegador não suporta reconhecimento de voz."
-        );
-
-        return;
-
-    }
-
-
-    if (glidiaFalando) {
-
-        return;
-
-    }
-
-
-    if (ouvindo) {
-
-        return;
-
-    }
-
-
-    try {
-
-        voz.start();
-
-    } catch (e) {
-
-        console.log(
-            "Erro ao iniciar reconhecimento:",
-            e
-        );
-
-    }
-
-}
-
-function processarComando(
-    comando
-) {
-
-    const texto =
-        comando
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(
-                /[\u0300-\u036f]/g,
-                ""
-            );
-
-
-    if (
-
-        texto.includes("gps") ||
-
-        texto.includes("mapa") ||
-
-        texto.includes("google maps") ||
-
-        texto.includes("localizacao") ||
-
-        texto.includes("navegacao")
-
-    ) {
-
-        abrirGPS();
-
-        return;
-
-    }
-
-    if (
-
-        texto.includes("uber") ||
-
-        texto.includes("chamar um carro") ||
-
-        texto.includes("chamar carro") ||
-
-        texto.includes("quero um carro")
-
-    ) {
-
-        abrirUber();
-
-        return;
-
-    }
-
-
-    enviarComando(
-        comando
-    );
-
-}
-
-
-function abrirGPS() {
-
-    const url =
-        "https://www.google.com/maps/search/?api=1&query=Google+Maps";
-
-
-    atualizarStatus(
-        "📍 Abrindo GPS..."
-    );
-
-
-    glidiaFalar(
-
-        "Abrindo o GPS.",
-
-        () => {
-
-            window.open(
-                url,
-                "_blank",
-                "noopener,noreferrer"
-            );
-
-        }
-
-    );
-
-}
-
-function abrirUber() {
-
-    const url =
-        "https://m.uber.com/";
-
-
-    atualizarStatus(
-        "🚖 Abrindo Uber..."
-    );
-
-
-    glidiaFalar(
-
-        "Abrindo o Uber.",
-
-        () => {
-
-            window.open(
-                url,
-                "_blank",
-                "noopener,noreferrer"
-            );
-
-        }
-
-    );
-
-}
-
-
-async function enviarComando(
-    comando
-) {
-
-    try {
-
-        const resposta =
-            await fetch(`${API_URL}/comando`, {
+            const dados = await fazerRequisicao(
+                `${API_URL}/login`,
+                {
                     method: "POST",
-
-                    headers: {
-                        "Content-Type":
-                            "application/json"
-                    },
-
                     body: JSON.stringify({
-                        comando
+                        email,
+                        senha
                     })
                 }
             );
 
-
-        if (!resposta.ok) {
-
-            throw new Error(
-                `Erro HTTP: ${resposta.status}`
-            );
-
-        }
-
-
-        const dados =
-            await resposta.json();
-
-
-        console.log(
-            "Servidor respondeu:",
-            dados
-        );
-
-
-        if (
-            dados.resposta
-        ) {
-
-            atualizarStatus(
-                "🤖 " +
-                dados.resposta
-            );
-
-
-            glidiaFalar(
-                dados.resposta
-            );
-
-
-            if (dados.url) {
-
-                setTimeout(() => {
-
-                    window.open(
-                        dados.url,
-                        "_blank",
-                        "noopener,noreferrer"
-                    );
-
-                }, 500);
-
+            if (dados.usuario) {
+                localStorage.setItem(
+                    "usuario",
+                    JSON.stringify(dados.usuario)
+                );
             }
 
+            if (dados.token) {
+                localStorage.setItem(
+                    "token",
+                    dados.token
+                );
+            }
 
+            mostrarMensagem(
+                dados.mensagem || "Login realizado com sucesso!",
+                "sucesso"
+            );
+
+            setTimeout(() => {
+                if (dados.redirect) {
+                    window.location.href = dados.redirect;
+                }
+            }, 1000);
+
+        } catch (erro) {
+            mostrarMensagem(
+                erro.message || "Erro ao realizar login.",
+                "erro"
+            );
+        } finally {
+            if (botao) {
+                botao.disabled = false;
+            }
+        }
+    });
+}
+
+function inicializarCadastro() {
+    const formulario =
+        document.getElementById("cadastro-form") ||
+        document.getElementById("register-form");
+
+    if (!formulario) return;
+
+    formulario.addEventListener("submit", async evento => {
+        evento.preventDefault();
+
+        const inputs = formulario.querySelectorAll("input");
+
+        const dadosFormulario = {};
+
+        inputs.forEach(input => {
+            if (input.name) {
+                dadosFormulario[input.name] = input.value.trim();
+            }
+        });
+
+        const nomeInput =
+            formulario.querySelector(
+                'input[name="nome"], input[name="name"]'
+            );
+
+        const emailInput =
+            formulario.querySelector(
+                'input[name="email"], input[type="email"]'
+            );
+
+        const senhaInput =
+            formulario.querySelector(
+                'input[name="senha"], input[name="password"]'
+            );
+
+        const nome = nomeInput
+            ? nomeInput.value.trim()
+            : "";
+
+        const email = emailInput
+            ? emailInput.value.trim()
+            : "";
+
+        const senha = senhaInput
+            ? senhaInput.value
+            : "";
+
+        if (!nome || !email || !senha) {
+            mostrarMensagem(
+                "Preencha todos os campos.",
+                "erro"
+            );
             return;
-
         }
 
+        const botao =
+            formulario.querySelector('button[type="submit"]');
 
-        atualizarStatus(
-            "Resposta inválida."
-        );
+        if (botao) {
+            botao.disabled = true;
+        }
 
-    } catch (erro) {
+        try {
+            const dados = await fazerRequisicao(
+                `${API_URL}/cadastro`,
+                {
+                    method: "POST",
+                    body: JSON.stringify({
+                        ...dadosFormulario,
+                        nome,
+                        email,
+                        senha
+                    })
+                }
+            );
 
-        console.error(
-            "Erro ao conectar com Glídia:",
-            erro
-        );
+            mostrarMensagem(
+                dados.mensagem ||
+                "Cadastro realizado com sucesso!",
+                "sucesso"
+            );
 
+            formulario.reset();
 
-        atualizarStatus(
-            "Erro de conexão com o sistema."
-        );
+        } catch (erro) {
+            mostrarMensagem(
+                erro.message || "Erro ao realizar cadastro.",
+                "erro"
+            );
+        } finally {
+            if (botao) {
+                botao.disabled = false;
+            }
+        }
+    });
+}
 
+function inicializarContato() {
+    const formulario =
+        document.getElementById("contato-form");
 
-        glidiaFalar(
-            "Não consegui conectar ao sistema."
-        );
+    if (!formulario) return;
 
+    formulario.addEventListener("submit", async evento => {
+        evento.preventDefault();
+
+        const nomeInput =
+            formulario.querySelector(
+                'input[name="nome"], input[name="name"]'
+            );
+
+        const emailInput =
+            formulario.querySelector(
+                'input[name="email"], input[type="email"]'
+            );
+
+        const mensagemInput =
+            formulario.querySelector(
+                "textarea"
+            );
+
+        const nome = nomeInput
+            ? nomeInput.value.trim()
+            : "";
+
+        const email = emailInput
+            ? emailInput.value.trim()
+            : "";
+
+        const mensagem = mensagemInput
+            ? mensagemInput.value.trim()
+            : "";
+
+        if (!nome || !email || !mensagem) {
+            mostrarMensagem(
+                "Preencha todos os campos.",
+                "erro"
+            );
+            return;
+        }
+
+        const botao =
+            formulario.querySelector('button[type="submit"]');
+
+        if (botao) {
+            botao.disabled = true;
+        }
+
+        try {
+            const dados = await fazerRequisicao(
+                `${API_URL}/contato`,
+                {
+                    method: "POST",
+                    body: JSON.stringify({
+                        nome,
+                        email,
+                        mensagem
+                    })
+                }
+            );
+
+            mostrarMensagem(
+                dados.mensagem ||
+                "Mensagem enviada com sucesso!",
+                "sucesso"
+            );
+
+            formulario.reset();
+
+        } catch (erro) {
+            mostrarMensagem(
+                erro.message ||
+                "Erro ao enviar mensagem.",
+                "erro"
+            );
+        } finally {
+            if (botao) {
+                botao.disabled = false;
+            }
+        }
+    });
+}
+
+function inicializarComandoVoz() {
+    const botao =
+        document.getElementById("comando-voz") ||
+        document.getElementById("voice-command");
+
+    const campo =
+        document.getElementById("comando") ||
+        document.getElementById("voice-text");
+
+    if (!botao) return;
+
+    const SpeechRecognition =
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+        botao.addEventListener("click", () => {
+            mostrarMensagem(
+                "Seu navegador não possui suporte ao reconhecimento de voz.",
+                "erro"
+            );
+        });
+
+        return;
     }
 
+    const reconhecimento = new SpeechRecognition();
+
+    reconhecimento.lang = "pt-BR";
+    reconhecimento.continuous = false;
+    reconhecimento.interimResults = false;
+    reconhecimento.maxAlternatives = 1;
+
+    reconhecimento.onstart = () => {
+        botao.classList.add("ouvindo");
+
+        if (campo) {
+            campo.placeholder = "Estou ouvindo...";
+        }
+    };
+
+    reconhecimento.onresult = async evento => {
+        const texto =
+            evento.results[0][0].transcript;
+
+        if (campo) {
+            campo.value = texto;
+        }
+
+        try {
+            const dados = await fazerRequisicao(
+                `${API_URL}/comando`,
+                {
+                    method: "POST",
+                    body: JSON.stringify({
+                        comando: texto
+                    })
+                }
+            );
+
+            if (dados.resposta) {
+                falarTexto(dados.resposta);
+            }
+
+            if (dados.mensagem) {
+                mostrarMensagem(
+                    dados.mensagem,
+                    "sucesso"
+                );
+            }
+
+        } catch (erro) {
+            mostrarMensagem(
+                erro.message ||
+                "Não foi possível enviar o comando.",
+                "erro"
+            );
+        }
+    };
+
+    reconhecimento.onerror = evento => {
+        console.error(
+            "Erro no reconhecimento de voz:",
+            evento.error
+        );
+
+        mostrarMensagem(
+            "Não foi possível reconhecer sua voz.",
+            "erro"
+        );
+    };
+
+    reconhecimento.onend = () => {
+        botao.classList.remove("ouvindo");
+
+        if (campo) {
+            campo.placeholder =
+                "Diga um comando...";
+        }
+    };
+
+    botao.addEventListener("click", () => {
+        try {
+            reconhecimento.start();
+        } catch {
+            reconhecimento.stop();
+
+            setTimeout(() => {
+                reconhecimento.start();
+            }, 300);
+        }
+    });
 }
+
+function falarTexto(texto) {
+    if (!("speechSynthesis" in window)) return;
+
+    window.speechSynthesis.cancel();
+
+    const fala =
+        new SpeechSynthesisUtterance(texto);
+
+    fala.lang = "pt-BR";
+    fala.rate = 0.9;
+    fala.pitch = 1;
+    fala.volume = 1;
+
+    window.speechSynthesis.speak(fala);
+}
+
+function inicializarGPS() {
+    const botoes =
+        document.querySelectorAll(
+            "[data-gps], #gps-btn, .gps-btn"
+        );
+
+    if (!botoes.length) return;
+
+    botoes.forEach(botao => {
+        botao.addEventListener("click", () => {
+            const url =
+                "https://www.google.com/maps/search/?api=1&query=Google+Maps";
+
+            if (
+                navigator.geolocation &&
+                !botao.dataset.semLocalizacao
+            ) {
+                navigator.geolocation.getCurrentPosition(
+                    posicao => {
+                        const latitude =
+                            posicao.coords.latitude;
+
+                        const longitude =
+                            posicao.coords.longitude;
+
+                        const mapa =
+                            `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
+
+                        window.open(
+                            mapa,
+                            "_blank",
+                            "noopener,noreferrer"
+                        );
+                    },
+                    () => {
+                        window.open(
+                            url,
+                            "_blank",
+                            "noopener,noreferrer"
+                        );
+                    }
+                );
+            } else {
+                window.open(
+                    url,
+                    "_blank",
+                    "noopener,noreferrer"
+                );
+            }
+        });
+    });
+}
+
+function inicializarUber() {
+    const botoes =
+        document.querySelectorAll(
+            "[data-uber], #uber-btn, .uber-btn"
+        );
+
+    if (!botoes.length) return;
+
+    botoes.forEach(botao => {
+        botao.addEventListener("click", () => {
+            const url =
+                "https://m.uber.com/";
+
+            window.open(
+                url,
+                "_blank",
+                "noopener,noreferrer"
+            );
+        });
+    });
+}
+
+function inicializarConfiguracoes() {
+    const formulario =
+        document.getElementById("config-form");
+
+    if (!formulario) return;
+
+    const campos =
+        formulario.querySelectorAll(
+            "input, select, textarea"
+        );
+
+    campos.forEach(campo => {
+        const chave =
+            `glidia_${campo.name || campo.id}`;
+
+        const valorSalvo =
+            localStorage.getItem(chave);
+
+        if (
+            valorSalvo !== null &&
+            campo.type !== "checkbox"
+        ) {
+            campo.value = valorSalvo;
+        }
+
+        if (
+            valorSalvo !== null &&
+            campo.type === "checkbox"
+        ) {
+            campo.checked =
+                valorSalvo === "true";
+        }
+
+        const salvar = () => {
+            if (campo.type === "checkbox") {
+                localStorage.setItem(
+                    chave,
+                    campo.checked
+                );
+            } else {
+                localStorage.setItem(
+                    chave,
+                    campo.value
+                );
+            }
+        };
+
+        campo.addEventListener(
+            "change",
+            salvar
+        );
+
+        campo.addEventListener(
+            "input",
+            salvar
+        );
+    });
+}
+
+function inicializarLembretes() {
+    const formulario =
+        document.getElementById("lembrete-form");
+
+    const lista =
+        document.getElementById("lista-lembretes");
+
+    if (!formulario || !lista) return;
+
+    let lembretes =
+        JSON.parse(
+            localStorage.getItem(
+                "glidia_lembretes"
+            ) || "[]"
+        );
+
+    function renderizar() {
+        lista.innerHTML = "";
+
+        if (!lembretes.length) {
+            lista.innerHTML =
+                "<p>Nenhum lembrete cadastrado.</p>";
+
+            return;
+        }
+
+        lembretes.forEach(
+            (lembrete, index) => {
+                const item =
+                    document.createElement("div");
+
+                item.className =
+                    "lembrete-item";
+
+                item.innerHTML = `
+                    <div>
+                        <strong>${escapeHTML(lembrete.titulo)}</strong>
+                        <span>${escapeHTML(lembrete.data)}</span>
+                    </div>
+                    <button type="button" data-index="${index}">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+
+                const remover =
+                    item.querySelector("button");
+
+                remover.addEventListener(
+                    "click",
+                    () => {
+                        lembretes.splice(
+                            index,
+                            1
+                        );
+
+                        salvar();
+                        renderizar();
+                    }
+                );
+
+                lista.appendChild(item);
+            }
+        );
+    }
+
+    function salvar() {
+        localStorage.setItem(
+            "glidia_lembretes",
+            JSON.stringify(lembretes)
+        );
+    }
+
+    formulario.addEventListener(
+        "submit",
+        evento => {
+            evento.preventDefault();
+
+            const titulo =
+                formulario.querySelector(
+                    '[name="titulo"], [name="lembrete"]'
+                );
+
+            const data =
+                formulario.querySelector(
+                    '[name="data"], input[type="datetime-local"], input[type="date"]'
+                );
+
+            if (!titulo || !titulo.value.trim()) {
+                mostrarMensagem(
+                    "Digite um lembrete.",
+                    "erro"
+                );
+
+                return;
+            }
+
+            lembretes.push({
+                titulo: titulo.value.trim(),
+                data: data
+                    ? data.value
+                    : ""
+            });
+
+            salvar();
+            renderizar();
+            formulario.reset();
+
+            mostrarMensagem(
+                "Lembrete adicionado!",
+                "sucesso"
+            );
+        }
+    );
+
+    renderizar();
+}
+
+function inicializarLogout() {
+    const botoes =
+        document.querySelectorAll(
+            "#logout, .logout, [data-logout]"
+        );
+
+    if (!botoes.length) return;
+
+    botoes.forEach(botao => {
+        botao.addEventListener("click", () => {
+            localStorage.removeItem("usuario");
+            localStorage.removeItem("token");
+
+            mostrarMensagem(
+                "Sessão encerrada.",
+                "sucesso"
+            );
+
+            setTimeout(() => {
+                window.location.href =
+                    "index.html";
+            }, 800);
+        });
+    });
+}
+
+function escapeHTML(texto) {
+    const div =
+        document.createElement("div");
+
+    div.textContent =
+        texto ?? "";
+
+    return div.innerHTML;
+}
+
+function formatarTelefone(valor) {
+    let numero =
+        valor.replace(/\D/g, "");
+
+    numero =
+        numero.substring(0, 11);
+
+    if (numero.length <= 2) {
+        return `(${numero}`;
+    }
+
+    if (numero.length <= 7) {
+        return `(${numero.substring(0, 2)}) ${numero.substring(2)}`;
+    }
+
+    return `(${numero.substring(0, 2)}) ${numero.substring(2, 7)}-${numero.substring(7, 11)}`;
+}
+
+document.addEventListener(
+    "input",
+    evento => {
+        const elemento =
+            evento.target;
+
+        if (
+            elemento.matches(
+                'input[type="tel"], input[name="telefone"], input[name="phone"]'
+            )
+        ) {
+            elemento.value =
+                formatarTelefone(
+                    elemento.value
+                );
+        }
+    }
+);
+
+window.addEventListener(
+    "beforeunload",
+    () => {
+        if ("speechSynthesis" in window) {
+            window.speechSynthesis.cancel();
+        }
+    }
+);
