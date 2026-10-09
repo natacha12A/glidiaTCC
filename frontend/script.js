@@ -1,4 +1,4 @@
-const API_URL = "https://glidia-backend.vercel.app"
+const API_URL = "https://glidia-tcc-96he.vercel.app/"
 
 
 const header = document.getElementById("header");
