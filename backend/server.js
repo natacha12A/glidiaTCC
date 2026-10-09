@@ -3,7 +3,7 @@ const mysql = require("mysql2");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 require("dotenv").config();
-
+// só pra refazer o deploy
 const app = express();
 
 app.use(
