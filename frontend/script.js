@@ -1,5 +1,26 @@
 const API_URL = "https://glidia-tcc-96he.vercel.app"
 
+document.querySelectorAll('.person-card .social a[href^="email:"]').forEach((link) => {
+    const email = link.getAttribute("href").slice("email:".length);
+    const card = link.closest(".person-card");
+    const emailDisplay = document.createElement("p");
+
+    emailDisplay.className = "email-reveal";
+    emailDisplay.textContent = email;
+    emailDisplay.hidden = true;
+    link.setAttribute("href", "#");
+    link.setAttribute("aria-label", "Mostrar e-mail");
+    link.setAttribute("aria-expanded", "false");
+
+    link.addEventListener("click", (event) => {
+        event.preventDefault();
+        emailDisplay.hidden = !emailDisplay.hidden;
+        link.setAttribute("aria-expanded", String(!emailDisplay.hidden));
+    });
+
+    card?.append(emailDisplay);
+});
+
 
 const header = document.getElementById("header");
 

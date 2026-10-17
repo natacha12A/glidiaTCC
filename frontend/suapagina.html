@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./suapagina.css">
+    <link rel="stylesheet" href="./navigation.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -40,7 +41,7 @@
                 </li>
                 <li><a href="./produto.html">Produto</a></li>
                 <li><a href="./referencias.html">Referências</a></li>
-                <li><a class="active" href="./suapagina.html"
+                <li><a href="./suapagina.html"
                 id="btnFuncionalidades"
                 style="display: none;">IA</a></li>
                 </a></li>
@@ -54,6 +55,7 @@
             </ul>
 
             <div class="extra-nav" id="extra-nav">
+            <a class="active" href="./suapagina.html">IA</a>
                 
                 <a href="./game.html">Conheça o jogo</a>
             </div>
@@ -127,22 +129,11 @@
                                 data-light="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADNUlEQVR4nO1ZS08UQRBuNgFRp3vIVg1oYoIRTAwH1KxO9e6Fq1HjI8GTGi7Gf6AYQCMXjTf/g2IEb5yNXDiTeFFE7j4SNYLihaCp2VfPAguzM7OzmPmSTia7UzVfd1d/VVMjRIoUKSJErt128tck0AuFtChB/+LhXSNN8X98j2hFWFl9VQJ9VKj/1ht8jwX5K6KFkFFIT3YivmkiqB+zbdLkxSbyoD8r1GNdjnuyp2fwIA/bKZxSSOOl/2onkWzY+MNDv3ScIWu7+wEKUgJNmzYWuJdFMhjoMGOeyQsh2nZh2CaBZowdW0rkYLOimGFTb+W32gkF9KVsbzvusGg2ilJZCYWxoPYKaaJ6Fuh5PCzrEQD9oUygq5sGg9oXD7YuLQAtimZDAq2WCQQJnzLYRlVzw6rYaxPIZl1lyOlP0Wzs/RBCmjIIjAe1V0j3DRF4JpKWUZbGQOED9DVRGeXk409kNL37RKZfJZ7IGFxV1lSaM/V2glfeRx71hgS6JJIEF2T+Yo4zLE3YmD/N6sSDr72YN8KmlMAeiRZAZtMkdh4bJfIZ0SrgqpLjeUfyoJcSD5v6r5TuMNc2Cuk9J7tSwnvHUllUmxZ9pUyR4r/GEb1fAk1KoGWFtB60A7H7Qev8DAn0kJ8ZGXkFNB8fab2N3NK86B3qDM2fV77p5LEyHkQxgeVqraPvxKvjuXYL9F1/oRcSZsxzK0XEjoEO80yEdsd1S3UCTaldMmbNFNqbRPpRefHooaMiZtjdZ44Z1eq30A4l6jdlhxyfImYooHvGBF6Hdmgj3TZXRDmFPhETlKP7JdL3yoKhvhXea/+5faYScQeBt1lEDOUU+nzluKdAEYkGt8rNPpB3LkBfj+hQZyTQDfOsSaSVRlo1dSHRvaCA1sxEI0G/5YcH6Uj4W+3uTfZR4/O3RDov4kBpJ5a3SPtrCmmW34V5ohbkTxxwzh7ySoHeoU6+5t8k5i8Wm7o0q4D+1Pph35Gv/NadBZrkbY6qZJBIK1zANbKTDcM6nEMbaFQCLTRMHGiBpZl9iSQhkY7LrB5RoJ9K1HOsVN73MA4Tb+hPxU+tes67J6tH2EakSJFChMU/LRAcqels70oAAAAASUVORK5CYII="
                                 data-dark="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADDklEQVR4nO1ZS08UQRAeSECN4IkDR+Mj8eTjb6jxkeBJDRfjPxANqJGLxJv/QTGCN85ELpxJvOgK3AXxEXerdqYbwme6253tXndnGaZnZ0Omkk42M1PdX3XX4+vaICillFK8CYAhiPodSHoHyRUIIj3Ub8nz+h0wFPSjIOLbkLQByUgetIGIbwX9IgAGIfhVd+AtQ/Cc0i0af/AfeMFbkDQNQZcAnNRD0GVImjHvXCOC4t3GcY/3AEY6fo+dUUhacHQivtlb1DEYDLs+r8EPHEBvAJIWLb31QgLbZBvLbRJ2vu1JCN62TmEiX7TtQJhU2djF6UPoP7Vc6W0+KJMBfG2eQO1ian0d2NwwoJIPymQAtRhACveJ9YGR5gZQLR+UuRrw45QVQ3/yQXmkXUjyvBXEM+n16ZllwJt8UKZKozujqdxH8Pdi06hinm4hW0hRyD4UXsiUKFbZQiUWk07CBK4FXtA+Ir4RFCmaVboEbVsXKUFXdKpUQ/1WPm+7jfn2ZaHgLTo9l45K074Cj36g0w1RrFL7c/cLzXrhbpMY2BFPKG4DyV90sTMF77NKlfpdv14pSynlKAuAExA8C0mbELSXugNx8PS6Z9bgF2pNj+BpNTfQsqMxqwCOZzdA73yPwcu4ZjzPboA60uaEj/LM4zAEccouetkntX0eGPaCtGu7huOYyD6h4i1NAwZ7wq1kkzNln1Dw73jCMDztBWXSemF4xmKrP7NPKPij5ZNTXlAmrSfpiWXAsocJ+aG9IwjDs16QtlsrDM9B8C/LhR5knxQ45mYirqhj9oLYErUxLh3XV00/SUO3yu0+kIoLUbvrI6ihL0S1e06sCa4eplWTvNAuXYOgekux+aQXT9GRcBu8dF/P4VZgxi5d9QreOQnXnRqL1iFpSd+FlaFR9QJA44oKmEHj+tkuXTdNXVqCoLBN5d30vvMdejqz+pi98R6uGgKX/iQzGFIdg6THkLyWAfyapg6ojvUMeFtjoug8BE1C0GsIXjF/sfKWdhM9+Nu/ZyvmG5pUOkEppZQSZJW/O1MjxhqUPF0AAAAASUVORK5CYII="
                                 alt="conference-call--v2"></i>
-                    Minha conta
+                    IA
                 </h1>
-
-                
-
                 <p>
-                    Gerencie suas preferências e ferramentas
+                    Sua assistente virtual, pronta para ajudar você.
                 </p>
-
-            </div>
-
-            <div class="status">
-
-                <span class="status-dot"></span>
-
-                Conta ativa
 
             </div>
 

@@ -910,6 +910,34 @@ margin-top:10px;
     font-size:18px;
 }
 
+.email-reveal {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    margin: 14px 0 0;
+    padding: 10px 12px;
+    border: 1px solid rgba(255, 150, 46, .55);
+    border-radius: 12px;
+    background: #fff6eb;
+    color: #091447;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.45;
+    text-align: center;
+    overflow-wrap: anywhere;
+    box-shadow: 0 6px 16px rgba(9, 20, 71, .1);
+}
+
+.email-reveal[hidden] { display: none; }
+
+body.dark-mode .email-reveal {
+    border-color: rgba(255, 150, 46, .65);
+    background: #11183d;
+    color: #ffb66f;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .28);
+}
+
 .contact-box{
     margin-top:35px;
     padding:28px;
@@ -3014,5 +3042,28 @@ body.dark-mode .menu a.active::before {
     .inputs input,
     textarea {
         padding: 8px;
+    }
+}
+
+/* Balão de e-mail nos cartões da equipe em telas pequenas */
+@media (max-width: 430px) {
+    .person-card {
+        box-sizing: border-box;
+        overflow: visible;
+    }
+
+    .person-card .email-reveal {
+        grid-column: 1 / -1;
+        grid-row: 4;
+        align-self: stretch;
+        justify-self: stretch;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 10px;
+        padding: 9px 10px;
+        border-radius: 11px;
+        font-size: 12px;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
     }
 }
