@@ -169,30 +169,57 @@ header {
 }
 
 .logo {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
     align-items: center;
-    gap: 14px;
+    column-gap: 11px;
+    row-gap: 0;
+    transition: transform .35s ease;
+}
+
+.logo:hover {
+    transform: translateY(-2px);
 }
 
 .logo img {
-    width: 62px;
+    display: block;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 54px;
+    height: auto;
+    filter: drop-shadow(0 8px 14px rgba(9, 20, 71, .12));
 }
 
 .logo-text {
+    grid-column: 2;
+    grid-row: 1 / span 2;
     display: flex;
     flex-direction: column;
+    gap: 0;
+    row-gap: 0;
     line-height: 1;
 }
 
 .logo h2 {
-    font-size: 2.9rem;
+    margin: 0 !important;
+    padding: 0;
+    font-size: 2.35rem;
     font-weight: 500;
+    line-height: 1;
+    letter-spacing: -.06em;
     color: #091447;
 }
 
 .logo span {
+    display: block;
+    margin: 0 !important;
+    padding: 0;
     color: #555;
-    font-size: .95rem;
+    font-size: .72rem;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    line-height: 1;
 }
 
 .menu {
@@ -1700,18 +1727,6 @@ body.dark-mode .btn-sair-final:hover {
         font-size: 13px;
     }
 
-    .logo img {
-        width: 48px;
-    }
-
-    .logo h2 {
-        font-size: 2rem;
-    }
-
-    .logo span {
-        font-size: .75rem;
-    }
-
     header .buttons {
         gap: 10px;
     }
@@ -1746,41 +1761,6 @@ body.dark-mode .btn-sair-final:hover {
         justify-content: space-between;
         align-items: center;
         gap: 0;
-    }
-
-    header .logo {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        flex-shrink: 0;
-    }
-
-    header .logo img {
-        width: 62px;
-        height: auto;
-        display: block;
-    }
-
-    header .logo-text {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-        line-height: normal;
-    }
-
-    header .logo h2 {
-        margin: 0;
-        font-size: 2.9rem;
-        font-weight: 500;
-        line-height: normal;
-        color: #091447;
-    }
-
-    header .logo span {
-        color: #555;
-        font-size: .95rem;
-        letter-spacing: normal;
-        text-transform: none;
     }
 
     header .menu {
@@ -1944,48 +1924,6 @@ body.dark-mode .btn-sair-final:hover {
         justify-content: space-between;
         align-items: center;
         gap: 0;
-    }
-
-    header .logo {
-        display: flex;
-        align-items: center;
-        gap: 11px;
-        flex-shrink: 0;
-        transition: transform .35s ease;
-    }
-
-    header .logo:hover {
-        transform: translateY(-2px);
-    }
-
-    header .logo img {
-        display: block;
-        width: 54px;
-        height: auto;
-        filter: drop-shadow(0 8px 14px rgba(9, 20, 71, .12));
-    }
-
-    header .logo-text {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-        line-height: 1;
-    }
-
-    header .logo h2 {
-        margin: 0;
-        font-size: 2.35rem;
-        font-weight: 500;
-        line-height: normal;
-        letter-spacing: -.06em;
-        color: #091447;
-    }
-
-    header .logo span {
-        color: #555;
-        font-size: .72rem;
-        letter-spacing: .13em;
-        text-transform: uppercase;
     }
 
     header .menu {
@@ -2244,7 +2182,8 @@ body.dark-mode .btn-sair-final:hover {
     }
 
     .logo {
-        gap: 8px;
+        column-gap: 8px;
+        row-gap: 0;
     }
 
     .logo img {
@@ -2255,7 +2194,7 @@ body.dark-mode .btn-sair-final:hover {
     .logo-text {
         display: flex;
         flex-direction: column;
-        gap: 2px;
+        gap: 0;
     }
 
     .logo h2 {
