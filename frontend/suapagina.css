@@ -1730,7 +1730,7 @@ body.dark-mode header .btn-nav {
     margin: 0;
     overflow: hidden;
     color: #091447;
-    font-size: 14px;
+    font-size: 14px !important;
     line-height: 1.25;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -3385,7 +3385,7 @@ body.dark-mode .btn-sair-final:hover {
     }
 
     .circle {
-        width: 190px;
+        width: 220px;
         height: 190px;
     }
 
@@ -3697,7 +3697,7 @@ body.dark-mode .tip-card {
 /* Sidebar de identificação no celular */
 @media (max-width: 800px) {
     .dashboard > .sidebar {
-        width: 220px;
+        width: 190px;
         max-width: 100%;
         align-self: flex-start;
         margin: 20px 0 2px;
@@ -3726,14 +3726,14 @@ body.dark-mode .tip-card {
     }
 
     .dashboard > .sidebar .profile-card h2 {
-        font-size: 0;
+        font-size: 12px !important;
         line-height: 1.4;
         white-space: normal;
     }
 
     .dashboard > .sidebar .profile-card h2 span {
         color: #091447;
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 600;
     }
 

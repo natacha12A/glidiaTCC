@@ -765,7 +765,7 @@ width:30%;
 
 font-family:'Playfair Display',serif;
 
-font-size:55px;
+font-size:68px !important;
 
 color:#091447;
 
@@ -838,9 +838,9 @@ object-fit:cover;
 
 .person-card h3{
 
-font-family: "Poppins", serif !important;
+font-family: "Poppins", sans-serif !important;
 
-font-size:14px;
+font-size:14px !important;
 
 margin-top:10px;
 
@@ -2510,6 +2510,17 @@ body.dark-mode .menu a.active::before {
 
     textarea {
         height: 110px;
+    }
+}
+
+/* Keep the About page heading on a single line at every viewport size. */
+.about-text h1 {
+    white-space: nowrap;
+}
+
+@media (max-width: 800px) {
+    .about-text h1 {
+        font-size: clamp(28px, 10vw, 55px) !important;
     }
 }
 

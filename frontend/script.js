@@ -305,12 +305,29 @@ if (
 
             togglePassword.innerHTML =
                 isPassword
-                    ? '<i class="fa-regular fa-eye-slash"></i>'
-                    : '<i class="fa-regular fa-eye"></i>';
+                    ? '<i class="fa-regular fa-eye"></i>'
+                    : '<i class="fa-regular fa-eye-slash"></i>';
 
         }
     );
 
+}
+
+const confirmPasswordInput =
+    document.getElementById("confirmPassword");
+
+const toggleConfirmPassword =
+    document.getElementById("toggleConfirmPassword");
+
+if (toggleConfirmPassword && confirmPasswordInput) {
+    toggleConfirmPassword.addEventListener("click", () => {
+        const isPassword = confirmPasswordInput.type === "password";
+
+        confirmPasswordInput.type = isPassword ? "text" : "password";
+        toggleConfirmPassword.innerHTML = isPassword
+            ? '<i class="fa-regular fa-eye"></i>'
+            : '<i class="fa-regular fa-eye-slash"></i>';
+    });
 }
 
 

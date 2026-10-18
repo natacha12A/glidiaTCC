@@ -581,3 +581,57 @@ body.dark-mode #header .buttons > button:not(#theme-toggle):not(#ler-site) {
     #header .logo { gap: 4px !important; }
     #header .logo img { width: 20px !important; max-width: 20px !important; }
 }
+/* Keep paragraph text consistent across every page and screen size. */
+body p {
+    font-size: 14px !important;
+}
+
+body span {
+    color: #ff962e !important;
+}
+
+body #header .logo span {
+    color: #555 !important;
+}
+
+body.dark-mode #header .logo h1,
+body.dark-mode #header .logo h2 {
+    color: #fff !important;
+    -webkit-text-fill-color: #fff !important;
+}
+
+body.dark-mode #header .logo span {
+    color: #ddd !important;
+    -webkit-text-fill-color: #ddd !important;
+}
+
+body.dark-mode .login-card h2 span {
+    color: #ff962e !important;
+    -webkit-text-fill-color: #ff962e !important;
+}
+
+body.dark-mode .login-left h1 span {
+    color: #ff962e !important;
+    -webkit-text-fill-color: #ff962e !important;
+}
+
+@media (max-width: 600px) {
+    body p { font-size: 11px !important; }
+}
+
+/* Consistent heading scale for the content on every page. */
+body main h1,
+body main h2,
+body main h3 {
+    line-height: 1.25 !important;
+}
+
+body main h1 { font-size: 36px !important; }
+body main h2 { font-size: 26px !important; }
+body main h3 { font-size: 20px !important; }
+
+@media (max-width: 600px) {
+    body main h1 { font-size: 30px !important; }
+    body main h2 { font-size: 23px !important; }
+    body main h3 { font-size: 18px !important; }
+}

@@ -2871,3 +2871,59 @@ header #ler-site:hover{
         display: none;
     }
 }
+
+/* Ajustes discretos para os cartões de referências no mobile */
+@media (max-width: 600px) {
+    .ref-cards {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    .ref-card {
+        min-width: 0;
+        padding: 17px;
+        border: 1px solid rgba(255, 150, 46, .28);
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(9, 20, 71, .07);
+    }
+
+    .ref-card h3 {
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 9px;
+        font-size: 15px;
+        line-height: 1.4;
+        overflow-wrap: break-word;
+    }
+
+    .ref-card h3 i {
+        flex: 0 0 18px;
+        margin-top: 3px;
+        font-size: 15px;
+    }
+
+    .ref-card p {
+        margin-bottom: 13px;
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    .ref-card a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 36px;
+        padding: 8px 11px;
+        border-radius: 9px;
+        background: #fff6eb;
+        font-size: 12px;
+        line-height: 1.35;
+    }
+
+    body.dark-mode .ref-card a { background: #11183d; }
+}
+
+@media (max-width: 800px) {
+    .ref-card h3 {
+        column-gap: 16px !important;
+    }
+}

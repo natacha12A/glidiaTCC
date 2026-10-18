@@ -703,6 +703,26 @@ body.dark-mode .input-group input{
 
 }
 
+#registerForm input:-webkit-autofill,
+#registerForm input:-webkit-autofill:hover,
+#registerForm input:-webkit-autofill:focus,
+#registerForm input:autofill {
+    background-color: #fff !important;
+    -webkit-box-shadow: 0 0 0 1000px #fff inset;
+    -webkit-text-fill-color: #091447 !important;
+    caret-color: #091447;
+}
+
+body.dark-mode #registerForm input:-webkit-autofill,
+body.dark-mode #registerForm input:-webkit-autofill:hover,
+body.dark-mode #registerForm input:-webkit-autofill:focus,
+body.dark-mode #registerForm input:autofill {
+    background-color: #040d22 !important;
+    -webkit-box-shadow: 0 0 0 1000px #040d22 inset;
+    -webkit-text-fill-color: #fff !important;
+    caret-color: #fff;
+}
+
 body.dark-mode .input-group input::placeholder{
 
     color:#8d8d8d;

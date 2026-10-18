@@ -629,6 +629,18 @@ form{
 
 }
 
+/* Hide the browser's native password reveal icon; keep the custom eye button. */
+#password::-ms-reveal,
+#password::-ms-clear {
+    display: none;
+}
+
+#password::-webkit-credentials-auto-fill-button {
+    visibility: hidden;
+    display: none !important;
+    pointer-events: none;
+}
+
 .forgot{
 
     display:flex;
@@ -971,6 +983,24 @@ body.dark-mode .input-box{
 
 body.dark-mode .input-box input{
     color:#fff;
+}
+
+#email:-webkit-autofill,
+#email:-webkit-autofill:hover,
+#email:-webkit-autofill:focus,
+#email:autofill {
+    -webkit-box-shadow: 0 0 0 1000px #f8f8f8 inset;
+    -webkit-text-fill-color: #091447 !important;
+    caret-color: #091447;
+}
+
+body.dark-mode #email:-webkit-autofill,
+body.dark-mode #email:-webkit-autofill:hover,
+body.dark-mode #email:-webkit-autofill:focus,
+body.dark-mode #email:autofill {
+    -webkit-box-shadow: 0 0 0 1000px #101a39 inset;
+    -webkit-text-fill-color: #fff !important;
+    caret-color: #fff;
 }
 
 body.dark-mode .input-box input::placeholder{
