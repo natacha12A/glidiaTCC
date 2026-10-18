@@ -656,3 +656,25 @@ body .purpose-text p {
 body .purpose-text h3 {
     margin-top: 0;
 }
+
+/* Agrupa e centraliza o ícone e o texto de propósito em Referências. */
+body .ref-purpose {
+    width: fit-content;
+    max-width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+body .ref-purpose .purpose-text {
+    text-align: center;
+}
+
+body .ref-purpose .purpose-text h3,
+body .ref-purpose .purpose-text p {
+    margin: 0;
+    text-align: center;
+}

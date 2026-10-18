@@ -1507,6 +1507,8 @@ header #ler-site:hover{
         height: auto;
 
         flex-shrink: 0;
+
+        margin-left: 5px;
     }
 
     .purpose-text {
@@ -1527,7 +1529,7 @@ header #ler-site:hover{
     }
 
     .purpose-text p {
-    
+        margin: 4px 0 0;
 
         font-size:
             clamp(12px, 3.5vw, 17px);
