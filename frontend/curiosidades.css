@@ -1980,3 +1980,17 @@ body.dark-mode .btn-nav a{
         font-size: 17px;
     }
 }
+
+/* Margem lateral discreta, igual à página Projeto. */
+.section {
+    width: calc(100% - 24px);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.curiosidades-text h1,
+.curiosidades-text p {
+    margin-left: 12px;
+    margin-right: 12px;
+}

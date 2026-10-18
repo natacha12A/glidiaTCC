@@ -635,3 +635,24 @@ body main h3 { font-size: 20px !important; }
     body main h2 { font-size: 23px !important; }
     body main h3 { font-size: 18px !important; }
 }
+/* Margem lateral discreta para parágrafos soltos em todas as páginas. */
+body p:not(.ref-card p, .card-box p, .card-large p, .benefit p, .tip-card p, .person-card p, .contact-box p, .step-card p, .resource-card p, .profile-card p, .card p, .login-card p, .register-card p) {
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+body :is(h1, h2, h3):not(#header h1, #header h2, #header h3, .ref-card h1, .ref-card h2, .ref-card h3, .card-box h1, .card-box h2, .card-box h3, .card-large h1, .card-large h2, .card-large h3, .benefit h1, .benefit h2, .benefit h3, .tip-card h1, .tip-card h2, .tip-card h3, .person-card h1, .person-card h2, .person-card h3, .contact-box h1, .contact-box h2, .contact-box h3, .step-card h1, .step-card h2, .step-card h3, .resource-card h1, .resource-card h2, .resource-card h3, .profile-card h1, .profile-card h2, .profile-card h3, .card h1, .card h2, .card h3, .login-card h1, .login-card h2, .login-card h3, .register-card h1, .register-card h2, .register-card h3) {
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+/* Mantém o bloco de propósito da página Referências com suas margens originais. */
+body .purpose-text h3,
+body .purpose-text p {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+body .purpose-text h3 {
+    margin-top: 0;
+}

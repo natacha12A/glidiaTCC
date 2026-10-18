@@ -348,7 +348,7 @@ body.dark-mode{
 
 .purpose-text p{
     font-size:20px;
-    margin:4px 0 0;
+
     line-height:1.2;
 }
 
@@ -1527,7 +1527,7 @@ header #ler-site:hover{
     }
 
     .purpose-text p {
-        margin: 4px 0 0;
+    
 
         font-size:
             clamp(12px, 3.5vw, 17px);
