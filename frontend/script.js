@@ -835,6 +835,13 @@ if (
 
 }
 
+// O link da IA no menu mobile deve seguir o mesmo estado do menu desktop.
+document
+    .querySelectorAll('#extra-nav a[href*="suapagina.html"]')
+    .forEach((linkIA) => {
+        linkIA.style.display = usuarioLogado ? "flex" : "none";
+    });
+
 const btnSair =
     document.getElementById("btnSair");
 

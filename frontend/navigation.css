@@ -485,6 +485,11 @@ body.dark-mode #header .buttons > button:not(#theme-toggle):not(#ler-site) {
     body.dark-mode #header .extra-nav button:hover { background: #091447; }
 }
 
+/* O link mobile da IA começa oculto até o script confirmar o login. */
+#header .extra-nav a[href*="suapagina.html"] {
+    display: none;
+}
+
 @media (max-width: 360px) {
     #header .navbar { padding-right: 8px !important; padding-left: 8px !important; }
     #header .menu a { width: 38px; height: 38px; }
