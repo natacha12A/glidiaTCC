@@ -3768,3 +3768,29 @@ body.dark-mode .wave {
 @media (max-width: 800px) {
     .wave::before { font-size: 54px; }
 }
+
+@media (max-width: 800px) {
+    .sidebarfinal-menu .btn-sair-final > span {
+        display: inline !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        font-size: 14px !important;
+        color: #fff !important;
+        -webkit-text-fill-color: #fff !important;
+    }
+}
+
+.dashboard > .sidebar .sidebar-menu a > span {
+    display: inline !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    font-size: 12px !important;
+    color: #fff !important;
+    -webkit-text-fill-color: #fff !important;
+}
