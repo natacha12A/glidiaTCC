@@ -829,30 +829,103 @@ body.dark-mode .theme-btn{
 }
 
 .demo{
-
-    margin-top:45px;
-    text-align:center;
-
+    width:100%;
+    max-width:800px;
+    margin:45px auto 0;
+    padding:24px;
+    text-align:left;
+    border:1px solid rgba(9,20,71,.08);
+    border-radius:22px;
+    background:rgba(255,255,255,.88);
+    box-shadow:0 16px 40px rgba(9,20,71,.10);
+    backdrop-filter:blur(8px);
 }
 
 .demo h2{
-
     color:#091447;
-    margin-bottom:25px;
-    font-weight:500;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:0 0 18px;
+    font-size:clamp(20px, 2.5vw, 26px);
+    font-weight:600;
+}
 
+.demo h2 i{
+    color:#ff962e;
 }
 
 .video{
-    border:2px solid #ff962e;
-    border-radius:18px;
+    border:1px solid rgba(255,150,46,.55);
+    border-radius:16px;
     overflow:hidden;
-    box-shadow:0 15px 35px rgba(0,0,0,.25);
+    box-shadow:0 10px 28px rgba(9,20,71,.16);
+    background:#091447;
+    transition:transform .25s ease, box-shadow .25s ease;
 }
 
-.video video{
-    width:100%;
+.video:hover{
+    transform:translateY(-3px);
+    box-shadow:0 16px 34px rgba(9,20,71,.22);
+}
+
+.video-link{
+    position:relative;
     display:block;
+    width:100%;
+    aspect-ratio:16 / 9;
+    overflow:hidden;
+    color:#fff;
+    background:#091447;
+    text-decoration:none;
+}
+
+.video-link img{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .3s ease;
+}
+
+.video-link:hover img,
+.video-link:focus-visible img{
+    transform:scale(1.04);
+}
+
+.video-play-icon{
+    position:absolute;
+    inset:50% auto auto 50%;
+    display:grid;
+    place-items:center;
+    width:72px;
+    height:72px;
+    border-radius:50%;
+    background:#ff0000;
+    color:#fff;
+    font-size:28px;
+    transform:translate(-50%,-50%);
+    box-shadow:0 4px 18px rgba(0,0,0,.35);
+    transition:transform .25s ease, background .25s ease;
+}
+
+.video-link:hover .video-play-icon,
+.video-link:focus-visible .video-play-icon{
+    background:#e60000;
+    transform:translate(-50%,-50%) scale(1.08);
+}
+
+.video-caption{
+    position:absolute;
+    right:0;
+    bottom:0;
+    left:0;
+    padding:28px 16px 12px;
+    color:#fff;
+    font-size:14px;
+    font-weight:600;
+    text-align:left;
+    background:linear-gradient(transparent,rgba(0,0,0,.75));
 }
 
 .play{
@@ -959,6 +1032,12 @@ body.dark-mode .about-game p{
 
 body.dark-mode .demo h2{
     color:#fff;
+}
+
+body.dark-mode .demo{
+    border-color:rgba(255,150,46,.25);
+    background:rgba(7,17,38,.9);
+    box-shadow:0 16px 40px rgba(0,0,0,.24);
 }
 
 body.dark-mode .play-button p{
@@ -1396,7 +1475,7 @@ body.dark-mode .play-button p{
     .demo {
         width: 100%;
         margin-top: 20px;
-        text-align: center;
+        padding: 18px;
     }
 
     .demo h2 {
