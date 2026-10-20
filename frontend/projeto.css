@@ -2170,3 +2170,114 @@ body.dark-mode .btn-nav {
     margin-left: 12px;
     margin-right: 12px;
 }
+
+/* Cards lado a lado em telas grandes. */
+@media (min-width: 801px) and (max-width: 1099px) {
+    .section .cards {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        align-items: stretch;
+        gap: 22px;
+    }
+
+    .section .card-box {
+        width: auto;
+        min-width: 0;
+    }
+}
+
+@media (min-width: 1100px) {
+    .section .cards {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        align-items: stretch;
+        gap: 22px;
+    }
+
+    .section .card-box {
+        width: auto;
+        min-width: 0;
+    }
+}
+
+/* Imagem e círculos com o mesmo tratamento visual da Home. */
+@media (min-width: 801px) {
+    .curiosidades-hero .hero-image {
+        position: relative;
+        width: min(47%, 560px);
+        min-width: 400px;
+        aspect-ratio: 1 / 1;
+        display: grid;
+        place-items: center;
+        isolation: isolate;
+    }
+
+    .curiosidades-hero .hero-image::before {
+        content: "";
+        position: absolute;
+        width: 76%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255,150,46,.23), rgba(255,150,46,.07) 42%, transparent 69%);
+        filter: blur(2px);
+        animation: project-hero-glow 5s ease-in-out infinite;
+    }
+
+    .curiosidades-hero .hero-image img {
+        display: block;
+        position: relative;
+        z-index: 4;
+        width: min(480px, 92%);
+        border-radius: 0;
+        filter: drop-shadow(18px 25px 30px rgba(7,17,47,.18));
+    }
+
+    .curiosidades-hero .waves {
+        position: absolute;
+        inset: 50% auto auto 50%;
+        width: 0;
+        height: 0;
+        z-index: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    .curiosidades-hero .waves span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border: 1px solid rgba(255,150,46,.34);
+        border-radius: 50%;
+        box-shadow: 0 0 30px rgba(255,150,46,.05);
+        animation: project-wave-pulse 4s ease-in-out infinite;
+    }
+
+    .curiosidades-hero .waves span:nth-child(1) { width: 190px; height: 190px; animation-delay: 0s; }
+    .curiosidades-hero .waves span:nth-child(2) { width: 280px; height: 280px; animation-delay: 1s; }
+    .curiosidades-hero .waves span:nth-child(3) { width: 370px; height: 370px; animation-delay: 2s; }
+    .curiosidades-hero .waves span:nth-child(4) { width: 460px; height: 460px; animation-delay: 3s; }
+}
+
+@keyframes project-wave-pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(.96); }
+    50% { transform: translate(-50%, -50%) scale(1.03); }
+}
+
+@keyframes project-hero-glow {
+    0%, 100% { transform: scale(.94); opacity: .75; }
+    50% { transform: scale(1.07); opacity: 1; }
+}
+
+@media (min-width: 801px) {
+    .section .facts {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        align-items: stretch;
+        gap: 18px;
+    }
+
+    .section .fact {
+        width: auto;
+        min-width: 0;
+        margin: 0;
+    }
+}
