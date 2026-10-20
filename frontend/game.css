@@ -963,7 +963,7 @@ body.dark-mode .theme-btn{
 
 }
 
-.play-button button{
+.play-button .play-now{
 
     background:#ff962e;
     color:white;
@@ -975,10 +975,12 @@ body.dark-mode .theme-btn{
     transition:.3s;
     display:flex;
     flex-direction:column;
+    align-items:center;
+    text-decoration:none;
 
 }
 
-.play-button button:hover{
+.play-button .play-now:hover{
 
     transform:translateY(-5px);
     box-shadow:0 15px 35px rgba(255,150,46,.45);
@@ -1516,7 +1518,7 @@ body.dark-mode .play-button p{
         gap: 10px;
     }
 
-    .play-button button {
+    .play-button .play-now {
         width: min(180px, 100%);
         min-height: 42px;
         padding: 10px 14px;
@@ -1528,7 +1530,7 @@ body.dark-mode .play-button p{
         cursor: pointer;
     }
 
-    .play-button button small {
+    .play-button .play-now small {
         display: block;
         margin-top: 3px;
         font-size: 8px;
@@ -1834,7 +1836,7 @@ body.dark-mode .play-button p{
         min-height: 130px;
     }
 
-    .play-button button {
+    .play-button .play-now {
         width: 160px;
     }
 }
@@ -1914,7 +1916,7 @@ body.dark-mode .play-button p{
         min-height: 115px;
     }
 
-    .play-button button {
+    .play-button .play-now {
         width: 145px;
         font-size: 11px;
     }
