@@ -45,11 +45,28 @@
     filter: drop-shadow(0 8px 14px rgba(9, 20, 71, .12));
 }
 
+#header .logo img.site-logo {
+    width: 170px !important;
+    max-width: 170px !important;
+    height: auto !important;
+    filter: none !important;
+}
+
+#header .logo-home {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+#header .logo-home:focus-visible {
+    outline: 2px solid #ff962e;
+    outline-offset: 4px;
+    border-radius: 3px;
+}
+
 #header .logo-text {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    line-height: 1;
+    display: none !important;
 }
 
 #header .logo h2 {
@@ -682,4 +699,11 @@ body .ref-purpose .purpose-text h3,
 body .ref-purpose .purpose-text p {
     margin: 0;
     text-align: center;
+}
+
+@media (max-width: 800px) {
+    #header .logo img.site-logo {
+        width: clamp(110px, 28vw, 140px) !important;
+        max-width: clamp(110px, 28vw, 140px) !important;
+    }
 }

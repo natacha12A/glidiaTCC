@@ -2929,3 +2929,22 @@ header #ler-site:hover{
         column-gap: 16px !important;
     }
 }
+
+.ref-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    letter-spacing: -.02em;
+}
+
+.ref-text h1,
+.ref-purpose h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    letter-spacing: -.02em;
+}
+
+.ref-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: normal;
+}

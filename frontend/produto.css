@@ -2320,3 +2320,56 @@ body.dark-mode::-webkit-scrollbar-thumb {
         min-height: 145px;
     }
 }
+
+/* Carrossel suave para a última fileira de componentes. */
+.product-carousel {
+    grid-column: 1 / -1;
+    min-width: 0;
+    position: relative;
+}
+
+.product-carousel-track {
+    display: flex;
+    gap: 22px;
+    min-width: 0;
+    overflow-x: auto;
+    padding: 2px 2px 12px;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.product-carousel-track.is-dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+}
+
+.product-carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.product-carousel .item {
+    flex: 0 0 calc(50% - 11px);
+    width: calc(50% - 11px);
+    max-width: calc(50% - 11px);
+    scroll-snap-align: start;
+}
+
+@media (max-width: 800px) {
+    .product-carousel-track {
+        gap: clamp(8px, 2.5vw, 14px);
+    }
+
+    .product-carousel .item {
+        flex: 0 0 calc(50% - clamp(4px, 1.25vw, 7px)) !important;
+        width: calc(50% - clamp(4px, 1.25vw, 7px)) !important;
+        max-width: calc(50% - clamp(4px, 1.25vw, 7px)) !important;
+    }
+
+}
