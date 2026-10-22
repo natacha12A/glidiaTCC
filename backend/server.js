@@ -21,15 +21,20 @@ app.use(express.urlencoded({ extended: true }));
 const PORT = process.env.PORT || 3000;
 
 
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME
+    database: process.env.DB_NAME,
+    waitForConnections: true,
+    connectionLimit: 5,
+    queueLimit: 0,
+    enableKeepAlive: true,
+    keepAliveInitialDelay: 0
 });
 
 
-connection.connect((err) => {
+connection.getConnection((err, dbConnection) => {
 
     if (err) {
 
@@ -41,6 +46,7 @@ connection.connect((err) => {
         return;
     }
 
+    dbConnection.release();
     console.log("=================================");
     console.log("BANCO CONECTADO!");
     console.log("=================================");
@@ -105,9 +111,6 @@ app.post("/contato", (req, res) => {
     console.log("=================================");
     console.log("NOVA MENSAGEM DE CONTATO");
     console.log("=================================");
-
-    console.log(req.body);
-
 
     const {
         nome,
@@ -362,9 +365,6 @@ app.post("/login", (req, res) => {
     console.log("=================================");
     console.log("LOGIN RECEBIDO");
     console.log("=================================");
-
-    console.log(req.body);
-
 
     const {
         email,
